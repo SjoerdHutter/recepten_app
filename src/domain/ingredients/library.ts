@@ -91,8 +91,11 @@ export const createLibrary = (ingredients: Ingredient[]): IngredientLibrary => {
         for (const naam of namen) {
           if (!naam) continue;
           if (naam === q) score = Math.min(score, 0);
-          else if (naam.startsWith(q)) score = Math.min(score, 1);
-          else if (naam.includes(q)) score = Math.min(score, 2);
+          else if (naam.split(' ').some((woord) => woord.startsWith(q))) score = Math.min(score, 1);
+          // Middenin een woord matchen is nuttig bij samenstellingen ("olie"
+          // vindt olijfolie), maar bij twee letters levert het vooral onzin op:
+          // "ui" zit ook in kruimige, bouillon en bruine.
+          else if (q.length >= 3 && naam.includes(q)) score = Math.min(score, 2);
         }
         if (score < Infinity) scored.push({ ingredient, score });
       }

@@ -21,17 +21,19 @@ token zie je meteen een gevulde app.
 
 ### Alle scripts
 
-| Script              | Wat het doet                         |
-| ------------------- | ------------------------------------ |
-| `npm run dev`       | Ontwikkelserver met hot reload       |
-| `npm run build`     | Productiebuild in `dist/`            |
-| `npm run preview`   | De productiebuild lokaal bekijken    |
-| `npm test`          | Alle tests (Vitest)                  |
-| `npm run typecheck` | TypeScript zonder output             |
-| `npm run lint`      | ESLint                               |
-| `npm run format`    | Prettier over de hele repo           |
-| `npm run validate`  | Elk databestand tegen het Zod-schema |
-| `npm run icons`     | De PWA-iconen opnieuw genereren      |
+| Script              | Wat het doet                                           |
+| ------------------- | ------------------------------------------------------ |
+| `npm run dev`       | Ontwikkelserver met hot reload                         |
+| `npm run build`     | Productiebuild in `dist/`                              |
+| `npm run preview`   | De productiebuild lokaal bekijken                      |
+| `npm test`          | Alle tests (Vitest)                                    |
+| `npm run typecheck` | TypeScript zonder output                               |
+| `npm run lint`      | ESLint                                                 |
+| `npm run format`    | Prettier over de hele repo                             |
+| `npm run validate`  | Elk databestand tegen het Zod-schema                   |
+| `npm run report`    | Wat er in de bibliotheek op te ruimen valt             |
+| `npm run link`      | Losse ingrediëntnamen koppelen (`-- --write` past toe) |
+| `npm run icons`     | De PWA-iconen opnieuw genereren                        |
 
 ## Deployen
 
@@ -141,6 +143,47 @@ Verwijst een recept naar een ingrediënt dat nog niet bestaat, voeg het dan toe
 aan het bestand van de juiste categorie in
 [`data/ingredients/`](data/ingredients/). Zonder koppeling telt de
 boodschappenlijst het niet netjes op.
+
+## De ingrediëntenbibliotheek
+
+Onder **Instellingen ▸ Ingrediëntenbibliotheek** staat elk canoniek ingrediënt
+waar de recepten naar verwijzen. Je kunt er zoeken, en per ingrediënt de naam,
+het meervoud, de synoniemen, het schap en de standaardeenheid aanpassen.
+
+Twee dingen om te weten:
+
+- **Hernoemen verandert het id niet.** Daar verwijzen de recepten naar. De oude
+  naam blijft als synoniem staan, zodat een geplakt recept met die naam blijft
+  koppelen.
+- **Samenvoegen** laat het ene ingrediënt verdwijnen en zet alles wat ernaar
+  verwees om naar het andere — bibliotheekbestand en recepten samen, in één
+  commit.
+
+Het tabblad **Opruimen** zoekt op wat er scheef staat: receptregels zonder
+koppeling (met meteen een voorstel), verwijzingen naar een ingrediënt dat niet
+bestaat, mogelijke dubbelingen en ingrediënten die geen enkel recept gebruikt.
+Dat laatste is geen fout: een startbibliotheek hoort ruimer te zijn dan wat je
+deze week kookt.
+
+Hetzelfde werk kan vanaf de opdrachtregel, handig als het er veel zijn:
+
+```bash
+npm run report            # wat is er aan de hand
+npm run link              # welke losse namen gekoppeld kunnen worden
+npm run link -- --write   # en dat toepassen
+```
+
+Met **Import** plak je een JSON-export of een lijst met namen, één per regel,
+optioneel met schap en eenheid erachter:
+
+```
+sjalot
+sereh | kruiden | stengel
+pastinaak | groente-en-fruit | stuks
+```
+
+Wat al bestaat wordt overgeslagen, ook als het onder een synoniem bekend is. Met
+**Exporteren** haal je de hele bibliotheek als JSON binnen.
 
 ## Eenheden
 

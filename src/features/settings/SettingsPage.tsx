@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { REPO, repoSlug } from '../../config';
 import { kvDump, kvRestore } from '../../data/db/idb';
 import { useData } from '../../state/data';
@@ -222,6 +223,19 @@ export const SettingsPage = () => {
             </div>
           ) : null}
         </Card>
+
+        <Link
+          to="/bibliotheek"
+          className="flex min-h-14 items-center gap-3 rounded-2xl border border-line bg-surface px-4 active:bg-surface-2"
+        >
+          <span className="flex-1">
+            <span className="block font-medium">Ingrediëntenbibliotheek</span>
+            <span className="block text-xs text-ink-3">
+              Samenvoegen, hernoemen, synoniemen en opruimen
+            </span>
+          </span>
+          <Icon name="omlaag" className="h-4 w-4 -rotate-90 text-ink-3" />
+        </Link>
       </Sectie>
 
       <Sectie title="Back-up">
