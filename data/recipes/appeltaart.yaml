@@ -21,7 +21,7 @@ ingredients:
   - { amount: 2, unit: el, ingredientId: paneermeel }
   - { amount: 75, unit: g, ingredientId: rozijnen, optional: true }
   - { amount: 1, unit: stuks, ingredientId: citroen, note: alleen het sap }
-  - { amount: 1, unit: el, ingredientId: bloem, scales: fixed, note: om de vorm mee te bestuiven }
+  - { amount: 1, unit: el, ingredientId: bloem, note: om de vorm mee te bestuiven, scales: fixed }
 steps:
   - text: Kneed het bakmeel, de boter, de bruine suiker, het zout en tweederde van het ei snel tot een samenhangend deeg. Laat het een halfuur rusten in de koelkast.
     timer: 1800
