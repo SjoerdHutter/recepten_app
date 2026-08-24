@@ -14,7 +14,7 @@ const TABS: Array<{ to: string; label: string; icon: IconName }> = [
 /** Klein en altijd zichtbaar: in welke modus zit ik en is er verbinding? */
 const StatusPil = () => {
   const { canWrite, tokenState } = useSettings();
-  const { online, syncing } = useData();
+  const { online, syncing, pendingDrafts } = useData();
 
   const tekst = canWrite ? 'Schrijfmodus' : 'Leesmodus';
   const kleur = canWrite ? 'bg-ok-soft text-ok' : 'bg-surface-2 text-ink-2';
@@ -33,6 +33,11 @@ const StatusPil = () => {
       {tekst}
       {tokenState === 'fout' ? <span className="text-danger">!</span> : null}
       {!online ? <Icon name="wolkUit" className="h-3.5 w-3.5" /> : null}
+      {pendingDrafts > 0 ? (
+        <span className="rounded-full bg-accent px-1.5 text-[10px] text-on-accent">
+          {pendingDrafts}
+        </span>
+      ) : null}
       {syncing ? <span className="animate-pulse">·</span> : null}
     </NavLink>
   );

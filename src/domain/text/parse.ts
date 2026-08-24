@@ -36,7 +36,7 @@ const PERSONEN = /(?:voor\s+)?(\d+)\s*(?:personen|porties|pers\b)/i;
 const BREUKEN: Record<string, number> = { '½': 0.5, '¼': 0.25, '¾': 0.75, '⅓': 1 / 3, '⅔': 2 / 3 };
 
 /** "1,5", "1/2", "½", "2-3" (dan het eerste getal). */
-const leesGetal = (ruw: string): number | undefined => {
+export const parseAmount = (ruw: string): number | undefined => {
   const tekst = ruw.trim();
   if (BREUKEN[tekst] !== undefined) return BREUKEN[tekst];
   const gemengd = /^(\d+)\s*([½¼¾⅓⅔])$/.exec(tekst);
@@ -83,6 +83,19 @@ const leesNaarSmaak = (regel: string, library: IngredientLibrary): ParsedIngredi
 };
 
 /**
+ * "2 sneetjes brood" staat niet in de bibliotheek, "brood" wel. Daarom wordt er
+ * ook gezocht met de eerste woorden eraf, van links naar rechts.
+ */
+const zoekNaam = (naam: string, library: IngredientLibrary) => {
+  const woorden = naam.split(' ').filter(Boolean);
+  for (let start = 0; start < woorden.length; start++) {
+    const gevonden = library.match(woorden.slice(start).join(' '));
+    if (gevonden) return gevonden;
+  }
+  return undefined;
+};
+
+/**
  * Een ingrediëntregel begint met een hoeveelheid, of met een eenheidswoord
  * ("snufje zout"). Zo niet, dan is het waarschijnlijk een stap of een kopje.
  */
@@ -96,7 +109,7 @@ const leesIngredient = (regel: string, library: IngredientLibrary): ParsedIngred
   if (!match) return null;
 
   const [, getalDeel, woordDeel, restDeel] = match;
-  const amount = getalDeel ? leesGetal(getalDeel) : undefined;
+  const amount = getalDeel ? parseAmount(getalDeel) : undefined;
   const woord = (woordDeel ?? '').replace(/\.$/, '').toLowerCase();
   const eenheid = UNIT_WORDS[woord];
 
@@ -123,7 +136,7 @@ const leesIngredient = (regel: string, library: IngredientLibrary): ParsedIngred
   const naam = (naamDeel ?? '').replace(/\s*\(.*?\)\s*/g, ' ').trim();
   if (!naam) return null;
 
-  const gevonden = library.match(naam);
+  const gevonden = zoekNaam(naam, library);
   const notitie = notitieDelen.join(',').trim();
 
   return {

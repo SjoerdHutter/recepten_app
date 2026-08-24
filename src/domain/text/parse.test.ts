@@ -76,6 +76,14 @@ describe('geplakte tekst omzetten', () => {
     expect(smaak[0]?.amount).toBeUndefined();
   });
 
+  it('koppelt ook als er woorden voor de naam staan', () => {
+    const uitkomst = parseRecipeText(
+      ['Test', 'Ingrediënten', '2 grote gele uien', '1 flinke teen knoflook'].join('\n'),
+      testLibrary,
+    );
+    expect(uitkomst.ingredients.map((i) => i.ingredientId)).toEqual(['ui', 'knoflook']);
+  });
+
   it('verzint niets bij een lege invoer', () => {
     const leeg = parseRecipeText('', testLibrary);
     expect(leeg.ingredients).toHaveLength(0);

@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from 'react';
 import { emptyDataset, type Dataset } from '../data/dataset';
+import { flushQueue, listDrafts } from '../data/queue/draftQueue';
 import { loadDataset, syncData, lastSyncedAt as leesLaatsteSync } from '../data/sync/syncEngine';
 import { createLibrary, type IngredientLibrary } from '../domain/ingredients/library';
 import { useSettings } from './settings';
@@ -24,6 +25,8 @@ interface DataValue {
   syncError: string | null;
   lastSyncedAt: string | null;
   online: boolean;
+  /** Aantal recepten dat nog op verbinding wacht. */
+  pendingDrafts: number;
   refresh: () => Promise<void>;
 }
 
@@ -37,6 +40,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [syncError, setSyncError] = useState<string | null>(null);
   const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(null);
   const [online, setOnline] = useState(() => navigator.onLine);
+  const [pendingDrafts, setPendingDrafts] = useState(0);
   const laatstePoging = useRef(0);
 
   const refresh = useCallback(async () => {
@@ -48,6 +52,12 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     setSyncing(true);
     setSyncError(null);
     try {
+      // Eerst de wachtrij: wat offline is ingevoerd hoort in de repo te staan
+      // voordat we kijken wat daar staat.
+      if (token) {
+        const uitkomst = await flushQueue(token);
+        setPendingDrafts(uitkomst.remaining);
+      }
       const uitkomst = await syncData({ token: token || undefined });
       if (uitkomst.dataset) setDataset(uitkomst.dataset);
       setLastSyncedAt(uitkomst.syncedAt);
@@ -67,6 +77,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       setDataset(lokaal);
       setLoading(false);
       setLastSyncedAt((await leesLaatsteSync()) ?? null);
+      setPendingDrafts((await listDrafts()).length);
       void refresh();
     })();
     return () => {
@@ -99,8 +110,18 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   const library = useMemo(() => createLibrary(dataset.ingredients), [dataset.ingredients]);
 
   const value = useMemo<DataValue>(
-    () => ({ dataset, library, loading, syncing, syncError, lastSyncedAt, online, refresh }),
-    [dataset, library, loading, syncing, syncError, lastSyncedAt, online, refresh],
+    () => ({
+      dataset,
+      library,
+      loading,
+      syncing,
+      syncError,
+      lastSyncedAt,
+      online,
+      pendingDrafts,
+      refresh,
+    }),
+    [dataset, library, loading, syncing, syncError, lastSyncedAt, online, pendingDrafts, refresh],
   );
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

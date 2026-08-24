@@ -131,6 +131,14 @@ export const BrowsePage = () => {
         </ul>
       )}
 
+      <Link
+        to="/toevoegen"
+        aria-label="Recept toevoegen"
+        className="fixed bottom-24 right-4 z-20 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-on-accent shadow-lg print-hidden"
+      >
+        <Icon name="plus" className="h-7 w-7" />
+      </Link>
+
       <FilterSheet
         open={filtersOpen}
         onClose={() => setFiltersOpen(false)}

@@ -32,7 +32,7 @@ export const SettingsPage = () => {
     setTheme,
     setDefaultServings,
   } = useSettings();
-  const { dataset, lastSyncedAt, syncing, syncError, online, refresh } = useData();
+  const { dataset, lastSyncedAt, syncing, syncError, online, pendingDrafts, refresh } = useData();
 
   const [invoer, setInvoer] = useState('');
   const [melding, setMelding] = useState<string | null>(null);
@@ -201,6 +201,13 @@ export const SettingsPage = () => {
                 ? `Laatst bijgewerkt om ${new Date(lastSyncedAt).toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' })}.`
                 : 'Nog niet bijgewerkt sinds het openen.'}
           </p>
+          {pendingDrafts > 0 ? (
+            <div className="rounded-xl bg-accent-soft px-3 py-2 text-sm text-accent">
+              {pendingDrafts === 1
+                ? '1 recept wacht op verbinding en wordt vanzelf gecommit.'
+                : `${pendingDrafts} recepten wachten op verbinding en worden vanzelf gecommit.`}
+            </div>
+          ) : null}
           {syncError ? <p className="text-sm text-danger">{syncError}</p> : null}
           {dataset.problems.length > 0 ? (
             <div className="rounded-xl bg-warn-soft px-3 py-2">
