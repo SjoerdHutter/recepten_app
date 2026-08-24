@@ -144,6 +144,32 @@ aan het bestand van de juiste categorie in
 [`data/ingredients/`](data/ingredients/). Zonder koppeling telt de
 boodschappenlijst het niet netjes op.
 
+## Koken
+
+Op een recept staat **Aan de slag**. Dat opent de kookmodus: één stap tegelijk,
+groot genoeg om vanaf het aanrecht te lezen, met het scherm dat aan blijft.
+
+- **Ingrediënten per stap** staan erboven, al meegeschaald naar het aantal
+  personen dat je koos.
+- **Tijden in de tekst zijn knoppen.** Staat er "laat het een halfuur buiten de
+  koelkast liggen", dan tik je op _een halfuur_ en de wekker loopt. Ook
+  uitgeschreven tijden ("drie uur") en bereiken ("20 tot 25 minuten", waarbij de
+  ondergrens wordt genomen).
+- **Stappen worden afgevinkt** als je doorklikt, dus na een onderbreking zie je
+  op het recept staan waar je gebleven was.
+- **Omrekenen** helpt met ovenschalen, blik naar vers en droog naar gekookt.
+
+### Over de timers
+
+Timers lopen door als je de app wegklikt: ze rekenen met een eindtijd en kijken
+bij terugkomst opnieuw naar de klok. Ze overleven ook het afsluiten van de app.
+
+Eén beperking, eerlijk gezegd: als je telefoon de app volledig opschort, wordt er
+geen enkele regel code uitgevoerd en hoor je het alarm pas zodra je terugkomt.
+Op iOS gebeurt dat vrijwel altijd. Daar is niets aan te doen zonder een server
+met pushberichten, en dat is precies wat deze app niet wil zijn. Zet voor een
+stoofpot van drie uur dus liever ook de wekker van je telefoon.
+
 ## De voorraadkast
 
 Onder het tabblad **Voorraad** vink je aan wat je in huis hebt. Alleen aanvinken

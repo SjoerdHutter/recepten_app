@@ -18,7 +18,7 @@ export const normalizeName = (value: string): string =>
  * ("tomaat" / "tomaten") horen in het synoniemenveld van de bibliotheek; dit
  * vangt alleen de voor de hand liggende vormen af.
  */
-const nameVariants = (name: string): string[] => {
+export const nameVariants = (name: string): string[] => {
   const base = normalizeName(name);
   const variants = new Set<string>([base]);
   if (base.endsWith('en')) variants.add(base.slice(0, -2));

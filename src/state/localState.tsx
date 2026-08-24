@@ -29,6 +29,7 @@ export const LOCAL_KEYS = {
   checked: 'lijst.afgevinkt',
   pantry: 'voorraad',
   subtractPantry: 'lijst.voorraadAftrekken',
+  cookProgress: 'koken.voortgang',
 } as const;
 
 function usePersistentState<T>(key: string, initial: T) {
@@ -94,6 +95,11 @@ interface LocalValue {
   removeFromPantry: (ingredientId: string) => void;
   togglePantry: (ingredientId: string) => void;
   setSubtractPantry: (waarde: boolean) => void;
+  /** Per recept welke stappen af zijn, zodat je na een onderbreking terugvindt waar je was. */
+  cookProgress: Record<string, number[]>;
+  doneSteps: (recipeId: string) => number[];
+  toggleStepDone: (recipeId: string, index: number) => void;
+  resetProgress: (recipeId: string) => void;
   isSelected: (recipeId: string) => boolean;
   toggleSelection: (recipeId: string, servings: number) => void;
   setServings: (recipeId: string, servings: number) => void;
@@ -125,6 +131,9 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
     LOCAL_KEYS.subtractPantry,
     true,
   );
+  const [cookProgress, setCookProgress, progressReady] = usePersistentState<
+    Record<string, number[]>
+  >(LOCAL_KEYS.cookProgress, {});
 
   const isSelected = useCallback(
     (recipeId: string) => selection.some((entry) => entry.recipeId === recipeId),
@@ -143,7 +152,14 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
       checked,
       pantry,
       subtractPantry,
-      ready: selectionReady && manualReady && checkedReady && pantryReady && subtractReady,
+      cookProgress,
+      ready:
+        selectionReady &&
+        manualReady &&
+        checkedReady &&
+        pantryReady &&
+        subtractReady &&
+        progressReady,
       isSelected,
       hasInPantry,
       setSubtractPantry,
@@ -166,6 +182,26 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
       },
       removeFromPantry(ingredientId) {
         setPantry((huidig) => huidig.filter((item) => item.ingredientId !== ingredientId));
+      },
+      doneSteps(recipeId) {
+        return cookProgress[recipeId] ?? [];
+      },
+      toggleStepDone(recipeId, index) {
+        setCookProgress((huidig) => {
+          const gedaan = huidig[recipeId] ?? [];
+          return {
+            ...huidig,
+            [recipeId]: gedaan.includes(index)
+              ? gedaan.filter((i) => i !== index)
+              : [...gedaan, index].sort((a, b) => a - b),
+          };
+        });
+      },
+      resetProgress(recipeId) {
+        setCookProgress((huidig) => {
+          const { [recipeId]: _weg, ...rest } = huidig;
+          return rest;
+        });
       },
       togglePantry(ingredientId) {
         setPantry((huidig) =>
@@ -216,11 +252,13 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
       checked,
       pantry,
       subtractPantry,
+      cookProgress,
       selectionReady,
       manualReady,
       checkedReady,
       pantryReady,
       subtractReady,
+      progressReady,
       isSelected,
       hasInPantry,
       setSelection,
@@ -228,6 +266,7 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
       setChecked,
       setPantry,
       setSubtractPantry,
+      setCookProgress,
     ],
   );
 

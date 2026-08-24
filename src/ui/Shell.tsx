@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useData } from '../state/data';
 import { useLocalState } from '../state/localState';
 import { useSettings } from '../state/settings';
+import { TimerBar } from '../features/cook/TimerBar';
 import { Icon, type IconName } from './Icon';
 
 const TABS: Array<{ to: string; label: string; icon: IconName }> = [
@@ -58,6 +59,11 @@ export const Shell = ({ children }: { children: ReactNode }) => {
       </header>
 
       <main className="mx-auto w-full max-w-2xl px-4 pt-4 pb-28">{children}</main>
+
+      {/* Lopende timers zweven boven de navigatie, ook buiten de kookmodus:
+          een timer die je niet ziet is geen timer. In de kookmodus zet die
+          pagina hem zelf in de tekst, dus daar niet dubbel. */}
+      {!pathname.endsWith('/koken') ? <TimerBar /> : null}
 
       <nav className="safe-bottom fixed inset-x-0 bottom-0 z-30 border-t border-line bg-bg/95 pt-1 backdrop-blur print-hidden">
         <div className="mx-auto flex w-full max-w-2xl">
