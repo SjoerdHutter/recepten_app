@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { SettingsProvider } from './state/settings';
 import { DataProvider } from './state/data';
 import { LocalStateProvider } from './state/localState';
+import { TimerProvider } from './state/timers';
 import { Shell } from './ui/Shell';
 import { BrowsePage } from './features/browse/BrowsePage';
 import { RecipePage } from './features/recipe/RecipePage';
@@ -10,25 +11,29 @@ import { SettingsPage } from './features/settings/SettingsPage';
 import { RecipeFormPage } from './features/edit/RecipeFormPage';
 import { LibraryPage } from './features/library/LibraryPage';
 import { PantryPage } from './features/pantry/PantryPage';
+import { CookPage } from './features/cook/CookPage';
 
 export default function App() {
   return (
     <SettingsProvider>
       <DataProvider>
         <LocalStateProvider>
-          <Shell>
-            <Routes>
-              <Route path="/" element={<BrowsePage />} />
-              <Route path="/toevoegen" element={<RecipeFormPage />} />
-              <Route path="/recept/:id" element={<RecipePage />} />
-              <Route path="/recept/:id/bewerken" element={<RecipeFormPage />} />
-              <Route path="/lijst" element={<ShoppingPage />} />
-              <Route path="/bibliotheek" element={<LibraryPage />} />
-              <Route path="/voorraad" element={<PantryPage />} />
-              <Route path="/instellingen" element={<SettingsPage />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </Shell>
+          <TimerProvider>
+            <Shell>
+              <Routes>
+                <Route path="/" element={<BrowsePage />} />
+                <Route path="/toevoegen" element={<RecipeFormPage />} />
+                <Route path="/recept/:id" element={<RecipePage />} />
+                <Route path="/recept/:id/bewerken" element={<RecipeFormPage />} />
+                <Route path="/recept/:id/koken" element={<CookPage />} />
+                <Route path="/lijst" element={<ShoppingPage />} />
+                <Route path="/bibliotheek" element={<LibraryPage />} />
+                <Route path="/voorraad" element={<PantryPage />} />
+                <Route path="/instellingen" element={<SettingsPage />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
+            </Shell>
+          </TimerProvider>
         </LocalStateProvider>
       </DataProvider>
     </SettingsProvider>

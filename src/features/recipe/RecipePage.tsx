@@ -5,6 +5,7 @@ import { ALLERGEN_LABELS, MONTH_LABELS } from '../../domain/schema/enums';
 import { activeMinutes, totalMinutes } from '../../domain/schema/recipe';
 import { scaleRecipe } from '../../domain/scaling/scale';
 import { formatMinutes, formatQuantity } from '../../domain/units/format';
+import { cookPath } from '../cook/CookPage';
 import { useData, useRecipe } from '../../state/data';
 import { useLocalState } from '../../state/localState';
 import { useSettings } from '../../state/settings';
@@ -33,9 +34,12 @@ export const RecipePage = () => {
     isSelected,
     toggleSelection,
     setServings: setSelectionServings,
+    doneSteps,
   } = useLocalState();
 
   const uitSelectie = selection.find((entry) => entry.recipeId === id);
+  // Aantal afgevinkte stappen, zodat de knop kan zeggen waar je gebleven was.
+  const gedaanAantal = id ? doneSteps(id).length : 0;
   const [personen, setPersonen] = useState<number | null>(null);
   const aantal = personen ?? uitSelectie?.servings ?? recipe?.servings ?? 4;
 
@@ -203,6 +207,21 @@ export const RecipePage = () => {
         </Card>
         {recipe.notes ? <p className="mt-3 text-sm text-ink-2">{recipe.notes}</p> : null}
       </section>
+
+      <div className="print-hidden">
+        <Link
+          to={cookPath(recipe.id, aantal)}
+          className="flex min-h-14 w-full items-center justify-center gap-2 rounded-xl bg-accent text-base font-semibold text-on-accent active:brightness-110"
+        >
+          <Icon name="vuur" className="h-5 w-5" />
+          Aan de slag
+          {gedaanAantal > 0 ? (
+            <span className="rounded-full bg-on-accent/20 px-2 py-0.5 text-xs">
+              stap {gedaanAantal + 1}
+            </span>
+          ) : null}
+        </Link>
+      </div>
 
       <div className="flex gap-2 print-hidden">
         <Button

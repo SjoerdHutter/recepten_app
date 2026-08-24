@@ -229,6 +229,61 @@ Alles wordt daarvoor naar gram gerekend; wat niet om te rekenen valt (een
 snufje, een bosje) telt niet mee in het totaal, want anders zou een recept met
 veel kruiden kunstmatig zakken.
 
+## De kookmodus
+
+### Timers rekenen met een eindtijd, niet met een restduur
+
+Elke timer bewaart het moment waarop hij afloopt, en bij elke tik wordt opnieuw
+naar de klok gekeken. Dat is het hele punt: zodra het scherm uitgaat of je naar
+een andere app wisselt, vertraagt of bevriest de browser JavaScript. Een timer
+die zelf zou aftellen loopt dan gegarandeerd achter. Nu klopt de tijd altijd,
+ook als de app twintig minuten weg is geweest.
+
+Ze staan in IndexedDB, dus ze overleven ook het afsluiten van de app. Bij het
+opstarten wordt gekeken wat er intussen verliep; dat blijft als melding staan
+maar gaat niet alsnog piepen.
+
+Wat dit **niet** oplost: een telefoon die de app volledig opschort voert
+helemaal geen code uit, dus dan hoor je het alarm pas als je terugkomt. Op iOS
+gebeurt dat vrijwel altijd. Een echte oplossing daarvoor bestaat niet zonder
+server met pushberichten, en dat is precies wat deze app niet wil zijn. Het
+staat daarom eerlijk in de README in plaats van dat het weggemoffeld wordt.
+
+Het geluid komt uit de Web Audio API in plaats van uit een geluidsbestand: drie
+regels code tegenover een asset die meegebakken en gecachet moet worden. De
+audiocontext wordt ontgrendeld op het moment dat je een timer start, want dat is
+een tik van de gebruiker en alleen dan mag een browser geluid gaan maken.
+
+### Tijden uit de staptekst
+
+Het `timer`-veld dekt maar een deel af: bij 200 stappen staat er 71 keer een
+veld, terwijl er 63 keer een tijd in de tekst staat. Zinnen als "laat het een
+halfuur buiten de koelkast liggen" hebben geen veld maar wel een tijd, en een
+stap kan er twee bevatten ("laat drie uur stoven en roer elk halfuur even").
+
+`findTimeMentions` herkent daarom getallen met een eenheid, bereiken,
+uitgeschreven getallen ("drie uur") en woordtijden ("een kwartier", "anderhalf
+uur"), met hun plek in de zin zodat de knop op het juiste woord komt te staan.
+Bij een bereik wordt de ondergrens genomen: in de keuken zet je de wekker op het
+moment waarop je moet gáán kijken.
+
+Staat de tijd van het veld al in de tekst, dan verschijnt er geen tweede knop
+met dezelfde duur.
+
+### Ingrediënten per stap komen uit de tekst
+
+Het schema heeft een veld om een ingrediëntregel aan een stap te koppelen, maar
+geen van de recepten gebruikt het — ze komen uit een kookboek en een
+Word-document, niet uit een systeem dat die koppeling kende. Wachten tot dat veld
+ooit gevuld is zou betekenen dat deze functie jarenlang niets doet, dus wordt er
+op naam gezocht: 85% van de stappen krijgt zo minstens één ingrediënt.
+
+Er wordt vergeleken op hele woorden uit een vaste lijst vormen (naam, meervoud,
+synoniemen, plus de varianten die de bibliotheek al kent), niet op "zit deze
+letterreeks erin". Anders matcht "ui" op "uiteraard". De 8% regels die in geen
+enkele stap genoemd worden verschijnen apart bij de laatste stap, zodat ze niet
+zoekraken.
+
 ## Afgeleide waarden staan niet in de bestanden
 
 Totale tijd, kosten per portie en voedingswaarde worden berekend uit wat er wél
@@ -252,8 +307,8 @@ aanraken, en zou een afgeleide waarde kunnen gaan afwijken van zijn bron.
 
 ## Wat er nog niet is
 
-Milestone 1 tot en met 4 dekken kiezen, boodschappen doen, toevoegen vanaf je
-telefoon, het beheren van de bibliotheek en de voorraadkast. Het schema heeft de velden voor
+Milestone 1 tot en met 5 dekken kiezen, boodschappen doen, toevoegen vanaf je
+telefoon, het beheren van de bibliotheek, de voorraadkast en het koken zelf. Het schema heeft de velden voor
 prijs, verpakking en voedingswaarde al, maar ze zijn optioneel en nog leeg;
 milestone 7 en 8 vullen ze. Het datamodel is met de latere milestones in het
 achterhoofd ontworpen (stapverwijzingen per ingrediënt voor de kookmodus,
