@@ -1,79 +1,12 @@
 # Vlees, vis en vleesvervangers.
-- id: runderriblappen
-  name: runderriblappen
-  synonyms: [riblappen, sukadelappen, stoofvlees]
-  nameEn: beef chuck
-  category: vlees-en-vis
-  defaultUnit: g
-- id: rundergehakt
-  name: rundergehakt
-  synonyms: [gehakt, half-om-half gehakt]
-  nameEn: minced beef
-  category: vlees-en-vis
-  defaultUnit: g
-  packaging: { amount: 500, unit: g }
-- id: kipfilet
-  name: kipfilet
-  plural: kipfilets
-  synonyms: [kippenborst]
-  nameEn: chicken breast
-  category: vlees-en-vis
-  defaultUnit: g
-  conversions: { stuks: { g: 150 } }
-- id: kippendijfilet
-  name: kippendijfilet
-  synonyms: [kipdijfilet, dijenvlees]
-  nameEn: chicken thigh
-  category: vlees-en-vis
-  defaultUnit: g
-- id: spekblokjes
-  name: spekblokjes
-  synonyms: [spek, ontbijtspek]
-  nameEn: bacon
-  category: vlees-en-vis
-  defaultUnit: g
-  packaging: { amount: 200, unit: g }
-- id: rookworst
-  name: rookworst
-  plural: rookworsten
-  nameEn: smoked sausage
+- id: ansjovis
+  name: ansjovisfilet
+  plural: ansjovisfilets
+  synonyms: [ansjovis]
+  nameEn: anchovy
   category: vlees-en-vis
   defaultUnit: stuks
-  conversions: { stuks: { g: 275 } }
-  allergens: [gluten]
-- id: varkenshaas
-  name: varkenshaas
-  nameEn: pork tenderloin
-  category: vlees-en-vis
-  defaultUnit: g
-- id: speklap
-  name: speklap
-  plural: speklappen
-  nameEn: pork belly
-  category: vlees-en-vis
-  defaultUnit: g
-- id: zalmfilet
-  name: zalmfilet
-  synonyms: [zalm]
-  nameEn: salmon fillet
-  category: vlees-en-vis
-  defaultUnit: g
-  conversions: { stuks: { g: 125 } }
-  allergens: [vis]
-- id: makreel
-  name: makreel
-  plural: makrelen
-  nameEn: mackerel
-  category: vlees-en-vis
-  defaultUnit: stuks
-  conversions: { stuks: { g: 300 } }
-  allergens: [vis]
-- id: kabeljauw
-  name: kabeljauwfilet
-  synonyms: [kabeljauw]
-  nameEn: cod
-  category: vlees-en-vis
-  defaultUnit: g
+  price: { amount: 39.9, per: kg, date: 2026-08-24 }
   allergens: [vis]
 - id: garnalen
   name: garnaal
@@ -82,22 +15,95 @@
   nameEn: prawns
   category: vlees-en-vis
   defaultUnit: g
+  price: { amount: 21.9, per: kg, date: 2026-08-24 }
   allergens: [schaaldieren]
+- id: kabeljauw
+  name: kabeljauwfilet
+  synonyms: [kabeljauw]
+  nameEn: cod
+  category: vlees-en-vis
+  defaultUnit: g
+  price: { amount: 24.9, per: kg, date: 2026-08-24 }
+  allergens: [vis]
+- id: kipfilet
+  name: kipfilet
+  plural: kipfilets
+  synonyms: [kippenborst]
+  nameEn: chicken breast
+  category: vlees-en-vis
+  defaultUnit: g
+  conversions: { stuks: { g: 150 } }
+  price: { amount: 11.9, per: kg, date: 2026-08-24 }
+- id: kippendijfilet
+  name: kippendijfilet
+  synonyms: [kipdijfilet, dijenvlees]
+  nameEn: chicken thigh
+  category: vlees-en-vis
+  defaultUnit: g
+  price: { amount: 9.9, per: kg, date: 2026-08-24 }
+- id: makreel
+  name: makreel
+  plural: makrelen
+  nameEn: mackerel
+  category: vlees-en-vis
+  defaultUnit: stuks
+  conversions: { stuks: { g: 300 } }
+  price: { amount: 14.9, per: kg, date: 2026-08-24 }
+  allergens: [vis]
 - id: mosselen
   name: mossel
   plural: mosselen
   nameEn: mussels
   category: vlees-en-vis
   defaultUnit: kg
+  price: { amount: 7.9, per: kg, date: 2026-08-24 }
   allergens: [weekdieren]
-- id: ansjovis
-  name: ansjovisfilet
-  plural: ansjovisfilets
-  synonyms: [ansjovis]
-  nameEn: anchovy
+- id: rookworst
+  name: rookworst
+  plural: rookworsten
+  nameEn: smoked sausage
   category: vlees-en-vis
   defaultUnit: stuks
-  allergens: [vis]
+  conversions: { stuks: { g: 275 } }
+  price: { amount: 2.49, per: stuks, date: 2026-08-24 }
+  allergens: [gluten]
+- id: rundergehakt
+  name: rundergehakt
+  synonyms: [gehakt, half-om-half gehakt]
+  nameEn: minced beef
+  category: vlees-en-vis
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  price: { amount: 10.9, per: kg, date: 2026-08-24 }
+- id: runderriblappen
+  name: runderriblappen
+  synonyms: [riblappen, sukadelappen, stoofvlees]
+  nameEn: beef chuck
+  category: vlees-en-vis
+  defaultUnit: g
+  price: { amount: 13.9, per: kg, date: 2026-08-24 }
+- id: spekblokjes
+  name: spekblokjes
+  synonyms: [spek, ontbijtspek]
+  nameEn: bacon
+  category: vlees-en-vis
+  defaultUnit: g
+  packaging: { amount: 200, unit: g }
+  price: { amount: 11.9, per: kg, date: 2026-08-24 }
+- id: speklap
+  name: speklap
+  plural: speklappen
+  nameEn: pork belly
+  category: vlees-en-vis
+  defaultUnit: g
+  price: { amount: 8.9, per: kg, date: 2026-08-24 }
+- id: tempeh
+  name: tempeh
+  nameEn: tempeh
+  category: vlees-en-vis
+  defaultUnit: g
+  price: { amount: 11.9, per: kg, date: 2026-08-24 }
+  allergens: [soja]
 - id: tofu
   name: tofu
   synonyms: [tahoe]
@@ -105,10 +111,20 @@
   category: vlees-en-vis
   defaultUnit: g
   packaging: { amount: 250, unit: g }
+  price: { amount: 7.9, per: kg, date: 2026-08-24 }
   allergens: [soja]
-- id: tempeh
-  name: tempeh
-  nameEn: tempeh
+- id: varkenshaas
+  name: varkenshaas
+  nameEn: pork tenderloin
   category: vlees-en-vis
   defaultUnit: g
-  allergens: [soja]
+  price: { amount: 15.9, per: kg, date: 2026-08-24 }
+- id: zalmfilet
+  name: zalmfilet
+  synonyms: [zalm]
+  nameEn: salmon fillet
+  category: vlees-en-vis
+  defaultUnit: g
+  conversions: { stuks: { g: 125 } }
+  price: { amount: 27.9, per: kg, date: 2026-08-24 }
+  allergens: [vis]

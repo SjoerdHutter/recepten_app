@@ -325,6 +325,43 @@ verplaats je het via het paneel dat opengaat als je erop tikt: slepen met een
 vinger over zeven kaarten die niet allemaal tegelijk in beeld passen is daar
 onbetrouwbaarder dan zeven dagknoppen.
 
+## Supermarkt en kosten
+
+### De prijzen zijn schattingen, en dat mag je zien
+
+De 192 richtprijzen in de bibliotheek zijn met de hand ingevoerde schattingen
+voor een Nederlandse supermarkt, geen gemeten of opgehaalde gegevens. Ze hebben
+allemaal een peildatum, en de app toont bij elk bedrag hoeveel regels een prijs
+hadden en hoe oud de oudste prijs is. Een bedrag zonder die context suggereert
+een nauwkeurigheid die er niet is.
+
+Prijzen zijn per ingrediënt aan te passen in het beheerscherm; de peildatum gaat
+dan automatisch mee. De eenheid waarin een prijs staat volgt wat leesbaar is —
+per kilo voor wat je op gewicht koopt, per liter voor vloeistoffen, per lepel
+voor specerijen — maar moet altijd dezelfde dimensie hebben als waarin recepten
+het afmeten, anders valt er niets om te rekenen.
+
+### Verpakkingsafronding
+
+De supermarkt verkoopt geen 150 ml room maar een pak van 250 ml. Dat verschil
+staat op de lijst, mét wat je overhoudt, en met een knop naar de recepten die
+dat restje opmaken (dezelfde restjeslogica als bij de voorraadkast). Een restje
+onder 2% van een verpakking wordt niet gemeld: dat is meetruis.
+
+### Looproute
+
+De categorievolgorde is per winkel in te stellen en er kunnen meerdere
+winkelprofielen naast elkaar bestaan. Een opgeslagen profiel wordt bij het
+inlezen aangevuld en opgeschoond, zodat het blijft werken als er later een
+categorie bijkomt of verdwijnt.
+
+### Export naar een lijstjes-app
+
+Noch Apple Herinneringen noch Google Keep heeft een openbare deeplink om er in
+bulk regels in te zetten. Het deelvenster van het toestel is daarom de route:
+daar staan die apps in. De export stuurt kale regels zonder de recepten
+erachter, want een lijstjes-app wil geen toelichting.
+
 ## Afgeleide waarden staan niet in de bestanden
 
 Totale tijd, kosten per portie en voedingswaarde worden berekend uit wat er wél
@@ -348,9 +385,9 @@ aanraken, en zou een afgeleide waarde kunnen gaan afwijken van zijn bron.
 
 ## Wat er nog niet is
 
-Milestone 1 tot en met 6 dekken kiezen, boodschappen doen, toevoegen vanaf je
-telefoon, het beheren van de bibliotheek, de voorraadkast, het koken zelf en het
-plannen en terugkijken. Het schema heeft de velden voor
+Milestone 1 tot en met 7 dekken kiezen, boodschappen doen, toevoegen vanaf je
+telefoon, het beheren van de bibliotheek, de voorraadkast, het koken zelf, het
+plannen en terugkijken, en de supermarkt met de kosten. Het schema heeft de velden voor
 prijs, verpakking en voedingswaarde al, maar ze zijn optioneel en nog leeg;
 milestone 7 en 8 vullen ze. Het datamodel is met de latere milestones in het
 achterhoofd ontworpen (stapverwijzingen per ingrediënt voor de kookmodus,

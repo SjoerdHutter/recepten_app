@@ -170,6 +170,32 @@ Op iOS gebeurt dat vrijwel altijd. Daar is niets aan te doen zonder een server
 met pushberichten, en dat is precies wat deze app niet wil zijn. Zet voor een
 stoofpot van drie uur dus liever ook de wekker van je telefoon.
 
+## Boodschappen doen
+
+De boodschappenlijst staat in de volgorde van je **looproute**. Tik op de
+winkelnaam boven de lijst om de schappen in de volgorde te zetten waarin je
+erlangs komt; je kunt meerdere winkels naast elkaar hebben.
+
+- **Verpakkingen.** Heb je 150 ml room nodig, dan staat erbij dat dat één pak
+  van 250 ml is en dat je 100 ml overhoudt. Het boekje ernaast toont recepten
+  die dat restje opmaken.
+- **Kosten.** Bovenaan staat een schatting van wat de lijst kost, en op een
+  recept wat het per portie is.
+- **Naar lijstjes-app** stuurt kale regels via het deelvenster naar
+  Herinneringen, Keep of wat je ook gebruikt. Geen van die apps heeft een
+  openbare deeplink om er in bulk regels in te zetten, dus het deelvenster is de
+  route.
+
+### Over die bedragen
+
+De richtprijzen in de bibliotheek zijn **schattingen**, met de hand ingevoerd
+voor een Nederlandse supermarkt. Ze zijn niet gemeten en niet opgehaald bij een
+winkel. Bij elk bedrag toont de app op hoeveel regels het gebaseerd is en hoe
+oud de oudste prijs is.
+
+Klopt een prijs niet? Pas hem aan bij **Instellingen ▸ Ingrediëntenbibliotheek**,
+tik op het ingrediënt en zet er de jouwe neer. De peildatum gaat automatisch mee.
+
 ## Weekmenu en geschiedenis
 
 Het tabblad **Week** toont zeven dagen. Zet er gerechten op via de lijstknop op

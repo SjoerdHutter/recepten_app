@@ -8,8 +8,13 @@ import {
 } from '../../domain/pantry/subtract';
 import { CATEGORIES, CATEGORY_LABELS, type Category } from '../../domain/schema/enums';
 import { buildShoppingList, type ShoppingSelection } from '../../domain/shopping/aggregate';
-import { shoppingListToText } from '../../domain/shopping/text';
-import { formatQuantity } from '../../domain/units/format';
+import { lineToText, shoppingListToText } from '../../domain/shopping/text';
+import { listCost, priceAgeInDays } from '../../domain/store/cost';
+import { roundToPackaging } from '../../domain/store/packaging';
+import { sortGroupsByStore } from '../../domain/store/profile';
+import { formatEuro, formatQuantity } from '../../domain/units/format';
+import { LeftoverSheet } from '../pantry/LeftoverSheet';
+import { StoreSheet } from '../store/StoreSheet';
 import { useData } from '../../state/data';
 import { useLocalState } from '../../state/localState';
 import { usePlanner } from '../../state/plannerState';
@@ -34,12 +39,16 @@ export const ShoppingPage = () => {
     subtractPantry,
     setSubtractPantry,
     addToPantry,
+    activeStore,
   } = useLocalState();
 
   const [nieuwItem, setNieuwItem] = useState('');
   const [nieuweCategorie, setNieuweCategorie] = useState<Category>('overig');
   const [melding, setMelding] = useState<string | null>(null);
   const [archiefOpen, setArchiefOpen] = useState(false);
+  const [winkelOpen, setWinkelOpen] = useState(false);
+  const [restjesId, setRestjesId] = useState<string | null>(null);
+  const [toonKosten, setToonKosten] = useState(false);
   const { archiveList, archive } = usePlanner();
 
   const selecties = useMemo<ShoppingSelection[]>(
@@ -55,16 +64,24 @@ export const ShoppingPage = () => {
 
   const groepen = useMemo(() => {
     const basis = buildShoppingList(selecties, library, manualItems);
-    return subtractPantry ? applyPantry(basis, pantry, library) : basis;
-  }, [selecties, library, manualItems, subtractPantry, pantry]);
+    const metVoorraad = subtractPantry ? applyPantry(basis, pantry, library) : basis;
+    // Op looproute, zodat je niet terug hoeft voor de melk.
+    return sortGroupsByStore(metVoorraad, activeStore);
+  }, [selecties, library, manualItems, subtractPantry, pantry, activeStore]);
 
   const alleRegels = groepen.flatMap((groep) => groep.lines);
   const teHalen = stillToBuy(groepen);
   const gedekt = alleRegels.length - teHalen.length;
   const afgevinkt = teHalen.filter((regel) => checked[regel.key]).length;
 
-  // Wat je al in huis hebt hoort niet in de tekst die je deelt of meeneemt.
-  const meeneemlijst = subtractPantry ? withoutCovered(groepen) : groepen;
+  // Wat je al in huis hebt hoort niet in de tekst die je deelt of meeneemt, en
+  // telt ook niet mee in de kosten: dat heb je al betaald.
+  const meeneemlijst = useMemo(
+    () => (subtractPantry ? withoutCovered(groepen) : groepen),
+    [subtractPantry, groepen],
+  );
+
+  const kosten = useMemo(() => listCost(meeneemlijst, library), [meeneemlijst, library]);
 
   /** Na het boodschappen doen: wat je afvinkte staat nu in je kast. */
   const naarVoorraad = () => {
@@ -117,6 +134,31 @@ export const ShoppingPage = () => {
     }
   };
 
+  /**
+   * Naar Herinneringen of Keep. Geen van beide heeft een openbare deeplink om er
+   * in bulk regels in te zetten, dus dit gaat via het deelvenster van het
+   * toestel: daar staan die apps in, en dan komt de lijst als notitie binnen.
+   * Zonder recepten erachter, want een lijstjes-app wil kale regels.
+   */
+  const exporteer = async () => {
+    const regels = meeneemlijst.flatMap((groep) => groep.lines.map(lineToText));
+    const tekst = regels.join('\n');
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'Boodschappen', text: tekst });
+        return;
+      } catch {
+        /* weggeklikt */
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(tekst);
+      setMelding('Gekopieerd; plak het in je lijstjes-app.');
+    } catch {
+      setMelding('Kopiëren lukte niet.');
+    }
+  };
+
   const deel = async () => {
     const tekst = shoppingListToText(meeneemlijst);
     if (!navigator.share) {
@@ -165,6 +207,56 @@ export const ShoppingPage = () => {
             </span>
           </span>
         </button>
+      ) : null}
+
+      {alleRegels.length > 0 ? (
+        <div className="flex flex-wrap items-center gap-2 print-hidden">
+          <button
+            type="button"
+            onClick={() => setWinkelOpen(true)}
+            className="flex min-h-10 items-center gap-1.5 rounded-xl bg-surface-2 px-3 text-sm text-ink-2"
+          >
+            <Icon name="lijst" className="h-4 w-4" />
+            {activeStore.name}
+          </button>
+          {kosten.known > 0 ? (
+            <button
+              type="button"
+              onClick={() => setToonKosten(!toonKosten)}
+              aria-pressed={toonKosten}
+              className="flex min-h-10 items-center gap-1.5 rounded-xl bg-surface-2 px-3 text-sm text-ink-2"
+            >
+              ± {formatEuro(kosten.total)}
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+
+      {toonKosten && kosten.known > 0 ? (
+        <div className="rounded-2xl border border-line bg-surface px-4 py-3 text-sm print-hidden">
+          <p>
+            Deze lijst kost naar schatting{' '}
+            <span className="font-semibold">{formatEuro(kosten.total)}</span>.
+          </p>
+          {/* Een bedrag zonder deze context doet alsof het gemeten is. */}
+          <p className="mt-1 text-xs text-ink-3">
+            Gebaseerd op richtprijzen bij {kosten.known} van de {kosten.known + kosten.unknown}{' '}
+            regels
+            {kosten.unknown > 0
+              ? `; ${kosten.unknown} zonder bekende prijs ${kosten.unknown === 1 ? 'telt' : 'tellen'} niet mee`
+              : ''}
+            .
+            {(() => {
+              const dagen = priceAgeInDays(kosten.oldestDate, new Date());
+              return dagen !== undefined
+                ? ` De oudste prijs is ${dagen === 0 ? 'van vandaag' : `${dagen} dagen oud`}.`
+                : '';
+            })()}
+          </p>
+          <p className="mt-1 text-xs text-ink-3">
+            Het zijn schattingen, geen kassabon: prijzen verschillen per winkel en per week.
+          </p>
+        </div>
       ) : null}
 
       {selecties.length === 0 && manualItems.length === 0 ? (
@@ -223,6 +315,10 @@ export const ShoppingPage = () => {
                 const inHuis = stock?.coverage === 'volledig';
                 const isAf = (checked[regel.key] ?? false) || inHuis;
                 const hoeveelheid = effectiveQuantity(regel);
+                // Je koopt geen 150 ml room maar een pak van 250 ml.
+                const verpakking = hoeveelheid
+                  ? roundToPackaging(hoeveelheid, library.get(regel.ingredientId))
+                  : null;
                 // Nooit stilletjes wegstrepen: als de app iets aftrekt moet je
                 // in de winkel kunnen zien waaróm.
                 const voorraadTag =
@@ -259,6 +355,16 @@ export const ShoppingPage = () => {
                             {voorraadTag}
                           </Tag>
                         ) : null}
+                        {verpakking && !isAf ? (
+                          <span className="mt-0.5 block text-xs text-accent">
+                            {verpakking.packs === 1
+                              ? `1 verpakking van ${formatQuantity(verpakking.packSize)}`
+                              : `${verpakking.packs} verpakkingen van ${formatQuantity(verpakking.packSize)}`}
+                            {verpakking.leftover
+                              ? ` · je houdt ${formatQuantity(verpakking.leftover)} over`
+                              : ''}
+                          </span>
+                        ) : null}
                         {regel.sources.length > 0 ? (
                           <span className="mt-0.5 block text-xs text-ink-3">
                             {regel.sources
@@ -268,6 +374,16 @@ export const ShoppingPage = () => {
                         ) : null}
                       </span>
                     </button>
+                    {verpakking?.leftover && regel.ingredientId && !isAf ? (
+                      <button
+                        type="button"
+                        onClick={() => setRestjesId(regel.ingredientId ?? null)}
+                        className="flex h-14 w-11 items-center justify-center text-ink-3 print-hidden"
+                        aria-label={`Recepten met de rest van ${regel.label}`}
+                      >
+                        <Icon name="boek" className="h-4 w-4" />
+                      </button>
+                    ) : null}
                     {regel.manual ? (
                       <button
                         type="button"
@@ -335,6 +451,10 @@ export const ShoppingPage = () => {
             <Icon name="kopieer" className="h-4 w-4" />
             Kopiëren
           </Button>
+          <Button variant="secondary" onClick={() => void exporteer()}>
+            <Icon name="lijst" className="h-4 w-4" />
+            Naar lijstjes-app
+          </Button>
           <Button variant="secondary" onClick={() => window.print()}>
             <Icon name="printer" className="h-4 w-4" />
             Printen
@@ -376,6 +496,11 @@ export const ShoppingPage = () => {
       ) : null}
 
       <ArchiveSheet open={archiefOpen} onClose={() => setArchiefOpen(false)} />
+      <StoreSheet open={winkelOpen} onClose={() => setWinkelOpen(false)} />
+      <LeftoverSheet
+        ingredient={restjesId ? (library.get(restjesId) ?? null) : null}
+        onClose={() => setRestjesId(null)}
+      />
     </div>
   );
 };

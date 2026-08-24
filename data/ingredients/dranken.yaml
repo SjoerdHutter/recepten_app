@@ -6,26 +6,16 @@
   category: dranken
   defaultUnit: ml
   packaging: { amount: 330, unit: ml }
+  price: { amount: 2.4, per: l, date: 2026-08-24 }
   allergens: [gluten]
-- id: witte-wijn
-  name: witte wijn
-  nameEn: white wine
-  category: dranken
-  defaultUnit: ml
-  packaging: { amount: 750, unit: ml }
-  allergens: [sulfiet]
 - id: rode-wijn
   name: rode wijn
   nameEn: red wine
   category: dranken
   defaultUnit: ml
   packaging: { amount: 750, unit: ml }
+  price: { amount: 7.99, per: l, date: 2026-08-24 }
   allergens: [sulfiet]
-- id: water
-  name: water
-  nameEn: water
-  category: dranken
-  defaultUnit: ml
 - id: sinaasappelsap
   name: sinaasappelsap
   synonyms: [jus d'orange]
@@ -33,3 +23,18 @@
   category: dranken
   defaultUnit: ml
   packaging: { amount: 1000, unit: ml }
+  price: { amount: 1.79, per: l, date: 2026-08-24 }
+- id: water
+  name: water
+  nameEn: water
+  category: dranken
+  defaultUnit: ml
+  price: { amount: 0, per: l, date: 2026-08-24 }
+- id: witte-wijn
+  name: witte wijn
+  nameEn: white wine
+  category: dranken
+  defaultUnit: ml
+  packaging: { amount: 750, unit: ml }
+  price: { amount: 7.99, per: l, date: 2026-08-24 }
+  allergens: [sulfiet]

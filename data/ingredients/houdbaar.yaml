@@ -1,71 +1,47 @@
 # Houdbare voorraad: pasta, rijst, blikken, olie en bakspullen.
-- id: olijfolie
-  name: olijfolie
-  synonyms: [extra vierge olijfolie]
-  nameEn: olive oil
+- id: ahornsiroop
+  name: ahornsiroop
+  synonyms: [maple syrup]
+  nameEn: maple syrup
   category: houdbaar
   defaultUnit: el
-  packaging: { amount: 500, unit: ml }
-- id: zonnebloemolie
-  name: zonnebloemolie
-  synonyms: [bakolie, plantaardige olie]
-  nameEn: sunflower oil
+  price: { amount: 0.35, per: el, date: 2026-08-24 }
+- id: amandelen
+  name: amandel
+  plural: amandelen
+  synonyms: [amandelschaafsel, gemalen amandelen]
+  nameEn: almonds
+  category: houdbaar
+  defaultUnit: g
+  price: { amount: 14.9, per: kg, date: 2026-08-24 }
+  allergens: [noten]
+- id: appelstroop
+  name: appelstroop
+  nameEn: apple syrup
   category: houdbaar
   defaultUnit: el
-  packaging: { amount: 1000, unit: ml }
-- id: sesamolie
-  name: sesamolie
-  nameEn: sesame oil
+  price: { amount: 4.5, per: kg, date: 2026-08-24 }
+- id: bakpoeder
+  name: bakpoeder
+  nameEn: baking powder
   category: houdbaar
   defaultUnit: tl
-  allergens: [sesam]
-- id: azijn
-  name: witte wijnazijn
-  synonyms: [azijn, wijnazijn]
-  nameEn: white wine vinegar
+  price: { amount: 0.05, per: tl, date: 2026-08-24 }
+- id: baksoda
+  name: baksoda
+  synonyms: [natriumbicarbonaat, zuiveringszout]
+  nameEn: baking soda
   category: houdbaar
-  defaultUnit: el
+  defaultUnit: tl
+  price: { amount: 0.03, per: tl, date: 2026-08-24 }
 - id: balsamicoazijn
   name: balsamicoazijn
   synonyms: [balsamico]
   nameEn: balsamic vinegar
   category: houdbaar
   defaultUnit: el
+  price: { amount: 0.2, per: el, date: 2026-08-24 }
   allergens: [sulfiet]
-- id: spaghetti
-  name: spaghetti
-  nameEn: spaghetti
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 500, unit: g }
-  allergens: [gluten]
-- id: pasta
-  name: pasta
-  synonyms: [penne, fusilli, macaroni, tagliatelle]
-  nameEn: pasta
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 500, unit: g }
-  allergens: [gluten]
-- id: rijst
-  name: rijst
-  synonyms: [witte rijst, basmatirijst, pandanrijst]
-  nameEn: rice
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 1000, unit: g }
-- id: risottorijst
-  name: risottorijst
-  synonyms: [arborio]
-  nameEn: risotto rice
-  category: houdbaar
-  defaultUnit: g
-- id: couscous
-  name: couscous
-  nameEn: couscous
-  category: houdbaar
-  defaultUnit: g
-  allergens: [gluten]
 - id: bloem
   name: bloem
   synonyms: [tarwebloem, patentbloem]
@@ -74,109 +50,15 @@
   defaultUnit: g
   conversions: { el: { g: 10 } }
   packaging: { amount: 1000, unit: g }
+  price: { amount: 1.09, per: kg, date: 2026-08-24 }
   allergens: [gluten]
-- id: zelfrijzend-bakmeel
-  name: zelfrijzend bakmeel
-  nameEn: self-raising flour
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 500, unit: g }
-  allergens: [gluten]
-- id: paneermeel
-  name: paneermeel
-  nameEn: breadcrumbs
-  category: houdbaar
-  defaultUnit: g
-  allergens: [gluten]
-- id: suiker
-  name: suiker
-  synonyms: [kristalsuiker, witte suiker]
-  nameEn: sugar
-  category: houdbaar
-  defaultUnit: g
-  conversions: { el: { g: 12 } }
-  packaging: { amount: 1000, unit: g }
 - id: bruine-suiker
   name: bruine basterdsuiker
   synonyms: [basterdsuiker, bruine suiker]
   nameEn: brown sugar
   category: houdbaar
   defaultUnit: g
-- id: honing
-  name: honing
-  nameEn: honey
-  category: houdbaar
-  defaultUnit: el
-  conversions: { el: { g: 21 } }
-- id: tomatenblokjes
-  name: tomatenblokjes
-  synonyms: [blik tomaten, gepelde tomaten, tomatenstukjes]
-  nameEn: chopped tomatoes
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 400, unit: g }
-- id: tomatenpuree
-  name: tomatenpuree
-  nameEn: tomato paste
-  category: houdbaar
-  defaultUnit: el
-  conversions: { el: { g: 16 } }
-  packaging: { amount: 70, unit: g }
-- id: passata
-  name: passata
-  synonyms: [gezeefde tomaten]
-  nameEn: passata
-  category: houdbaar
-  defaultUnit: ml
-  packaging: { amount: 500, unit: ml }
-- id: kokosmelk
-  name: kokosmelk
-  nameEn: coconut milk
-  category: houdbaar
-  defaultUnit: ml
-  packaging: { amount: 400, unit: ml }
-- id: kikkererwten
-  name: kikkererwt
-  plural: kikkererwten
-  synonyms: [blik kikkererwten]
-  nameEn: chickpeas
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 400, unit: g }
-- id: witte-bonen
-  name: witte boon
-  plural: witte bonen
-  nameEn: white beans
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 400, unit: g }
-- id: linzen
-  name: linze
-  plural: linzen
-  synonyms: [groene linzen, rode linzen]
-  nameEn: lentils
-  category: houdbaar
-  defaultUnit: g
-- id: sojasaus
-  name: sojasaus
-  synonyms: [ketjap asin, soja saus]
-  nameEn: soy sauce
-  category: houdbaar
-  defaultUnit: el
-  allergens: [soja, gluten]
-- id: ketjap
-  name: ketjap manis
-  synonyms: [ketjap, zoete sojasaus]
-  nameEn: sweet soy sauce
-  category: houdbaar
-  defaultUnit: el
-  allergens: [soja, gluten]
-- id: vissaus
-  name: vissaus
-  nameEn: fish sauce
-  category: houdbaar
-  defaultUnit: el
-  allergens: [vis]
+  price: { amount: 1.79, per: kg, date: 2026-08-24 }
 - id: cashewnoten
   name: cashewnoot
   plural: cashewnoten
@@ -185,75 +67,31 @@
   category: houdbaar
   defaultUnit: g
   packaging: { amount: 200, unit: g }
+  price: { amount: 17.9, per: kg, date: 2026-08-24 }
   allergens: [noten]
-- id: walnoten
-  name: walnoot
-  plural: walnoten
-  nameEn: walnuts
+- id: couscous
+  name: couscous
+  nameEn: couscous
   category: houdbaar
   defaultUnit: g
-  allergens: [noten]
-- id: amandelen
-  name: amandel
-  plural: amandelen
-  synonyms: [amandelschaafsel, gemalen amandelen]
-  nameEn: almonds
+  price: { amount: 2.79, per: kg, date: 2026-08-24 }
+  allergens: [gluten]
+- id: eekhoorntjesbrood
+  name: eekhoorntjesbrood
+  synonyms: [porcini, gedroogde paddenstoelen]
+  nameEn: porcini
   category: houdbaar
   defaultUnit: g
-  allergens: [noten]
-- id: pijnboompitten
-  name: pijnboompit
-  plural: pijnboompitten
-  nameEn: pine nuts
+  packaging: { amount: 20, unit: g }
+  price: { amount: 99, per: kg, date: 2026-08-24 }
+- id: groentebouillon
+  name: groentebouillon
+  synonyms: [bouillon, kippenbouillon]
+  nameEn: vegetable stock
   category: houdbaar
-  defaultUnit: g
-  allergens: [noten]
-- id: rozijnen
-  name: rozijn
-  plural: rozijnen
-  nameEn: raisins
-  category: houdbaar
-  defaultUnit: g
-- id: sesamzaad
-  name: sesamzaad
-  nameEn: sesame seeds
-  category: houdbaar
-  defaultUnit: el
-  allergens: [sesam]
-- id: bakpoeder
-  name: bakpoeder
-  nameEn: baking powder
-  category: houdbaar
-  defaultUnit: tl
-- id: kokosrasp
-  name: kokosrasp
-  nameEn: desiccated coconut
-  category: houdbaar
-  defaultUnit: g
-- id: pindakaas
-  name: pindakaas
-  nameEn: peanut butter
-  category: houdbaar
-  defaultUnit: el
-  conversions: { el: { g: 16 } }
-  allergens: [pinda]
-- id: mayonaise
-  name: mayonaise
-  nameEn: mayonnaise
-  category: houdbaar
-  defaultUnit: el
-  allergens: [ei, mosterd]
-- id: appelstroop
-  name: appelstroop
-  nameEn: apple syrup
-  category: houdbaar
-  defaultUnit: el
-- id: quinoa
-  name: quinoa
-  nameEn: quinoa
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 400, unit: g }
+  defaultUnit: ml
+  price: { amount: 0.3, per: l, date: 2026-08-24 }
+  allergens: [selderij]
 - id: havermout
   name: havermout
   synonyms: [havervlokken]
@@ -261,14 +99,99 @@
   category: houdbaar
   defaultUnit: g
   packaging: { amount: 500, unit: g }
+  price: { amount: 1.69, per: kg, date: 2026-08-24 }
   allergens: [gluten]
-- id: panko
-  name: panko
-  synonyms: [panko paneermeel]
-  nameEn: panko
+- id: hoisinsaus
+  name: hoisinsaus
+  nameEn: hoisin sauce
+  category: houdbaar
+  defaultUnit: el
+  price: { amount: 0.2, per: el, date: 2026-08-24 }
+  allergens: [soja, gluten, sesam]
+- id: honing
+  name: honing
+  nameEn: honey
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 21 } }
+  price: { amount: 0.25, per: el, date: 2026-08-24 }
+- id: kappertjes
+  name: kappertje
+  plural: kappertjes
+  nameEn: capers
+  category: houdbaar
+  defaultUnit: el
+  packaging: { amount: 100, unit: g }
+  price: { amount: 0.3, per: el, date: 2026-08-24 }
+- id: ketjap
+  name: ketjap manis
+  synonyms: [ketjap, zoete sojasaus]
+  nameEn: sweet soy sauce
+  category: houdbaar
+  defaultUnit: el
+  price: { amount: 0.2, per: el, date: 2026-08-24 }
+  allergens: [soja, gluten]
+- id: kikkererwten
+  name: kikkererwt
+  plural: kikkererwten
+  synonyms: [blik kikkererwten]
+  nameEn: chickpeas
   category: houdbaar
   defaultUnit: g
-  allergens: [gluten]
+  packaging: { amount: 400, unit: g }
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }
+- id: kokosmelk
+  name: kokosmelk
+  nameEn: coconut milk
+  category: houdbaar
+  defaultUnit: ml
+  packaging: { amount: 400, unit: ml }
+  price: { amount: 2.98, per: l, date: 2026-08-24 }
+- id: kokosrasp
+  name: kokosrasp
+  nameEn: desiccated coconut
+  category: houdbaar
+  defaultUnit: g
+  price: { amount: 6.9, per: kg, date: 2026-08-24 }
+- id: linzen
+  name: linze
+  plural: linzen
+  synonyms: [groene linzen, rode linzen]
+  nameEn: lentils
+  category: houdbaar
+  defaultUnit: g
+  price: { amount: 2.79, per: kg, date: 2026-08-24 }
+- id: mais
+  name: mais
+  synonyms: [maiskorrels, blik mais]
+  nameEn: sweetcorn
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 300, unit: g }
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }
+- id: maizena
+  name: maizena
+  synonyms: [maiszetmeel]
+  nameEn: cornstarch
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 8 } }
+  price: { amount: 0.1, per: el, date: 2026-08-24 }
+- id: mayonaise
+  name: mayonaise
+  nameEn: mayonnaise
+  category: houdbaar
+  defaultUnit: el
+  price: { amount: 4.5, per: kg, date: 2026-08-24 }
+  allergens: [ei, mosterd]
+- id: miso
+  name: miso
+  synonyms: [witte miso, misopasta]
+  nameEn: miso
+  category: houdbaar
+  defaultUnit: tl
+  price: { amount: 0.2, per: tl, date: 2026-08-24 }
+  allergens: [soja]
 - id: noedels
   name: noedel
   plural: noedels
@@ -277,108 +200,56 @@
   category: houdbaar
   defaultUnit: g
   packaging: { amount: 250, unit: g }
+  price: { amount: 3.6, per: kg, date: 2026-08-24 }
   allergens: [gluten]
-- id: rijstvermicelli
-  name: rijstvermicelli
-  synonyms: [rijstnoedels]
-  nameEn: rice vermicelli
+- id: olijfolie
+  name: olijfolie
+  synonyms: [extra vierge olijfolie]
+  nameEn: olive oil
+  category: houdbaar
+  defaultUnit: el
+  packaging: { amount: 500, unit: ml }
+  price: { amount: 7.98, per: l, date: 2026-08-24 }
+- id: paneermeel
+  name: paneermeel
+  nameEn: breadcrumbs
   category: houdbaar
   defaultUnit: g
-  packaging: { amount: 200, unit: g }
-- id: rijstpapier
-  name: rijstpapier
-  plural: vellen rijstpapier
-  synonyms: [rijstvellen]
-  nameEn: rice paper
-  category: houdbaar
-  defaultUnit: stuks
-- id: zilvervliesrijst
-  name: zilvervliesrijst
-  synonyms: [bruine rijst]
-  nameEn: brown rice
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }
+  allergens: [gluten]
+- id: panko
+  name: panko
+  synonyms: [panko paneermeel]
+  nameEn: panko
   category: houdbaar
   defaultUnit: g
-  packaging: { amount: 1000, unit: g }
-- id: rode-linzen
-  name: rode linzen
-  synonyms: [rode linze]
-  nameEn: red lentils
+  price: { amount: 4.9, per: kg, date: 2026-08-24 }
+  allergens: [gluten]
+- id: passata
+  name: passata
+  synonyms: [gezeefde tomaten]
+  nameEn: passata
+  category: houdbaar
+  defaultUnit: ml
+  packaging: { amount: 500, unit: ml }
+  price: { amount: 1.49, per: l, date: 2026-08-24 }
+- id: pasta
+  name: pasta
+  synonyms: [penne, fusilli, macaroni, tagliatelle]
+  nameEn: pasta
   category: houdbaar
   defaultUnit: g
   packaging: { amount: 500, unit: g }
-- id: zwarte-bonen
-  name: zwarte boon
-  plural: zwarte bonen
-  nameEn: black beans
+  price: { amount: 1.79, per: kg, date: 2026-08-24 }
+  allergens: [gluten]
+- id: pijnboompitten
+  name: pijnboompit
+  plural: pijnboompitten
+  nameEn: pine nuts
   category: houdbaar
   defaultUnit: g
-  packaging: { amount: 400, unit: g }
-- id: mais
-  name: mais
-  synonyms: [maiskorrels, blik mais]
-  nameEn: sweetcorn
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 300, unit: g }
-- id: groentebouillon
-  name: groentebouillon
-  synonyms: [bouillon, kippenbouillon]
-  nameEn: vegetable stock
-  category: houdbaar
-  defaultUnit: ml
-  allergens: [selderij]
-- id: eekhoorntjesbrood
-  name: eekhoorntjesbrood
-  synonyms: [porcini, gedroogde paddenstoelen]
-  nameEn: porcini
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 20, unit: g }
-- id: kappertjes
-  name: kappertje
-  plural: kappertjes
-  nameEn: capers
-  category: houdbaar
-  defaultUnit: el
-  packaging: { amount: 100, unit: g }
-- id: hoisinsaus
-  name: hoisinsaus
-  nameEn: hoisin sauce
-  category: houdbaar
-  defaultUnit: el
-  allergens: [soja, gluten, sesam]
-- id: miso
-  name: miso
-  synonyms: [witte miso, misopasta]
-  nameEn: miso
-  category: houdbaar
-  defaultUnit: tl
-  allergens: [soja]
-- id: sriracha
-  name: sriracha
-  nameEn: sriracha
-  category: houdbaar
-  defaultUnit: tl
-- id: tahin
-  name: tahin
-  synonyms: [tahini, sesampasta]
-  nameEn: tahini
-  category: houdbaar
-  defaultUnit: el
-  conversions: { el: { g: 15 } }
-  allergens: [sesam]
-- id: ahornsiroop
-  name: ahornsiroop
-  synonyms: [maple syrup]
-  nameEn: maple syrup
-  category: houdbaar
-  defaultUnit: el
-- id: voedingsgist
-  name: voedingsgist
-  synonyms: [nutritional yeast, edelgistvlokken]
-  nameEn: nutritional yeast
-  category: houdbaar
-  defaultUnit: el
+  price: { amount: 39.9, per: kg, date: 2026-08-24 }
+  allergens: [noten]
 - id: pindas
   name: pinda
   plural: pinda's
@@ -386,6 +257,15 @@
   nameEn: peanuts
   category: houdbaar
   defaultUnit: g
+  price: { amount: 7.9, per: kg, date: 2026-08-24 }
+  allergens: [pinda]
+- id: pindakaas
+  name: pindakaas
+  nameEn: peanut butter
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 16 } }
+  price: { amount: 0.2, per: el, date: 2026-08-24 }
   allergens: [pinda]
 - id: pistachenoten
   name: pistachenoot
@@ -394,33 +274,8 @@
   nameEn: pistachios
   category: houdbaar
   defaultUnit: g
+  price: { amount: 24.9, per: kg, date: 2026-08-24 }
   allergens: [noten]
-- id: pompoenpitten
-  name: pompoenpit
-  plural: pompoenpitten
-  nameEn: pumpkin seeds
-  category: houdbaar
-  defaultUnit: g
-- id: witte-chocolade
-  name: witte chocolade
-  nameEn: white chocolate
-  category: houdbaar
-  defaultUnit: g
-  packaging: { amount: 100, unit: g }
-  allergens: [melk, soja]
-- id: maizena
-  name: maizena
-  synonyms: [maiszetmeel]
-  nameEn: cornstarch
-  category: houdbaar
-  defaultUnit: el
-  conversions: { el: { g: 8 } }
-- id: baksoda
-  name: baksoda
-  synonyms: [natriumbicarbonaat, zuiveringszout]
-  nameEn: baking soda
-  category: houdbaar
-  defaultUnit: tl
 - id: poedersuiker
   name: poedersuiker
   synonyms: [bloemsuiker]
@@ -428,14 +283,224 @@
   category: houdbaar
   defaultUnit: g
   conversions: { el: { g: 8 } }
-- id: witte-basterdsuiker
-  name: witte basterdsuiker
-  nameEn: white caster sugar
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }
+- id: pompoenpitten
+  name: pompoenpit
+  plural: pompoenpitten
+  nameEn: pumpkin seeds
   category: houdbaar
   defaultUnit: g
+  price: { amount: 9.9, per: kg, date: 2026-08-24 }
+- id: quinoa
+  name: quinoa
+  nameEn: quinoa
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }
+  price: { amount: 6.23, per: kg, date: 2026-08-24 }
+- id: rijst
+  name: rijst
+  synonyms: [witte rijst, basmatirijst, pandanrijst]
+  nameEn: rice
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 1000, unit: g }
+  price: { amount: 2.29, per: kg, date: 2026-08-24 }
+- id: rijstpapier
+  name: rijstpapier
+  plural: vellen rijstpapier
+  synonyms: [rijstvellen]
+  nameEn: rice paper
+  category: houdbaar
+  defaultUnit: stuks
+  price: { amount: 0.15, per: stuks, date: 2026-08-24 }
+- id: rijstvermicelli
+  name: rijstvermicelli
+  synonyms: [rijstnoedels]
+  nameEn: rice vermicelli
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 200, unit: g }
+  price: { amount: 7.45, per: kg, date: 2026-08-24 }
+- id: risottorijst
+  name: risottorijst
+  synonyms: [arborio]
+  nameEn: risotto rice
+  category: houdbaar
+  defaultUnit: g
+  price: { amount: 3.29, per: kg, date: 2026-08-24 }
+- id: rode-linzen
+  name: rode linzen
+  synonyms: [rode linze]
+  nameEn: red lentils
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  price: { amount: 3.18, per: kg, date: 2026-08-24 }
+- id: rozijnen
+  name: rozijn
+  plural: rozijnen
+  nameEn: raisins
+  category: houdbaar
+  defaultUnit: g
+  price: { amount: 5.9, per: kg, date: 2026-08-24 }
+- id: sesamolie
+  name: sesamolie
+  nameEn: sesame oil
+  category: houdbaar
+  defaultUnit: tl
+  price: { amount: 0.15, per: tl, date: 2026-08-24 }
+  allergens: [sesam]
+- id: sesamzaad
+  name: sesamzaad
+  nameEn: sesame seeds
+  category: houdbaar
+  defaultUnit: el
+  price: { amount: 8.9, per: kg, date: 2026-08-24 }
+  allergens: [sesam]
+- id: sojasaus
+  name: sojasaus
+  synonyms: [ketjap asin, soja saus]
+  nameEn: soy sauce
+  category: houdbaar
+  defaultUnit: el
+  price: { amount: 0.15, per: el, date: 2026-08-24 }
+  allergens: [soja, gluten]
+- id: spaghetti
+  name: spaghetti
+  nameEn: spaghetti
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  price: { amount: 1.79, per: kg, date: 2026-08-24 }
+  allergens: [gluten]
+- id: sriracha
+  name: sriracha
+  nameEn: sriracha
+  category: houdbaar
+  defaultUnit: tl
+  price: { amount: 0.1, per: tl, date: 2026-08-24 }
+- id: suiker
+  name: suiker
+  synonyms: [kristalsuiker, witte suiker]
+  nameEn: sugar
+  category: houdbaar
+  defaultUnit: g
+  conversions: { el: { g: 12 } }
+  packaging: { amount: 1000, unit: g }
+  price: { amount: 1.29, per: kg, date: 2026-08-24 }
+- id: tahin
+  name: tahin
+  synonyms: [tahini, sesampasta]
+  nameEn: tahini
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 15 } }
+  price: { amount: 0.35, per: el, date: 2026-08-24 }
+  allergens: [sesam]
+- id: tomatenblokjes
+  name: tomatenblokjes
+  synonyms: [blik tomaten, gepelde tomaten, tomatenstukjes]
+  nameEn: chopped tomatoes
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }
+  price: { amount: 1.98, per: kg, date: 2026-08-24 }
+- id: tomatenpuree
+  name: tomatenpuree
+  nameEn: tomato paste
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 16 } }
+  packaging: { amount: 70, unit: g }
+  price: { amount: 0.25, per: el, date: 2026-08-24 }
 - id: vanille-extract
   name: vanille-extract
   synonyms: [vanilleextract, vanillearoma]
   nameEn: vanilla extract
   category: houdbaar
   defaultUnit: tl
+  price: { amount: 0.4, per: tl, date: 2026-08-24 }
+- id: vissaus
+  name: vissaus
+  nameEn: fish sauce
+  category: houdbaar
+  defaultUnit: el
+  price: { amount: 0.15, per: el, date: 2026-08-24 }
+  allergens: [vis]
+- id: voedingsgist
+  name: voedingsgist
+  synonyms: [nutritional yeast, edelgistvlokken]
+  nameEn: nutritional yeast
+  category: houdbaar
+  defaultUnit: el
+  price: { amount: 0.5, per: el, date: 2026-08-24 }
+- id: walnoten
+  name: walnoot
+  plural: walnoten
+  nameEn: walnuts
+  category: houdbaar
+  defaultUnit: g
+  price: { amount: 15.9, per: kg, date: 2026-08-24 }
+  allergens: [noten]
+- id: witte-basterdsuiker
+  name: witte basterdsuiker
+  nameEn: white caster sugar
+  category: houdbaar
+  defaultUnit: g
+  price: { amount: 1.79, per: kg, date: 2026-08-24 }
+- id: witte-bonen
+  name: witte boon
+  plural: witte bonen
+  nameEn: white beans
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }
+- id: witte-chocolade
+  name: witte chocolade
+  nameEn: white chocolate
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 100, unit: g }
+  price: { amount: 14.9, per: kg, date: 2026-08-24 }
+  allergens: [melk, soja]
+- id: azijn
+  name: witte wijnazijn
+  synonyms: [azijn, wijnazijn]
+  nameEn: white wine vinegar
+  category: houdbaar
+  defaultUnit: el
+  price: { amount: 1.79, per: l, date: 2026-08-24 }
+- id: zelfrijzend-bakmeel
+  name: zelfrijzend bakmeel
+  nameEn: self-raising flour
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  price: { amount: 2.18, per: kg, date: 2026-08-24 }
+  allergens: [gluten]
+- id: zilvervliesrijst
+  name: zilvervliesrijst
+  synonyms: [bruine rijst]
+  nameEn: brown rice
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 1000, unit: g }
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }
+- id: zonnebloemolie
+  name: zonnebloemolie
+  synonyms: [bakolie, plantaardige olie]
+  nameEn: sunflower oil
+  category: houdbaar
+  defaultUnit: el
+  packaging: { amount: 1000, unit: ml }
+  price: { amount: 0.03, per: el, date: 2026-08-24 }
+- id: zwarte-bonen
+  name: zwarte boon
+  plural: zwarte bonen
+  nameEn: black beans
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }
+  price: { amount: 3.73, per: kg, date: 2026-08-24 }

@@ -1,5 +1,12 @@
 import { createContext, useCallback, useContext, useMemo, type ReactNode } from 'react';
 import type { Pantry, PantryItem } from '../domain/pantry/pantry';
+import {
+  DEFAULT_PROFILE_ID,
+  defaultProfile,
+  nextProfileId,
+  normalizeOrder,
+  type StoreProfile,
+} from '../domain/store/profile';
 import { usePersistentState } from './persistent';
 import type { Category } from '../domain/schema/enums';
 import type { ManualItem } from '../domain/shopping/aggregate';
@@ -22,6 +29,8 @@ export const LOCAL_KEYS = {
   pantry: 'voorraad',
   subtractPantry: 'lijst.voorraadAftrekken',
   cookProgress: 'koken.voortgang',
+  stores: 'winkels',
+  activeStore: 'winkel.actief',
 } as const;
 
 export interface PantryPatch {
@@ -64,6 +73,15 @@ interface LocalValue {
   doneSteps: (recipeId: string) => number[];
   toggleStepDone: (recipeId: string, index: number) => void;
   resetProgress: (recipeId: string) => void;
+  /** Winkelprofielen met een eigen looproute door de schappen. */
+  stores: StoreProfile[];
+  activeStoreId: string;
+  activeStore: StoreProfile;
+  setActiveStore: (id: string) => void;
+  addStore: (name: string) => void;
+  renameStore: (id: string, name: string) => void;
+  removeStore: (id: string) => void;
+  setStoreOrder: (id: string, order: StoreProfile['order']) => void;
   isSelected: (recipeId: string) => boolean;
   toggleSelection: (recipeId: string, servings: number) => void;
   setServings: (recipeId: string, servings: number) => void;
@@ -98,6 +116,13 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
   const [cookProgress, setCookProgress, progressReady] = usePersistentState<
     Record<string, number[]>
   >(LOCAL_KEYS.cookProgress, {});
+  const [stores, setStores, storesReady] = usePersistentState<StoreProfile[]>(LOCAL_KEYS.stores, [
+    defaultProfile(),
+  ]);
+  const [activeStoreId, setActiveStoreId, activeStoreReady] = usePersistentState<string>(
+    LOCAL_KEYS.activeStore,
+    DEFAULT_PROFILE_ID,
+  );
 
   const isSelected = useCallback(
     (recipeId: string) => selection.some((entry) => entry.recipeId === recipeId),
@@ -117,13 +142,56 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
       pantry,
       subtractPantry,
       cookProgress,
+      stores,
+      activeStoreId,
+      // Een profiel dat verwijderd is mag niet betekenen dat de lijst kapot
+      // gaat; dan maar de standaard looproute.
+      activeStore:
+        stores.find((winkel) => winkel.id === activeStoreId) ?? stores[0] ?? defaultProfile(),
       ready:
         selectionReady &&
         manualReady &&
         checkedReady &&
         pantryReady &&
         subtractReady &&
-        progressReady,
+        progressReady &&
+        storesReady &&
+        activeStoreReady,
+      setActiveStore(id) {
+        setActiveStoreId(id);
+      },
+      addStore(name) {
+        const nieuw: StoreProfile = {
+          id: nextProfileId(),
+          name: name.trim() || 'Nieuwe winkel',
+          // Beginnen bij de huidige volgorde scheelt sorteerwerk.
+          order: normalizeOrder(
+            stores.find((winkel) => winkel.id === activeStoreId)?.order ?? defaultProfile().order,
+          ),
+        };
+        setStores((huidig) => [...huidig, nieuw]);
+        setActiveStoreId(nieuw.id);
+      },
+      renameStore(id, name) {
+        setStores((huidig) =>
+          huidig.map((winkel) => (winkel.id === id ? { ...winkel, name: name.trim() } : winkel)),
+        );
+      },
+      removeStore(id) {
+        setStores((huidig) => {
+          const over = huidig.filter((winkel) => winkel.id !== id);
+          // Nooit zonder winkel komen te zitten.
+          return over.length > 0 ? over : [defaultProfile()];
+        });
+        if (activeStoreId === id) setActiveStoreId(DEFAULT_PROFILE_ID);
+      },
+      setStoreOrder(id, order) {
+        setStores((huidig) =>
+          huidig.map((winkel) =>
+            winkel.id === id ? { ...winkel, order: normalizeOrder(order) } : winkel,
+          ),
+        );
+      },
       isSelected,
       hasInPantry,
       setSubtractPantry,
@@ -217,12 +285,16 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
       pantry,
       subtractPantry,
       cookProgress,
+      stores,
+      activeStoreId,
       selectionReady,
       manualReady,
       checkedReady,
       pantryReady,
       subtractReady,
       progressReady,
+      storesReady,
+      activeStoreReady,
       isSelected,
       hasInPantry,
       setSelection,
@@ -231,6 +303,8 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
       setPantry,
       setSubtractPantry,
       setCookProgress,
+      setStores,
+      setActiveStoreId,
     ],
   );
 

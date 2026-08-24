@@ -1,63 +1,5 @@
 # Groente en fruit. Eén bestand per supermarktcategorie; de volgorde binnen het
 # bestand maakt niet uit, de app sorteert zelf op naam.
-- id: ui
-  name: ui
-  plural: uien
-  synonyms: [gele ui, uitje]
-  nameEn: onion
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 150 } }
-- id: rode-ui
-  name: rode ui
-  plural: rode uien
-  nameEn: red onion
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 140 } }
-- id: sjalot
-  name: sjalot
-  plural: sjalotten
-  nameEn: shallot
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 40 } }
-- id: knoflook
-  name: knoflook
-  synonyms: [knoflookteen, teentje knoflook, knoflookteentje]
-  nameEn: garlic
-  category: groente-en-fruit
-  defaultUnit: teentje
-  conversions: { teentje: { g: 5 } }
-- id: prei
-  name: prei
-  plural: preien
-  nameEn: leek
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 200 } }
-- id: winterpeen
-  name: winterpeen
-  plural: winterpenen
-  synonyms: [wortel, wortels, wortelen, peen]
-  nameEn: carrot
-  category: groente-en-fruit
-  defaultUnit: g
-  conversions: { stuks: { g: 120 } }
-- id: bleekselderij
-  name: bleekselderij
-  synonyms: [selderijstengel, selderiestengel]
-  nameEn: celery
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 60 } }
-  allergens: [selderij]
-- id: knolselderij
-  name: knolselderij
-  nameEn: celeriac
-  category: groente-en-fruit
-  defaultUnit: g
-  allergens: [selderij]
 - id: aardappel
   name: aardappel
   plural: aardappelen
@@ -67,181 +9,7 @@
   defaultUnit: g
   conversions: { stuks: { g: 150 } }
   packaging: { amount: 2500, unit: g }
-- id: krieltjes
-  name: krieltje
-  plural: krieltjes
-  synonyms: [krielaardappel, krielaardappelen]
-  nameEn: baby potato
-  category: groente-en-fruit
-  defaultUnit: g
-  packaging: { amount: 750, unit: g }
-- id: zoete-aardappel
-  name: zoete aardappel
-  plural: zoete aardappelen
-  nameEn: sweet potato
-  category: groente-en-fruit
-  defaultUnit: g
-  conversions: { stuks: { g: 300 } }
-- id: courgette
-  name: courgette
-  plural: courgettes
-  nameEn: courgette
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 250 } }
-- id: aubergine
-  name: aubergine
-  plural: aubergines
-  nameEn: aubergine
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 300 } }
-- id: paprika
-  name: paprika
-  plural: paprika's
-  synonyms: [rode paprika, gele paprika, groene paprika]
-  nameEn: bell pepper
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 160 } }
-- id: tomaat
-  name: tomaat
-  plural: tomaten
-  nameEn: tomato
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 110 } }
-- id: cherrytomaat
-  name: cherrytomaat
-  plural: cherrytomaten
-  synonyms: [kerstomaat, kerstomaten]
-  nameEn: cherry tomato
-  category: groente-en-fruit
-  defaultUnit: g
-  packaging: { amount: 250, unit: g }
-- id: komkommer
-  name: komkommer
-  plural: komkommers
-  nameEn: cucumber
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 400 } }
-- id: champignon
-  name: champignon
-  plural: champignons
-  synonyms: [kastanjechampignon, kastanjechampignons]
-  nameEn: mushroom
-  category: groente-en-fruit
-  defaultUnit: g
-  packaging: { amount: 250, unit: g }
-- id: spinazie
-  name: spinazie
-  synonyms: [verse spinazie]
-  nameEn: spinach
-  category: groente-en-fruit
-  defaultUnit: g
-  packaging: { amount: 300, unit: g }
-- id: boerenkool
-  name: boerenkool
-  nameEn: kale
-  category: groente-en-fruit
-  defaultUnit: g
-  packaging: { amount: 500, unit: g }
-- id: witte-kool
-  name: witte kool
-  nameEn: white cabbage
-  category: groente-en-fruit
-  defaultUnit: g
-  conversions: { stuks: { g: 1200 } }
-- id: spitskool
-  name: spitskool
-  plural: spitskolen
-  nameEn: pointed cabbage
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 700 } }
-- id: bloemkool
-  name: bloemkool
-  plural: bloemkolen
-  nameEn: cauliflower
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 800 } }
-- id: broccoli
-  name: broccoli
-  nameEn: broccoli
-  category: groente-en-fruit
-  defaultUnit: g
-  conversions: { stuks: { g: 400 } }
-- id: venkel
-  name: venkel
-  plural: venkelknollen
-  synonyms: [venkelknol]
-  nameEn: fennel
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 300 } }
-- id: sperziebonen
-  name: sperzieboon
-  plural: sperziebonen
-  synonyms: [haricots verts]
-  nameEn: green beans
-  category: groente-en-fruit
-  defaultUnit: g
-- id: doperwten
-  name: doperwt
-  plural: doperwten
-  nameEn: peas
-  category: groente-en-fruit
-  defaultUnit: g
-- id: pompoen
-  name: pompoen
-  plural: pompoenen
-  synonyms: [flespompoen, butternut]
-  nameEn: pumpkin
-  category: groente-en-fruit
-  defaultUnit: g
-- id: rode-biet
-  name: rode biet
-  plural: rode bieten
-  synonyms: [biet, bieten]
-  nameEn: beetroot
-  category: groente-en-fruit
-  defaultUnit: g
-  conversions: { stuks: { g: 150 } }
-- id: sla
-  name: sla
-  synonyms: [ijsbergsla, kropsla, botersla]
-  nameEn: lettuce
-  category: groente-en-fruit
-  defaultUnit: stuks
-- id: rucola
-  name: rucola
-  nameEn: rocket
-  category: groente-en-fruit
-  defaultUnit: g
-  packaging: { amount: 75, unit: g }
-- id: citroen
-  name: citroen
-  plural: citroenen
-  nameEn: lemon
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { ml: 45, g: 100 } }
-- id: limoen
-  name: limoen
-  plural: limoenen
-  nameEn: lime
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { ml: 25, g: 65 } }
-- id: sinaasappel
-  name: sinaasappel
-  plural: sinaasappels
-  nameEn: orange
-  category: groente-en-fruit
-  defaultUnit: stuks
-  conversions: { stuks: { g: 180 } }
+  price: { amount: 1.49, per: kg, date: 2026-08-24 }
 - id: appel
   name: appel
   plural: appels
@@ -250,6 +18,23 @@
   category: groente-en-fruit
   defaultUnit: g
   conversions: { stuks: { g: 170 } }
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }
+- id: aubergine
+  name: aubergine
+  plural: aubergines
+  nameEn: aubergine
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 300 } }
+  price: { amount: 1.29, per: stuks, date: 2026-08-24 }
+- id: avocado
+  name: avocado
+  plural: avocado's
+  nameEn: avocado
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 150 } }
+  price: { amount: 1.19, per: stuks, date: 2026-08-24 }
 - id: banaan
   name: banaan
   plural: bananen
@@ -257,13 +42,95 @@
   category: groente-en-fruit
   defaultUnit: stuks
   conversions: { stuks: { g: 120 } }
-- id: peer
-  name: peer
-  plural: peren
-  nameEn: pear
+  price: { amount: 0.35, per: stuks, date: 2026-08-24 }
+- id: blauwe-bessen
+  name: blauwe bes
+  plural: blauwe bessen
+  nameEn: blueberries
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 125, unit: g }
+  price: { amount: 15.9, per: kg, date: 2026-08-24 }
+- id: bleekselderij
+  name: bleekselderij
+  synonyms: [selderijstengel, selderiestengel]
+  nameEn: celery
   category: groente-en-fruit
   defaultUnit: stuks
-  conversions: { stuks: { g: 175 } }
+  conversions: { stuks: { g: 60 } }
+  price: { amount: 1.29, per: stuks, date: 2026-08-24 }
+  allergens: [selderij]
+- id: bloemkool
+  name: bloemkool
+  plural: bloemkolen
+  nameEn: cauliflower
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 800 } }
+  price: { amount: 1.79, per: stuks, date: 2026-08-24 }
+- id: boerenkool
+  name: boerenkool
+  nameEn: kale
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  price: { amount: 2.79, per: kg, date: 2026-08-24 }
+- id: broccoli
+  name: broccoli
+  nameEn: broccoli
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 400 } }
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }
+- id: champignon
+  name: champignon
+  plural: champignons
+  synonyms: [kastanjechampignon, kastanjechampignons]
+  nameEn: mushroom
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 250, unit: g }
+  price: { amount: 5.16, per: kg, date: 2026-08-24 }
+- id: cherrytomaat
+  name: cherrytomaat
+  plural: cherrytomaten
+  synonyms: [kerstomaat, kerstomaten]
+  nameEn: cherry tomato
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 250, unit: g }
+  price: { amount: 7.16, per: kg, date: 2026-08-24 }
+- id: citroen
+  name: citroen
+  plural: citroenen
+  nameEn: lemon
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { ml: 45, g: 100 } }
+  price: { amount: 0.45, per: stuks, date: 2026-08-24 }
+- id: courgette
+  name: courgette
+  plural: courgettes
+  nameEn: courgette
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 250 } }
+  price: { amount: 1.09, per: stuks, date: 2026-08-24 }
+- id: doperwten
+  name: doperwt
+  plural: doperwten
+  nameEn: peas
+  category: groente-en-fruit
+  defaultUnit: g
+  price: { amount: 2.99, per: kg, date: 2026-08-24 }
+- id: frambozen
+  name: framboos
+  plural: frambozen
+  nameEn: raspberries
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 125, unit: g }
+  price: { amount: 15.6, per: kg, date: 2026-08-24 }
 - id: gember
   name: gember
   synonyms: [verse gember, gemberwortel]
@@ -271,14 +138,39 @@
   category: groente-en-fruit
   defaultUnit: g
   conversions: { el: { g: 8 } }
-- id: rode-peper
-  name: rode peper
-  plural: rode pepers
-  synonyms: [chilipeper, chilipepers]
-  nameEn: red chilli
+  price: { amount: 7.99, per: kg, date: 2026-08-24 }
+- id: knoflook
+  name: knoflook
+  synonyms: [knoflookteen, teentje knoflook, knoflookteentje]
+  nameEn: garlic
+  category: groente-en-fruit
+  defaultUnit: teentje
+  conversions: { teentje: { g: 5 } }
+  price: { amount: 0.1, per: teentje, date: 2026-08-24 }
+- id: knolselderij
+  name: knolselderij
+  nameEn: celeriac
+  category: groente-en-fruit
+  defaultUnit: g
+  price: { amount: 1.99, per: stuks, date: 2026-08-24 }
+  allergens: [selderij]
+- id: komkommer
+  name: komkommer
+  plural: komkommers
+  nameEn: cucumber
   category: groente-en-fruit
   defaultUnit: stuks
-  conversions: { stuks: { g: 15 } }
+  conversions: { stuks: { g: 400 } }
+  price: { amount: 0.99, per: stuks, date: 2026-08-24 }
+- id: krieltjes
+  name: krieltje
+  plural: krieltjes
+  synonyms: [krielaardappel, krielaardappelen]
+  nameEn: baby potato
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 750, unit: g }
+  price: { amount: 2.65, per: kg, date: 2026-08-24 }
 - id: lente-ui
   name: lente-ui
   plural: lente-uitjes
@@ -287,34 +179,15 @@
   category: groente-en-fruit
   defaultUnit: stuks
   conversions: { stuks: { g: 15 } }
-- id: spruitjes
-  name: spruitje
-  plural: spruitjes
-  nameEn: brussels sprouts
-  category: groente-en-fruit
-  defaultUnit: g
-  packaging: { amount: 500, unit: g }
-- id: avocado
-  name: avocado
-  plural: avocado's
-  nameEn: avocado
+  price: { amount: 0.35, per: stuks, date: 2026-08-24 }
+- id: limoen
+  name: limoen
+  plural: limoenen
+  nameEn: lime
   category: groente-en-fruit
   defaultUnit: stuks
-  conversions: { stuks: { g: 150 } }
-- id: frambozen
-  name: framboos
-  plural: frambozen
-  nameEn: raspberries
-  category: groente-en-fruit
-  defaultUnit: g
-  packaging: { amount: 125, unit: g }
-- id: blauwe-bessen
-  name: blauwe bes
-  plural: blauwe bessen
-  nameEn: blueberries
-  category: groente-en-fruit
-  defaultUnit: g
-  packaging: { amount: 125, unit: g }
+  conversions: { stuks: { ml: 25, g: 65 } }
+  price: { amount: 0.45, per: stuks, date: 2026-08-24 }
 - id: paddenstoelen
   name: paddenstoel
   plural: paddenstoelen
@@ -322,6 +195,170 @@
   nameEn: mushrooms
   category: groente-en-fruit
   defaultUnit: g
+  price: { amount: 9.9, per: kg, date: 2026-08-24 }
+- id: paprika
+  name: paprika
+  plural: paprika's
+  synonyms: [rode paprika, gele paprika, groene paprika]
+  nameEn: bell pepper
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 160 } }
+  price: { amount: 1.09, per: stuks, date: 2026-08-24 }
+- id: peer
+  name: peer
+  plural: peren
+  nameEn: pear
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 175 } }
+  price: { amount: 2.29, per: kg, date: 2026-08-24 }
+- id: pompoen
+  name: pompoen
+  plural: pompoenen
+  synonyms: [flespompoen, butternut]
+  nameEn: pumpkin
+  category: groente-en-fruit
+  defaultUnit: g
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }
+- id: prei
+  name: prei
+  plural: preien
+  nameEn: leek
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 200 } }
+  price: { amount: 2.29, per: kg, date: 2026-08-24 }
+- id: rode-biet
+  name: rode biet
+  plural: rode bieten
+  synonyms: [biet, bieten]
+  nameEn: beetroot
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 150 } }
+  price: { amount: 2.19, per: kg, date: 2026-08-24 }
+- id: rode-peper
+  name: rode peper
+  plural: rode pepers
+  synonyms: [chilipeper, chilipepers]
+  nameEn: red chilli
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 15 } }
+  price: { amount: 0.4, per: stuks, date: 2026-08-24 }
+- id: rode-ui
+  name: rode ui
+  plural: rode uien
+  nameEn: red onion
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 140 } }
+  price: { amount: 1.79, per: kg, date: 2026-08-24 }
+- id: rucola
+  name: rucola
+  nameEn: rocket
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 75, unit: g }
+  price: { amount: 10.6, per: kg, date: 2026-08-24 }
+- id: sinaasappel
+  name: sinaasappel
+  plural: sinaasappels
+  nameEn: orange
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 180 } }
+  price: { amount: 0.6, per: stuks, date: 2026-08-24 }
+- id: sjalot
+  name: sjalot
+  plural: sjalotten
+  nameEn: shallot
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 40 } }
+  price: { amount: 0.35, per: stuks, date: 2026-08-24 }
+- id: sla
+  name: sla
+  synonyms: [ijsbergsla, kropsla, botersla]
+  nameEn: lettuce
+  category: groente-en-fruit
+  defaultUnit: stuks
+  price: { amount: 1.19, per: stuks, date: 2026-08-24 }
+- id: sperziebonen
+  name: sperzieboon
+  plural: sperziebonen
+  synonyms: [haricots verts]
+  nameEn: green beans
+  category: groente-en-fruit
+  defaultUnit: g
+  price: { amount: 3.99, per: kg, date: 2026-08-24 }
+- id: spinazie
+  name: spinazie
+  synonyms: [verse spinazie]
+  nameEn: spinach
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 300, unit: g }
+  price: { amount: 4.3, per: kg, date: 2026-08-24 }
+- id: spitskool
+  name: spitskool
+  plural: spitskolen
+  nameEn: pointed cabbage
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 700 } }
+  price: { amount: 1.49, per: stuks, date: 2026-08-24 }
+- id: spruitjes
+  name: spruitje
+  plural: spruitjes
+  nameEn: brussels sprouts
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  price: { amount: 3.29, per: kg, date: 2026-08-24 }
+- id: tomaat
+  name: tomaat
+  plural: tomaten
+  nameEn: tomato
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 110 } }
+  price: { amount: 0.45, per: stuks, date: 2026-08-24 }
+- id: ui
+  name: ui
+  plural: uien
+  synonyms: [gele ui, uitje]
+  nameEn: onion
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 150 } }
+  price: { amount: 0.3, per: stuks, date: 2026-08-24 }
+- id: venkel
+  name: venkel
+  plural: venkelknollen
+  synonyms: [venkelknol]
+  nameEn: fennel
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 300 } }
+  price: { amount: 1.69, per: stuks, date: 2026-08-24 }
+- id: winterpeen
+  name: winterpeen
+  plural: winterpenen
+  synonyms: [wortel, wortels, wortelen, peen]
+  nameEn: carrot
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 120 } }
+  price: { amount: 1.19, per: kg, date: 2026-08-24 }
+- id: witte-kool
+  name: witte kool
+  nameEn: white cabbage
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 1200 } }
+  price: { amount: 1.29, per: stuks, date: 2026-08-24 }
 - id: wokgroente
   name: wokgroente
   synonyms: [roerbakgroente]
@@ -329,3 +366,12 @@
   category: groente-en-fruit
   defaultUnit: g
   packaging: { amount: 400, unit: g }
+  price: { amount: 4.98, per: kg, date: 2026-08-24 }
+- id: zoete-aardappel
+  name: zoete aardappel
+  plural: zoete aardappelen
+  nameEn: sweet potato
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 300 } }
+  price: { amount: 2.49, per: kg, date: 2026-08-24 }

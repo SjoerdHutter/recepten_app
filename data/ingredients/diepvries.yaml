@@ -1,17 +1,4 @@
 # Diepvries.
-- id: diepvriesdoperwten
-  name: diepvriesdoperwten
-  synonyms: [erwtjes uit de diepvries]
-  nameEn: frozen peas
-  category: diepvries
-  defaultUnit: g
-  packaging: { amount: 450, unit: g }
-- id: diepvriesspinazie
-  name: diepvriesspinazie
-  nameEn: frozen spinach
-  category: diepvries
-  defaultUnit: g
-  packaging: { amount: 450, unit: g }
 - id: bladerdeeg
   name: bladerdeeg
   plural: plakjes bladerdeeg
@@ -19,7 +6,30 @@
   category: diepvries
   defaultUnit: stuks
   packaging: { amount: 10, unit: stuks }
+  price: { amount: 4.5, per: kg, date: 2026-08-24 }
   allergens: [gluten]
+- id: diepvriesdoperwten
+  name: diepvriesdoperwten
+  synonyms: [erwtjes uit de diepvries]
+  nameEn: frozen peas
+  category: diepvries
+  defaultUnit: g
+  packaging: { amount: 450, unit: g }
+  price: { amount: 2.29, per: kg, date: 2026-08-24 }
+- id: diepvriesgarnalen
+  name: diepvriesgarnalen
+  nameEn: frozen prawns
+  category: diepvries
+  defaultUnit: g
+  price: { amount: 19.9, per: kg, date: 2026-08-24 }
+  allergens: [schaaldieren]
+- id: diepvriesspinazie
+  name: diepvriesspinazie
+  nameEn: frozen spinach
+  category: diepvries
+  defaultUnit: g
+  packaging: { amount: 450, unit: g }
+  price: { amount: 2.19, per: kg, date: 2026-08-24 }
 - id: diepvriesfrites
   name: frites
   synonyms: [friet, patat]
@@ -27,9 +37,4 @@
   category: diepvries
   defaultUnit: g
   packaging: { amount: 1000, unit: g }
-- id: diepvriesgarnalen
-  name: diepvriesgarnalen
-  nameEn: frozen prawns
-  category: diepvries
-  defaultUnit: g
-  allergens: [schaaldieren]
+  price: { amount: 1.99, per: kg, date: 2026-08-24 }
