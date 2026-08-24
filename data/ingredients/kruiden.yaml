@@ -1,133 +1,17 @@
 # Kruiden, specerijen en smaakmakers uit het kruidenrek.
-- id: zout
-  name: zout
-  synonyms: [keukenzout, zeezout, grof zout]
-  nameEn: salt
-  category: kruiden
-  defaultUnit: snufje
-  conversions: { tl: { g: 6 } }
-- id: peper
-  name: zwarte peper
-  synonyms: [peper, versgemalen peper]
-  nameEn: black pepper
-  category: kruiden
-  defaultUnit: snufje
-  conversions: { tl: { g: 2 } }
-- id: laurierblad
-  name: laurierblad
-  plural: laurierblaadjes
-  synonyms: [laurier]
-  nameEn: bay leaf
-  category: kruiden
-  defaultUnit: stuks
-- id: tijm
-  name: tijm
-  synonyms: [verse tijm, gedroogde tijm]
-  nameEn: thyme
-  category: kruiden
-  defaultUnit: tl
-- id: rozemarijn
-  name: rozemarijn
-  synonyms: [verse rozemarijn]
-  nameEn: rosemary
-  category: kruiden
-  defaultUnit: el
-- id: oregano
-  name: oregano
-  nameEn: oregano
-  category: kruiden
-  defaultUnit: tl
-- id: peterselie
-  name: peterselie
-  synonyms: [platte peterselie, krulpeterselie]
-  nameEn: parsley
-  category: kruiden
-  defaultUnit: bosje
-  conversions: { bosje: { g: 25 } }
 - id: basilicum
   name: basilicum
   nameEn: basil
   category: kruiden
   defaultUnit: bosje
   conversions: { bosje: { g: 20 } }
-- id: koriander
-  name: koriander
-  synonyms: [verse koriander, korianderblad]
-  nameEn: coriander
-  category: kruiden
-  defaultUnit: bosje
-  conversions: { bosje: { g: 20 } }
+  price: { amount: 1.29, per: bosje, date: 2026-08-24 }
 - id: bieslook
   name: bieslook
   nameEn: chives
   category: kruiden
   defaultUnit: bosje
-- id: dille
-  name: dille
-  nameEn: dill
-  category: kruiden
-  defaultUnit: bosje
-- id: paprikapoeder
-  name: paprikapoeder
-  synonyms: [gerookt paprikapoeder, paprikapoeder gerookt]
-  nameEn: paprika powder
-  category: kruiden
-  defaultUnit: tl
-- id: komijn
-  name: komijn
-  synonyms: [komijnzaad, djintan]
-  nameEn: cumin
-  category: kruiden
-  defaultUnit: tl
-- id: kerriepoeder
-  name: kerriepoeder
-  synonyms: [kerrie, currypoeder]
-  nameEn: curry powder
-  category: kruiden
-  defaultUnit: tl
-- id: kaneel
-  name: kaneel
-  synonyms: [gemalen kaneel, kaneelpoeder]
-  nameEn: cinnamon
-  category: kruiden
-  defaultUnit: tl
-- id: nootmuskaat
-  name: nootmuskaat
-  nameEn: nutmeg
-  category: kruiden
-  defaultUnit: snufje
-- id: kruidnagel
-  name: kruidnagel
-  plural: kruidnagels
-  nameEn: clove
-  category: kruiden
-  defaultUnit: stuks
-- id: chilivlokken
-  name: chilivlokken
-  synonyms: [pepervlokken, chiliflakes]
-  nameEn: chilli flakes
-  category: kruiden
-  defaultUnit: tl
-- id: currypasta
-  name: rode currypasta
-  synonyms: [currypasta, groene currypasta]
-  nameEn: curry paste
-  category: kruiden
-  defaultUnit: el
-  packaging: { amount: 100, unit: g }
-- id: mosterd
-  name: mosterd
-  synonyms: [Dijonmosterd, grove mosterd]
-  nameEn: mustard
-  category: kruiden
-  defaultUnit: el
-  conversions: { el: { g: 16 } }
-  allergens: [mosterd]
-- id: sambal
-  name: sambal
-  nameEn: sambal
-  category: kruiden
-  defaultUnit: tl
+  price: { amount: 1.29, per: bosje, date: 2026-08-24 }
 - id: bouillonblokje
   name: bouillonblokje
   plural: bouillonblokjes
@@ -135,25 +19,108 @@
   nameEn: stock cube
   category: kruiden
   defaultUnit: stuks
+  price: { amount: 0.15, per: stuks, date: 2026-08-24 }
   allergens: [selderij]
-- id: vanillesuiker
-  name: vanillesuiker
-  nameEn: vanilla sugar
-  category: kruiden
-  defaultUnit: g
-  packaging: { amount: 8, unit: g }
-- id: kurkuma
-  name: kurkuma
-  synonyms: [koenjit, geelwortel]
-  nameEn: turmeric
+- id: chilivlokken
+  name: chilivlokken
+  synonyms: [pepervlokken, chiliflakes]
+  nameEn: chilli flakes
   category: kruiden
   defaultUnit: tl
+  price: { amount: 0.08, per: tl, date: 2026-08-24 }
+- id: chipotlepoeder
+  name: chipotlepoeder
+  synonyms: [chipotle]
+  nameEn: chipotle powder
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.1, per: tl, date: 2026-08-24 }
+- id: dille
+  name: dille
+  nameEn: dill
+  category: kruiden
+  defaultUnit: bosje
+  price: { amount: 1.29, per: bosje, date: 2026-08-24 }
+- id: gedroogde-basilicum
+  name: gedroogde basilicum
+  nameEn: dried basil
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
 - id: italiaanse-kruiden
   name: Italiaanse kruiden
   synonyms: [provencaalse kruiden, mediterrane kruiden]
   nameEn: italian herbs
   category: kruiden
   defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
+- id: kaneel
+  name: kaneel
+  synonyms: [gemalen kaneel, kaneelpoeder]
+  nameEn: cinnamon
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
+- id: kerriepoeder
+  name: kerriepoeder
+  synonyms: [kerrie, currypoeder]
+  nameEn: curry powder
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
+- id: komijn
+  name: komijn
+  synonyms: [komijnzaad, djintan]
+  nameEn: cumin
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
+- id: koriander
+  name: koriander
+  synonyms: [verse koriander, korianderblad]
+  nameEn: coriander
+  category: kruiden
+  defaultUnit: bosje
+  conversions: { bosje: { g: 20 } }
+  price: { amount: 1.29, per: bosje, date: 2026-08-24 }
+- id: korianderpoeder
+  name: korianderpoeder
+  synonyms: [gemalen koriander]
+  nameEn: ground coriander
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
+- id: kruidnagel
+  name: kruidnagel
+  plural: kruidnagels
+  nameEn: clove
+  category: kruiden
+  defaultUnit: stuks
+  price: { amount: 0.05, per: stuks, date: 2026-08-24 }
+- id: kurkuma
+  name: kurkuma
+  synonyms: [koenjit, geelwortel]
+  nameEn: turmeric
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
+- id: laurierblad
+  name: laurierblad
+  plural: laurierblaadjes
+  synonyms: [laurier]
+  nameEn: bay leaf
+  category: kruiden
+  defaultUnit: stuks
+  price: { amount: 0.04, per: stuks, date: 2026-08-24 }
+- id: mosterd
+  name: mosterd
+  synonyms: [Dijonmosterd, grove mosterd]
+  nameEn: mustard
+  category: kruiden
+  defaultUnit: el
+  conversions: { el: { g: 16 } }
+  price: { amount: 0.12, per: el, date: 2026-08-24 }
+  allergens: [mosterd]
 - id: munt
   name: munt
   synonyms: [verse munt, pepermunt]
@@ -161,31 +128,95 @@
   category: kruiden
   defaultUnit: g
   conversions: { bosje: { g: 20 } }
+  price: { amount: 1.29, per: bosje, date: 2026-08-24 }
+- id: nootmuskaat
+  name: nootmuskaat
+  nameEn: nutmeg
+  category: kruiden
+  defaultUnit: snufje
+  price: { amount: 0.01, per: snufje, date: 2026-08-24 }
+- id: oregano
+  name: oregano
+  nameEn: oregano
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
+- id: paprikapoeder
+  name: paprikapoeder
+  synonyms: [gerookt paprikapoeder, paprikapoeder gerookt]
+  nameEn: paprika powder
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
+- id: peterselie
+  name: peterselie
+  synonyms: [platte peterselie, krulpeterselie]
+  nameEn: parsley
+  category: kruiden
+  defaultUnit: bosje
+  conversions: { bosje: { g: 25 } }
+  price: { amount: 1.29, per: bosje, date: 2026-08-24 }
+- id: currypasta
+  name: rode currypasta
+  synonyms: [currypasta, groene currypasta]
+  nameEn: curry paste
+  category: kruiden
+  defaultUnit: el
+  packaging: { amount: 100, unit: g }
+  price: { amount: 0.4, per: el, date: 2026-08-24 }
+- id: rozemarijn
+  name: rozemarijn
+  synonyms: [verse rozemarijn]
+  nameEn: rosemary
+  category: kruiden
+  defaultUnit: el
+  price: { amount: 1.29, per: bosje, date: 2026-08-24 }
 - id: salie
   name: salie
   synonyms: [verse salie]
   nameEn: sage
   category: kruiden
   defaultUnit: blad
-- id: gedroogde-basilicum
-  name: gedroogde basilicum
-  nameEn: dried basil
+  price: { amount: 0.05, per: blad, date: 2026-08-24 }
+- id: sambal
+  name: sambal
+  nameEn: sambal
   category: kruiden
   defaultUnit: tl
-- id: korianderpoeder
-  name: korianderpoeder
-  synonyms: [gemalen koriander]
-  nameEn: ground coriander
-  category: kruiden
-  defaultUnit: tl
-- id: chipotlepoeder
-  name: chipotlepoeder
-  synonyms: [chipotle]
-  nameEn: chipotle powder
-  category: kruiden
-  defaultUnit: tl
+  price: { amount: 0.08, per: tl, date: 2026-08-24 }
 - id: sumak
   name: sumak
   nameEn: sumac
   category: kruiden
   defaultUnit: tl
+  price: { amount: 0.12, per: tl, date: 2026-08-24 }
+- id: tijm
+  name: tijm
+  synonyms: [verse tijm, gedroogde tijm]
+  nameEn: thyme
+  category: kruiden
+  defaultUnit: tl
+  price: { amount: 0.06, per: tl, date: 2026-08-24 }
+- id: vanillesuiker
+  name: vanillesuiker
+  nameEn: vanilla sugar
+  category: kruiden
+  defaultUnit: g
+  packaging: { amount: 8, unit: g }
+  price: { amount: 12.9, per: kg, date: 2026-08-24 }
+- id: zout
+  name: zout
+  synonyms: [keukenzout, zeezout, grof zout]
+  nameEn: salt
+  category: kruiden
+  defaultUnit: snufje
+  conversions: { tl: { g: 6 } }
+  price: { amount: 0.001, per: snufje, date: 2026-08-24 }
+- id: peper
+  name: zwarte peper
+  synonyms: [peper, versgemalen peper]
+  nameEn: black pepper
+  category: kruiden
+  defaultUnit: snufje
+  conversions: { tl: { g: 2 } }
+  price: { amount: 0.01, per: snufje, date: 2026-08-24 }

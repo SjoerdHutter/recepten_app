@@ -195,6 +195,30 @@ export const setDefaultUnit = (state: LibraryState, id: string, unit: Unit): Lib
   };
 };
 
+/**
+ * De richtprijs bijstellen. De peildatum gaat automatisch mee: een bedrag
+ * zonder datum zegt over een jaar niets meer, en juist die datum laat de app
+ * zien bij elke schatting.
+ */
+export const setPrice = (
+  state: LibraryState,
+  id: string,
+  amount: number,
+  per: Unit,
+): LibraryEdit => {
+  const huidig = zoek(state, id);
+  const nieuw: Ingredient = {
+    ...huidig,
+    price: { amount, per, date: new Date().toISOString().slice(0, 10) },
+  };
+  return {
+    state: { ingredients: vervang(state.ingredients, nieuw), recipes: state.recipes },
+    summary: `Prijs van ${huidig.name} bijgewerkt`,
+    touchedCategories: [huidig.category],
+    changedRecipeIds: [],
+  };
+};
+
 /** Koppelt een losse receptregel alsnog aan een ingrediënt uit de bibliotheek. */
 export const linkRecipeLine = (
   state: LibraryState,

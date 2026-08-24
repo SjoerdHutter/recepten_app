@@ -5,28 +5,14 @@
   nameEn: bread
   category: brood
   defaultUnit: stuks
-  allergens: [gluten]
-- id: stokbrood
-  name: stokbrood
-  plural: stokbroden
-  synonyms: [baguette]
-  nameEn: baguette
-  category: brood
-  defaultUnit: stuks
+  price: { amount: 0.2, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
 - id: ciabatta
   name: ciabatta
   nameEn: ciabatta
   category: brood
   defaultUnit: stuks
-  allergens: [gluten]
-- id: tortilla
-  name: tortilla
-  plural: tortillas
-  synonyms: [wrap, wraps]
-  nameEn: tortilla
-  category: brood
-  defaultUnit: stuks
+  price: { amount: 1.49, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
 - id: pitabroodje
   name: pitabroodje
@@ -34,6 +20,7 @@
   nameEn: pita
   category: brood
   defaultUnit: stuks
+  price: { amount: 0.35, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
 - id: platbrood
   name: plat brood
@@ -42,4 +29,23 @@
   nameEn: flatbread
   category: brood
   defaultUnit: stuks
+  price: { amount: 0.6, per: stuks, date: 2026-08-24 }
+  allergens: [gluten]
+- id: stokbrood
+  name: stokbrood
+  plural: stokbroden
+  synonyms: [baguette]
+  nameEn: baguette
+  category: brood
+  defaultUnit: stuks
+  price: { amount: 1.19, per: stuks, date: 2026-08-24 }
+  allergens: [gluten]
+- id: tortilla
+  name: tortilla
+  plural: tortillas
+  synonyms: [wrap, wraps]
+  nameEn: tortilla
+  category: brood
+  defaultUnit: stuks
+  price: { amount: 0.4, per: stuks, date: 2026-08-24 }
   allergens: [gluten]

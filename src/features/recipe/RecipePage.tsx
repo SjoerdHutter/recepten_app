@@ -4,7 +4,8 @@ import { removeRecipe } from '../../data/recipes/saveRecipe';
 import { ALLERGEN_LABELS, MONTH_LABELS } from '../../domain/schema/enums';
 import { activeMinutes, totalMinutes } from '../../domain/schema/recipe';
 import { scaleRecipe } from '../../domain/scaling/scale';
-import { formatMinutes, formatQuantity } from '../../domain/units/format';
+import { recipeCost } from '../../domain/store/cost';
+import { formatEuro, formatMinutes, formatQuantity } from '../../domain/units/format';
 import { cookPath } from '../cook/CookPage';
 import { RecipeHistory } from '../history/RecipeHistory';
 import { PlanSheet } from '../planner/PlanSheet';
@@ -67,6 +68,11 @@ export const RecipePage = () => {
   const geschaald = useMemo(
     () => (metAanpassingen ? scaleRecipe(metAanpassingen, aantal, library) : []),
     [metAanpassingen, aantal, library],
+  );
+
+  const kosten = useMemo(
+    () => (metAanpassingen ? recipeCost(metAanpassingen, library, aantal) : undefined),
+    [metAanpassingen, library, aantal],
   );
 
   if (!recipe) {
@@ -142,9 +148,17 @@ export const RecipePage = () => {
       </div>
 
       <section>
-        <h2 className="mb-2 text-lg font-semibold">
-          Ingrediënten{' '}
+        <h2 className="mb-2 flex flex-wrap items-baseline gap-x-2 text-lg font-semibold">
+          <span>Ingrediënten</span>
           <span className="text-sm font-normal text-ink-3">voor {aantal} personen</span>
+          {kosten && kosten.known > 0 ? (
+            <span
+              className="text-sm font-normal text-ink-3"
+              title={`Schatting op basis van richtprijzen bij ${kosten.known} van de ${kosten.known + kosten.unknown} ingrediënten.`}
+            >
+              · ± {formatEuro(kosten.perServing)} per portie
+            </span>
+          ) : null}
         </h2>
         <Card className="divide-y divide-line">
           {geschaald.map((item, index) => (

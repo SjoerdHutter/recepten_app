@@ -6,12 +6,14 @@ import {
   mergeIngredients,
   renameIngredient,
   setDefaultUnit,
+  setPrice,
   type LibraryState,
 } from '../../domain/ingredients/edits';
 import { createLibrary } from '../../domain/ingredients/library';
 import { CATEGORIES, CATEGORY_LABELS, type Category } from '../../domain/schema/enums';
 import type { Ingredient } from '../../domain/schema/ingredient';
 import { UNITS, type Unit } from '../../domain/units/units';
+import { formatEuro } from '../../domain/units/format';
 import { Icon } from '../../ui/Icon';
 import { Sheet } from '../../ui/Sheet';
 import { Button, Chip } from '../../ui/controls';
@@ -46,6 +48,12 @@ export const IngredientSheet = ({
   const [samenvoegen, setSamenvoegen] = useState(false);
   const [zoek, setZoek] = useState('');
   const [bevestigVerwijderen, setBevestigVerwijderen] = useState(false);
+  const [prijs, setPrijs] = useState(
+    ingredient?.price ? String(ingredient.price.amount).replace('.', ',') : '',
+  );
+  const [prijsEenheid, setPrijsEenheid] = useState<Unit>(
+    ingredient?.price?.per ?? ingredient?.defaultUnit ?? 'kg',
+  );
 
   const bibliotheek = useMemo(() => createLibrary(state.ingredients), [state.ingredients]);
   const kandidaten = useMemo(
@@ -184,6 +192,51 @@ export const IngredientSheet = ({
               </Chip>
             ))}
           </div>
+        </section>
+
+        <section className="flex flex-col gap-2">
+          <h3 className="text-sm font-semibold">Richtprijs</h3>
+          <p className="text-xs text-ink-3">
+            {ingredient.price
+              ? `Nu ${formatEuro(ingredient.price.amount)} per ${ingredient.price.per}, peildatum ${ingredient.price.date.slice(0, 10)}.`
+              : 'Nog geen prijs bekend; dit ingrediënt telt niet mee in de kostenschatting.'}{' '}
+            De meegeleverde prijzen zijn schattingen, geen metingen.
+          </p>
+          <div className="flex items-center gap-2">
+            <span className="text-ink-2">€</span>
+            <input
+              value={prijs}
+              onChange={(event) => setPrijs(event.target.value)}
+              inputMode="decimal"
+              placeholder="0,00"
+              className="h-12 w-24 rounded-xl border border-line bg-surface px-3 tabular-nums"
+              aria-label="Prijs"
+            />
+            <span className="text-ink-2">per</span>
+            <select
+              value={prijsEenheid}
+              onChange={(event) => setPrijsEenheid(event.target.value as Unit)}
+              className="h-12 rounded-xl border border-line bg-surface px-2"
+              aria-label="Prijs per eenheid"
+            >
+              {UNITS.map((optie) => (
+                <option key={optie} value={optie}>
+                  {optie}
+                </option>
+              ))}
+            </select>
+          </div>
+          <Button
+            variant="primary"
+            disabled={status.busy || !prijs.trim()}
+            onClick={() => {
+              const bedrag = Number(prijs.trim().replace(',', '.'));
+              if (!Number.isFinite(bedrag) || bedrag < 0) return;
+              void apply((s) => setPrice(s, ingredient.id, bedrag, prijsEenheid));
+            }}
+          >
+            Prijs opslaan
+          </Button>
         </section>
 
         <section className="flex flex-col gap-2">

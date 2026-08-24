@@ -57,7 +57,7 @@ const zetFlow = (node: unknown): void => {
  * lijsten zonder die spaties ([oven, koken]) en objecten juist met
  * ({ amount: 2 }), dus de lijsten worden hier rechtgetrokken.
  */
-const LIJSTVELDEN = /^(methods|tags|season|allergens|synonyms): \[ (.*) \]$/gm;
+const LIJSTVELDEN = /^(\s*)(methods|tags|season|allergens|synonyms): \[ (.*) \]$/gm;
 
 const schrijf = (doc: Document): string =>
   doc.toString({
@@ -66,7 +66,7 @@ const schrijf = (doc: Document): string =>
     defaultStringType: 'PLAIN',
     defaultKeyType: 'PLAIN',
     nullStr: '',
-  }).replace(LIJSTVELDEN, '$1: [$2]');
+  }).replace(LIJSTVELDEN, '$1$2: [$3]');
 
 export const recipeToYaml = (recipe: Recipe): string => {
   const plat = orderKeys(
