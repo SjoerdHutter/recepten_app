@@ -89,6 +89,9 @@ export const buildShoppingList = (
 
   for (const selection of selections) {
     for (const item of scaleRecipe(selection.recipe, selection.servings, library)) {
+      // "Peper en zout naar smaak" heeft geen hoeveelheid en valt dus ook niet
+      // te kopen; die regels blijven bij het recept.
+      if (item.exactAmount === undefined || item.unit === undefined) continue;
       const naam = item.line.name ?? item.ingredient?.name ?? '';
       const key = item.line.ingredientId ?? `vrij:${normalizeName(naam)}`;
       const groep = groepen.get(key) ?? {

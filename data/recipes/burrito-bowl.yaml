@@ -1,0 +1,45 @@
+id: burrito-bowl
+title: Burrito bowl
+description: "Alles los in een kom: rijst, zwarte bonen, mais en avocado, met limoen en chipotle."
+times:
+  prep: 15
+  active: 10
+  passive: 15
+methods: [koken, bakken]
+difficulty: makkelijk
+pans: 3
+servings: 4
+ingredients:
+  - { amount: 300, unit: g, ingredientId: zilvervliesrijst }
+  - { amount: 400, unit: g, ingredientId: kipfilet, note: of gerookte tofu }
+  - { amount: 400, unit: g, ingredientId: zwarte-bonen, note: "uit blik, uitgelekt" }
+  - { amount: 300, unit: g, ingredientId: mais, note: "uit blik, uitgelekt" }
+  - { amount: 2, unit: stuks, ingredientId: avocado }
+  - { amount: 2, unit: stuks, ingredientId: tomaat }
+  - { amount: 1, unit: stuks, ingredientId: rode-ui }
+  - { amount: 2, unit: stuks, ingredientId: limoen }
+  - { amount: 15, unit: g, ingredientId: koriander, note: vers }
+  - { amount: 100, unit: g, ingredientId: cheddar, note: geraspt }
+  - { amount: 150, unit: g, ingredientId: creme-fraiche, note: of Griekse yoghurt }
+  - { amount: 2, unit: el, ingredientId: olijfolie }
+  - { amount: 1, unit: el, ingredientId: paprikapoeder, note: gerookt, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: komijn, note: gemalen, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: oregano, note: gedroogd, scales: taste }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Kook de zilvervliesrijst volgens de verpakking, ongeveer 25 minuten. Roer na het afgieten het sap van een halve limoen en de helft van de koriander erdoor.
+    timer: 1500
+  - text: Snijd de kip of tofu in blokjes en meng met paprikapoeder, komijn, oregano, zout en peper.
+  - text: Bak in de olijfolie in ongeveer 8 minuten rondom bruin en gaar.
+    timer: 480
+  - text: Verwarm de zwarte bonen kort met een snuf komijn.
+  - text: Maak een snelle salsa van tomaat, rode ui, de rest van de koriander en limoensap.
+  - text: Verdeel rijst over vier kommen en leg de bonen, mais, kip of tofu, salsa en avocado er in stroken op. Werk af met cheddar en creme fraiche.
+tags: [rijst, mexicaans]
+season: []
+allergens: [melk]
+source: { type: text, text: Eigen recept }
+notes: Gebruik zilvervliesrijst in plaats van witte rijst. De onderdelen blijven los bewaard drie dagen goed, ideaal voor meal prep.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

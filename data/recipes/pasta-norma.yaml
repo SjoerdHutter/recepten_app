@@ -1,0 +1,39 @@
+id: pasta-norma
+title: Pasta Norma
+description: Geroosterde aubergine in tomatensaus, met gezouten ricotta erover.
+times:
+  prep: 10
+  active: 12
+  passive: 23
+methods: [oven, koken]
+difficulty: gemiddeld
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 600, unit: g, ingredientId: aubergine }
+  - { amount: 400, unit: g, ingredientId: pasta, note: rigatoni }
+  - { amount: 800, unit: g, ingredientId: tomatenblokjes, note: uit blik }
+  - { amount: 3, unit: teentje, ingredientId: knoflook }
+  - { amount: 20, unit: g, ingredientId: basilicum, note: vers }
+  - { amount: 100, unit: g, ingredientId: pecorino, note: ricotta salata of pecorino }
+  - { amount: 4, unit: el, ingredientId: olijfolie }
+  - { amount: 0.5, unit: tl, ingredientId: chilivlokken, scales: taste }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verwarm de oven voor op 220 graden hetelucht.
+    ovenTemp: 220
+  - text: Snijd de aubergine in blokjes van 2 centimeter, meng met 3 eetlepels olijfolie en zout en rooster 25 minuten tot ze goudbruin en zacht zijn.
+    timer: 1500
+  - text: Verhit de rest van de olie in een pan en bak de fijngesneden knoflook met de chilivlokken kort aan.
+  - text: Voeg de tomatenblokjes toe en laat 15 minuten inkoken. Breng op smaak met zout en peper.
+    timer: 900
+  - text: Kook de pasta beetgaar en bewaar een kop kookvocht.
+  - text: Schep de aubergine door de saus, meng met de pasta en wat kookvocht en werk af met veel basilicum en geraspte ricotta salata.
+tags: [pasta, italiaans, vegetarisch, gezond]
+season: [3, 4, 5, 6, 7, 8]
+allergens: [gluten, melk]
+source: { type: text, text: Eigen recept }
+notes: Aubergine in de oven roosteren scheelt veel olie vergeleken met bakken in de pan.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

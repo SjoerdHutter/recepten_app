@@ -248,3 +248,194 @@
   nameEn: apple syrup
   category: houdbaar
   defaultUnit: el
+- id: quinoa
+  name: quinoa
+  nameEn: quinoa
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }
+- id: havermout
+  name: havermout
+  synonyms: [havervlokken]
+  nameEn: oats
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  allergens: [gluten]
+- id: panko
+  name: panko
+  synonyms: [panko paneermeel]
+  nameEn: panko
+  category: houdbaar
+  defaultUnit: g
+  allergens: [gluten]
+- id: noedels
+  name: noedel
+  plural: noedels
+  synonyms: [mie, udon, ramen, mienoedels]
+  nameEn: noodles
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 250, unit: g }
+  allergens: [gluten]
+- id: rijstvermicelli
+  name: rijstvermicelli
+  synonyms: [rijstnoedels]
+  nameEn: rice vermicelli
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 200, unit: g }
+- id: rijstpapier
+  name: rijstpapier
+  plural: vellen rijstpapier
+  synonyms: [rijstvellen]
+  nameEn: rice paper
+  category: houdbaar
+  defaultUnit: stuks
+- id: zilvervliesrijst
+  name: zilvervliesrijst
+  synonyms: [bruine rijst]
+  nameEn: brown rice
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 1000, unit: g }
+- id: rode-linzen
+  name: rode linzen
+  synonyms: [rode linze]
+  nameEn: red lentils
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+- id: zwarte-bonen
+  name: zwarte boon
+  plural: zwarte bonen
+  nameEn: black beans
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }
+- id: mais
+  name: mais
+  synonyms: [maiskorrels, blik mais]
+  nameEn: sweetcorn
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 300, unit: g }
+- id: groentebouillon
+  name: groentebouillon
+  synonyms: [bouillon, kippenbouillon]
+  nameEn: vegetable stock
+  category: houdbaar
+  defaultUnit: ml
+  allergens: [selderij]
+- id: eekhoorntjesbrood
+  name: eekhoorntjesbrood
+  synonyms: [porcini, gedroogde paddenstoelen]
+  nameEn: porcini
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 20, unit: g }
+- id: kappertjes
+  name: kappertje
+  plural: kappertjes
+  nameEn: capers
+  category: houdbaar
+  defaultUnit: el
+  packaging: { amount: 100, unit: g }
+- id: hoisinsaus
+  name: hoisinsaus
+  nameEn: hoisin sauce
+  category: houdbaar
+  defaultUnit: el
+  allergens: [soja, gluten, sesam]
+- id: miso
+  name: miso
+  synonyms: [witte miso, misopasta]
+  nameEn: miso
+  category: houdbaar
+  defaultUnit: tl
+  allergens: [soja]
+- id: sriracha
+  name: sriracha
+  nameEn: sriracha
+  category: houdbaar
+  defaultUnit: tl
+- id: tahin
+  name: tahin
+  synonyms: [tahini, sesampasta]
+  nameEn: tahini
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 15 } }
+  allergens: [sesam]
+- id: ahornsiroop
+  name: ahornsiroop
+  synonyms: [maple syrup]
+  nameEn: maple syrup
+  category: houdbaar
+  defaultUnit: el
+- id: voedingsgist
+  name: voedingsgist
+  synonyms: [nutritional yeast, edelgistvlokken]
+  nameEn: nutritional yeast
+  category: houdbaar
+  defaultUnit: el
+- id: pindas
+  name: pinda
+  plural: pinda's
+  synonyms: [pindanoten, gehakte pindas]
+  nameEn: peanuts
+  category: houdbaar
+  defaultUnit: g
+  allergens: [pinda]
+- id: pistachenoten
+  name: pistachenoot
+  plural: pistachenoten
+  synonyms: [pistache, pistaches]
+  nameEn: pistachios
+  category: houdbaar
+  defaultUnit: g
+  allergens: [noten]
+- id: pompoenpitten
+  name: pompoenpit
+  plural: pompoenpitten
+  nameEn: pumpkin seeds
+  category: houdbaar
+  defaultUnit: g
+- id: witte-chocolade
+  name: witte chocolade
+  nameEn: white chocolate
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 100, unit: g }
+  allergens: [melk, soja]
+- id: maizena
+  name: maizena
+  synonyms: [maiszetmeel]
+  nameEn: cornstarch
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 8 } }
+- id: baksoda
+  name: baksoda
+  synonyms: [natriumbicarbonaat, zuiveringszout]
+  nameEn: baking soda
+  category: houdbaar
+  defaultUnit: tl
+- id: poedersuiker
+  name: poedersuiker
+  synonyms: [bloemsuiker]
+  nameEn: icing sugar
+  category: houdbaar
+  defaultUnit: g
+  conversions: { el: { g: 8 } }
+- id: witte-basterdsuiker
+  name: witte basterdsuiker
+  nameEn: white caster sugar
+  category: houdbaar
+  defaultUnit: g
+- id: vanille-extract
+  name: vanille-extract
+  synonyms: [vanilleextract, vanillearoma]
+  nameEn: vanilla extract
+  category: houdbaar
+  defaultUnit: tl

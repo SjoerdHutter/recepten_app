@@ -1,0 +1,42 @@
+id: citroen-meringue-taart
+title: Citroen meringue taart
+description: Zelfgemaakte lemon curd onder een dikke laag meringue. Een middag werk, maar dan heb je ook wat.
+times:
+  prep: 40
+  active: 20
+  passive: 30
+methods: [oven, koken]
+difficulty: uitdagend
+pans: 3
+servings: 10
+ingredients:
+  - { amount: 225, unit: g, ingredientId: bloem, scales: fixed }
+  - { amount: 160, unit: g, ingredientId: boter, note: "koud, in blokjes", scales: fixed }
+  - { amount: 80, unit: g, ingredientId: witte-basterdsuiker, scales: fixed }
+  - { amount: 0.5, unit: stuks, ingredientId: ei, note: "losgeklopt, voor het deeg", scales: fixed }
+  - { amount: 1, unit: snufje, ingredientId: zout, scales: taste }
+  - { amount: 50, unit: g, ingredientId: maizena, scales: fixed }
+  - { amount: 130, unit: g, ingredientId: suiker, note: voor de curd, scales: fixed }
+  - { amount: 2, unit: stuks, ingredientId: citroen, scales: fixed }
+  - { amount: 250, unit: ml, ingredientId: water, scales: fixed }
+  - { amount: 3, unit: stuks, ingredientId: ei, note: alleen de dooier, scales: fixed }
+  - { amount: 60, unit: g, ingredientId: boter, note: voor de curd, scales: fixed }
+  - { amount: 3, unit: stuks, ingredientId: ei, note: alleen het eiwit, scales: fixed }
+  - { amount: 100, unit: g, ingredientId: suiker, note: voor de meringue, scales: fixed }
+steps:
+  - text: Kneed bloem, koude boter, basterdsuiker, het halve ei en het zout tot een soepel deeg. Vet een bakvorm van 23 centimeter in.
+  - text: Rol het deeg uit, bekleed de vorm, prik gaatjes in de bodem en zet de vorm in de vriezer terwijl de oven voorverwarmt op 180 graden.
+    ovenTemp: 180
+  - text: Blindbak de bodem 15 minuten met bakpapier en steunvulling, verwijder daarna de vulling en bak nog 10 minuten tot de bodem droog en lichtbruin is.
+    timer: 900
+  - text: "Maak de curd: doe rasp en sap van de citroenen met water, kristalsuiker en maizena in een steelpan. Verwarm op laag vuur en roer continu tot het bindt en klontvrij is."
+  - text: Haal van het vuur, roer de eidooiers en daarna de boter erdoor. Giet de curd op de afgekoelde bodem en laat opstijven.
+  - text: Klop de eiwitten stijf en voeg de suiker lepel voor lepel toe tot je een glanzende meringue hebt.
+  - text: Spuit of schep de meringue op de taart en kleur de pieken kort onder de grill of met een brander. Laat de taart helemaal afkoelen voor het aansnijden.
+tags: [dessert, westers, vegetarisch]
+season: [1, 2, 12]
+allergens: [gluten, ei, melk]
+source: { type: url, url: https://uitpaulineskeuken.nl/recept/citroen-meringue-taart, title: uitpaulineskeuken.nl }
+notes: "Het schaalt niet: de hoeveelheden horen bij een vorm van 23 centimeter. Voor een kleinere vorm heb je een aangepast recept nodig. Volgens lezers wordt de taart het lekkerst als je hem helemaal laat afkoelen."
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

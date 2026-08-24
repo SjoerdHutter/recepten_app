@@ -1,0 +1,48 @@
+id: curry-zalmpje-met-knoflookboter
+title: Curry zalmpje met knoflookboter
+description: Zalm uit de oven in een saus van kokosmelk en curry, afgemaakt met knoflookboter.
+times:
+  prep: 10
+  active: 10
+  passive: 20
+methods: [oven, bakken]
+difficulty: gemiddeld
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 4, unit: stuks, ingredientId: zalmfilet }
+  - { amount: 480, unit: ml, ingredientId: kokosmelk }
+  - { amount: 60, unit: g, ingredientId: currypasta, note: Thais, scales: taste }
+  - { amount: 85, unit: g, ingredientId: boter }
+  - { amount: 15, unit: g, ingredientId: gember, note: "vers, geraspt" }
+  - { amount: 4, unit: teentje, ingredientId: knoflook }
+  - { amount: 150, unit: g, ingredientId: broccoli, note: in roosjes }
+  - { amount: 2, unit: el, ingredientId: honing }
+  - { amount: 2, unit: el, ingredientId: sojasaus }
+  - { amount: 1, unit: el, ingredientId: vissaus }
+  - { amount: 1, unit: el, ingredientId: olijfolie }
+  - { amount: 3, unit: el, ingredientId: kerriepoeder, note: pittig, scales: taste }
+  - { amount: 1, unit: snufje, ingredientId: chilivlokken, scales: taste }
+  - { amount: 300, unit: g, ingredientId: rijst, note: pandan }
+  - { amount: 1, unit: stuks, ingredientId: limoen }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verwarm de oven voor op 200 graden. Zet de pandanrijst op.
+    ovenTemp: 200
+  - text: Wrijf de zalm in met olijfolie, de helft van het kerriepoeder, zout en peper. Leg in een ovenschaal en gaar 10 minuten in de oven.
+    timer: 600
+  - text: Smelt ondertussen twee derde van de boter in een ruime pan. Voeg gember, de rest van het kerriepoeder en de currypasta toe en bak 2 tot 3 minuten tot het geurt.
+    timer: 180
+  - text: Voeg kokosmelk, honing, sojasaus en vissaus toe en laat de saus 5 minuten inkoken. Voeg de broccoli toe en kook 3 minuten mee.
+    timer: 300
+  - text: Leg de zalm in de saus en laat nog 3 minuten meetrekken.
+    timer: 180
+  - text: Bak de rest van de boter met de gehakte knoflook en de chilivlokken tot de knoflook goudbruin is en lepel dit over de zalm. Serveer met rijst en limoen.
+tags: [curry, indisch, gezond]
+season: [6, 7, 8]
+allergens: [gluten, melk, soja, vis]
+source: { type: url, url: https://halfbakedharvest.com/coconut-curry-salmon, title: halfbakedharvest.com }
+notes: Gebruik pandanrijst en gaar de zalm 10 minuten in de oven in plaats van onder de grill. Zo blijft de vis mals.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

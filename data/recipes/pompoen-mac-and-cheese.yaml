@@ -1,0 +1,44 @@
+id: pompoen-mac-and-cheese
+title: Pompoen mac and cheese
+description: Pompoen maakt de kaassaus romig en oranje. Uit de oven met een korstje van panko.
+times:
+  prep: 15
+  active: 15
+  passive: 25
+methods: [oven, koken]
+difficulty: gemiddeld
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 600, unit: g, ingredientId: pompoen, note: flespompoen }
+  - { amount: 400, unit: g, ingredientId: pasta, note: macaroni }
+  - { amount: 300, unit: ml, ingredientId: melk, note: of plantaardige melk }
+  - { amount: 30, unit: g, ingredientId: bloem }
+  - { amount: 30, unit: g, ingredientId: boter, note: of olijfolie }
+  - { amount: 150, unit: g, ingredientId: kaas, note: "belegen of vegan, geraspt" }
+  - { amount: 3, unit: el, ingredientId: voedingsgist, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: mosterd, scales: taste }
+  - { amount: 0.25, unit: tl, ingredientId: nootmuskaat, scales: taste }
+  - { amount: 40, unit: g, ingredientId: panko }
+  - { amount: 5, unit: blad, ingredientId: salie, note: vers, scales: taste }
+  - { amount: 2, unit: el, ingredientId: olijfolie, note: voor de topping }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verwarm de oven voor op 200 graden. Snijd de pompoen in blokjes, meng met een eetlepel olijfolie en rooster 25 minuten tot ze zacht zijn.
+    timer: 1500
+    ovenTemp: 200
+  - text: Kook de macaroni 2 minuten korter dan de verpakking aangeeft en giet af.
+    timer: 120
+  - text: Maak een roux van de boter en de bloem, voeg de melk beetje bij beetje toe en roer tot een gladde saus.
+  - text: Pureer de geroosterde pompoen met de saus. Roer de kaas, de voedingsgist, mosterd, nootmuskaat, zout en peper erdoor.
+  - text: Meng de saus met de macaroni en schep in een ovenschaal.
+  - text: Meng panko met olijfolie en de fijngesneden salie, strooi over de schotel en bak 15 minuten tot de bovenkant goudbruin is.
+    timer: 900
+tags: [pasta, westers, vegetarisch, gezond]
+season: [1, 2, 9, 10, 11, 12]
+allergens: [gluten, melk, mosterd]
+source: { type: text, text: Eigen recept }
+notes: "Voor een veganistische versie: plantaardige melk, olijfolie in plaats van boter, vegan kaas en extra voedingsgist. Met plantaardige zuivel is dit gerecht veganistisch."
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

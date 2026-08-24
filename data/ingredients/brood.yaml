@@ -35,3 +35,11 @@
   category: brood
   defaultUnit: stuks
   allergens: [gluten]
+- id: platbrood
+  name: plat brood
+  plural: platte broden
+  synonyms: [flatbread, Turks brood]
+  nameEn: flatbread
+  category: brood
+  defaultUnit: stuks
+  allergens: [gluten]

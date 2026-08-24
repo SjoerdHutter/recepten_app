@@ -13,13 +13,7 @@ ingredients:
   - { amount: 800, unit: g, ingredientId: krieltjes, note: gehalveerd }
   - { amount: 2, unit: el, ingredientId: olijfolie }
   - { amount: 2, unit: el, ingredientId: rozemarijn, note: fijngehakt }
-  - {
-      amount: 3,
-      unit: teentje,
-      ingredientId: knoflook,
-      note: ongepeld,
-      met de platte kant van een mes geplet,
-    }
+  - { amount: 3, unit: teentje, ingredientId: knoflook, note: "ongepeld, met de platte kant van een mes geplet" }
   - { amount: 1, unit: tl, ingredientId: paprikapoeder }
   - { amount: 3, unit: snufje, ingredientId: zout }
 steps:

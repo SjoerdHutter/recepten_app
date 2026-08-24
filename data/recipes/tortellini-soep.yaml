@@ -1,0 +1,48 @@
+id: tortellini-soep
+title: Tortellini soep
+description: Verse tortellini in een stevige groentesoep. Van de koelkast naar de kom in drie kwartier.
+times:
+  prep: 15
+  active: 12
+  passive: 18
+methods: [koken, stoven]
+difficulty: makkelijk
+pans: 1
+servings: 6
+ingredients:
+  - { amount: 450, unit: g, ingredientId: tortellini, note: "vers, met kaas" }
+  - { amount: 1, unit: stuks, ingredientId: ui }
+  - { amount: 4, unit: teentje, ingredientId: knoflook }
+  - { amount: 500, unit: g, ingredientId: winterpeen }
+  - { amount: 4, unit: stengel, ingredientId: bleekselderij }
+  - { amount: 200, unit: g, ingredientId: boerenkool, note: grof gesneden }
+  - { amount: 1400, unit: ml, ingredientId: groentebouillon }
+  - { amount: 120, unit: ml, ingredientId: witte-wijn, note: droog }
+  - { amount: 2, unit: el, ingredientId: tomatenpuree }
+  - { amount: 120, unit: ml, ingredientId: melk, note: "vol, of slagroom" }
+  - { amount: 40, unit: g, ingredientId: parmezaanse-kaas, note: geraspt }
+  - { amount: 60, unit: ml, ingredientId: olijfolie }
+  - { amount: 2, unit: el, ingredientId: tijm, note: vers, scales: taste }
+  - { amount: 1, unit: el, ingredientId: gedroogde-basilicum, scales: taste }
+  - { amount: 1, unit: el, ingredientId: oregano, note: gedroogd, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: paprikapoeder, note: gerookt, scales: taste }
+  - { amount: 1, unit: snufje, ingredientId: chilivlokken, scales: taste }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verhit de olijfolie in een grote pan. Fruit de gesnipperde ui met knoflook, tijm, basilicum, oregano, paprikapoeder, zout en peper ongeveer 5 minuten.
+    timer: 300
+  - text: Roer de tomatenpuree erdoor en voeg de in stukken gesneden wortel en bleekselderij toe.
+  - text: Blus af met de witte wijn, voeg de bouillon en de chilivlokken toe.
+  - text: Laat 20 tot 30 minuten zachtjes koken tot de wortel gaar is.
+    timer: 1800
+  - text: Voeg 10 minuten voor het serveren de boerenkool, de melk, de Parmezaanse kaas en de tortellini toe en kook tot de tortellini gaar is.
+    timer: 600
+  - text: Serveer met extra kaas en een snee brood.
+tags: [pasta, italiaans, vegetarisch]
+season: [1, 2, 9, 10, 11, 12]
+allergens: [gluten, ei, melk, selderij, sulfiet]
+source: { type: url, url: https://halfbakedharvest.com/tortellini-vegetable-soup, title: halfbakedharvest.com }
+notes: "Laat het venkelzaad uit het originele recept weg. Kan ook in de slowcooker: 6 tot 8 uur op laag, tortellini pas in het laatste kwartier toevoegen."
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

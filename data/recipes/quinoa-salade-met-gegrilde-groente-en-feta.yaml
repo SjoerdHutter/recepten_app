@@ -1,0 +1,45 @@
+id: quinoa-salade-met-gegrilde-groente-en-feta
+title: Quinoa salade met gegrilde groente en feta
+description: Geroosterde groente, warme quinoa en zoute feta. Lauwwarm het lekkerst en prima mee als lunch.
+times:
+  prep: 15
+  active: 10
+  passive: 15
+methods: [oven, koken]
+difficulty: makkelijk
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 250, unit: g, ingredientId: quinoa }
+  - { amount: 1, unit: stuks, ingredientId: courgette }
+  - { amount: 2, unit: stuks, ingredientId: paprika, note: rode }
+  - { amount: 1, unit: stuks, ingredientId: aubergine }
+  - { amount: 1, unit: stuks, ingredientId: rode-ui }
+  - { amount: 400, unit: g, ingredientId: kikkererwten, note: "uit blik, uitgelekt" }
+  - { amount: 200, unit: g, ingredientId: feta }
+  - { amount: 3, unit: el, ingredientId: olijfolie }
+  - { amount: 1, unit: stuks, ingredientId: citroen }
+  - { amount: 20, unit: g, ingredientId: peterselie, note: platte }
+  - { amount: 10, unit: g, ingredientId: munt, note: vers }
+  - { amount: 30, unit: g, ingredientId: pijnboompitten }
+  - { amount: 1, unit: tl, ingredientId: komijn, note: gemalen, scales: taste }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verwarm de oven voor op 220 graden hetelucht.
+    ovenTemp: 220
+  - text: Snijd courgette, aubergine, paprika en rode ui in grove stukken. Meng op een bakplaat met 2 eetlepels olijfolie, het komijnpoeder, zout en peper.
+  - text: Rooster de groente 25 minuten, schep halverwege om. Voeg de laatste 10 minuten de uitgelekte kikkererwten toe zodat die krokant worden.
+    timer: 1500
+  - text: Spoel de quinoa af en kook in ruim water in 15 minuten gaar. Giet af en laat uitdampen.
+    timer: 900
+  - text: Rooster de pijnboompitten kort droog in een pan.
+  - text: Meng quinoa met de geroosterde groente, het sap en de rasp van de citroen, de resterende olijfolie en de gehakte kruiden.
+  - text: Verkruimel de feta erover en strooi de pijnboompitten erop. Breng op smaak met zout en peper.
+tags: [maaltijdsalade, midden-oosters, vegetarisch, gezond]
+season: []
+allergens: [melk, noten]
+source: { type: text, text: Eigen recept }
+notes: Lekker lauwwarm. Blijft twee dagen goed in de koelkast en is prima als lunch mee te nemen.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

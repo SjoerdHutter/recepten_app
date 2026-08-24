@@ -1,0 +1,46 @@
+id: pinda-ramen-met-gerookte-tofu
+title: Pinda ramen met gerookte tofu
+description: Een bouillon met pindakaas en currypasta, met gerookte tofu en noedels. Klaar in een halfuur.
+times:
+  prep: 10
+  active: 12
+  passive: 8
+methods: [koken, stoven]
+difficulty: makkelijk
+pans: 2
+servings: 6
+ingredients:
+  - { amount: 340, unit: g, ingredientId: tofu, note: gerookt }
+  - { amount: 200, unit: g, ingredientId: noedels, note: ramen }
+  - { amount: 400, unit: ml, ingredientId: kokosmelk }
+  - { amount: 950, unit: ml, ingredientId: groentebouillon }
+  - { amount: 60, unit: g, ingredientId: currypasta, note: Thais, scales: taste }
+  - { amount: 40, unit: ml, ingredientId: sojasaus, scales: taste }
+  - { amount: 2, unit: el, ingredientId: vissaus, note: of extra sojasaus }
+  - { amount: 80, unit: g, ingredientId: pindakaas }
+  - { amount: 2, unit: el, ingredientId: honing, note: of ahornsiroop }
+  - { amount: 225, unit: g, ingredientId: champignon, note: kastanje }
+  - { amount: 2, unit: stuks, ingredientId: paprika, note: rode }
+  - { amount: 90, unit: g, ingredientId: spinazie, note: babyspinazie }
+  - { amount: 25, unit: g, ingredientId: gember, note: "vers, geraspt" }
+  - { amount: 1, unit: teentje, ingredientId: knoflook }
+  - { amount: 15, unit: g, ingredientId: basilicum, note: "vers, of koriander" }
+  - { amount: 1, unit: stuks, ingredientId: limoen }
+  - { amount: 40, unit: g, ingredientId: pindas, note: gehakt }
+  - { amount: 1, unit: el, ingredientId: sesamolie, note: geroosterd, scales: taste }
+steps:
+  - text: Snijd de gerookte tofu in blokjes en bak ze in een ruime pan in wat olie tot ze aan alle kanten kleuren. Schep ze eruit.
+  - text: Doe bouillon, kokosmelk, currypasta, sojasaus, vissaus, pindakaas, honing, geraspte gember en knoflook in dezelfde pan. Breng aan de kook.
+  - text: Voeg de gesneden champignons en paprika toe en laat 10 minuten zachtjes koken.
+    timer: 600
+  - text: Kook de ramen noedels direct in de bouillon in 3 tot 4 minuten gaar.
+    timer: 240
+  - text: Roer de spinazie en de tofu erdoor en warm kort door.
+  - text: Breng op smaak met limoensap en serveer met basilicum, pinda's en een paar druppels sesamolie.
+tags: [ramen, japans, vegetarisch, vegan]
+season: []
+allergens: [gluten, pinda, soja, vis, selderij, sesam]
+source: { type: url, url: https://halfbakedharvest.com/20-minute-thai-peanut-chicken-ramen, title: halfbakedharvest.com }
+notes: De kip is vervangen door gerookte tofu en er gaat bewust minder sojasaus in dan in het origineel. Proef voordat je extra zout toevoegt.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

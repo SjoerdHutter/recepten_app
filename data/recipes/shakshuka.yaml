@@ -1,0 +1,44 @@
+id: shakshuka
+title: Shakshuka
+description: Eieren gepocheerd in een pittige tomatensaus, zo uit de pan met brood erbij.
+times:
+  prep: 10
+  active: 15
+  passive: 10
+methods: [bakken, stoven]
+difficulty: makkelijk
+pans: 1
+servings: 4
+ingredients:
+  - { amount: 8, unit: stuks, ingredientId: ei }
+  - { amount: 800, unit: g, ingredientId: tomatenblokjes, note: uit blik }
+  - { amount: 2, unit: stuks, ingredientId: paprika, note: rode }
+  - { amount: 1, unit: stuks, ingredientId: ui }
+  - { amount: 3, unit: teentje, ingredientId: knoflook }
+  - { amount: 100, unit: g, ingredientId: feta }
+  - { amount: 15, unit: g, ingredientId: peterselie, note: platte }
+  - { amount: 2, unit: el, ingredientId: olijfolie }
+  - { amount: 2, unit: tl, ingredientId: komijn, note: zaad, scales: taste }
+  - { amount: 2, unit: tl, ingredientId: paprikapoeder, note: gerookt, scales: taste }
+  - { amount: 0.5, unit: tl, ingredientId: chilivlokken, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: suiker, scales: taste }
+  - { amount: 4, unit: stuks, ingredientId: platbrood }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verhit de olijfolie in een ruime koekenpan met deksel. Bak het komijnzaad kort tot het geurt.
+  - text: Voeg de gesnipperde ui en de in reepjes gesneden paprika toe en bak 10 minuten tot ze zacht zijn.
+    timer: 600
+  - text: Roer knoflook, paprikapoeder en chilivlokken erdoor en bak een minuut mee.
+  - text: Voeg de tomatenblokjes en de suiker toe en laat 10 minuten inkoken tot een dikke saus. Breng op smaak met zout en peper.
+    timer: 600
+  - text: Maak acht kuiltjes in de saus en breek in elk kuiltje een ei. Doe de deksel op de pan en laat 6 tot 8 minuten garen tot het eiwit gestold is en de dooier nog zacht.
+    timer: 480
+  - text: Verkruimel de feta erover, strooi de peterselie erop en serveer direct met plat brood.
+tags: [brood, midden-oosters, vegetarisch, gezond]
+season: []
+allergens: [gluten, ei, melk]
+source: { type: text, text: Eigen recept }
+notes: Werkt ook prima met twee eieren per persoon als hoofdgerecht of een ei per persoon bij de brunch.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

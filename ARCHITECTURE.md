@@ -97,9 +97,15 @@ Zie de README voor de risico-afweging. In code gelden drie harde regels:
 - **Dimensies.** Massa rekent in gram, volume in milliliter. Lepels horen bij
   volume (tl = 5 ml, el = 15 ml). "Aantal" is geen gedeelde dimensie: een
   teentje, een bosje en een stuk tellen alleen bij hun eigen soort op.
-- **Schalen** vermenigvuldigt en rondt daarna af in de eenheid waarin het recept
-  het opschreef. Wie "2 el" halveert wil "1 el" zien, geen "15 ml". Regels met
-  `scales: false` blijven staan.
+- **Schalen** kent drie standen, in het veld `scales`. `linear` vermenigvuldigt
+  gewoon; `taste` schaalt met de wortel van de factor, want twee keer zoveel
+  curry heeft geen twee keer zoveel chili nodig; `fixed` hoort bij een bakvorm
+  of een blik en verandert nooit mee. Vermenigvuldigen gebeurt eerst, afronden
+  daarna, in de eenheid waarin het recept het opschreef: wie "2 el" halveert wil
+  "1 el" zien, geen "15 ml".
+- **Zonder hoeveelheid.** `amount` en `unit` mogen samen ontbreken. Dat is de
+  regel "peper en zout naar smaak": die staat wel bij het recept, maar valt niet
+  af te wegen en komt dus ook niet op de boodschappenlijst.
 - **Afronden** hangt af van de grootte: onder 5 op halven, onder 20 op eenheden,
   onder 100 op vijven, onder 1000 op tientallen, daarboven op vijftigtallen.
   Stuks ronden af op halven met een half als minimum, een snufje blijft een heel

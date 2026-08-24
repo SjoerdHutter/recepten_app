@@ -1,0 +1,39 @@
+id: bananenpannenkoekjes
+title: Bananenpannenkoekjes
+description: Drie ingredienten, een koekenpan en een kwartier. Ontbijt voor vier.
+times:
+  prep: 5
+  active: 15
+  passive: 0
+methods: [bakken]
+difficulty: makkelijk
+pans: 1
+servings: 4
+ingredients:
+  - { amount: 2, unit: stuks, ingredientId: banaan, note: rijp }
+  - { amount: 4, unit: stuks, ingredientId: ei }
+  - { amount: 100, unit: g, ingredientId: havermout }
+  - { amount: 1, unit: tl, ingredientId: bakpoeder }
+  - { amount: 0.5, unit: tl, ingredientId: kaneel, scales: taste }
+  - { amount: 1, unit: snufje, ingredientId: zout, scales: taste }
+  - { amount: 20, unit: g, ingredientId: boter, note: of kokosolie }
+  - { amount: 150, unit: g, ingredientId: yoghurt, note: Grieks }
+  - { amount: 150, unit: g, ingredientId: blauwe-bessen }
+  - { amount: 2, unit: el, ingredientId: ahornsiroop, scales: taste }
+steps:
+  - text: Maal de havermout kort fijn in een blender of keukenmachine.
+  - text: Voeg banaan, eieren, bakpoeder, kaneel en zout toe en mix tot een glad beslag. Laat 5 minuten staan.
+    timer: 300
+  - text: Verhit een klein beetje boter in een koekenpan op middellaag vuur.
+  - text: Schep kleine hoopjes beslag in de pan, doe de deksel op de pan en bak 3 minuten tot er belletjes ontstaan.
+    timer: 180
+  - text: Keer de pannenkoekjes en bak nog 2 minuten met de deksel erop.
+    timer: 120
+  - text: Serveer met Griekse yoghurt, blauwe bessen en ahornsiroop.
+tags: [ontbijt, westers, vegetarisch, snel]
+season: []
+allergens: [gluten, ei, melk]
+source: { type: text, text: Eigen recept }
+notes: Bak op middellaag vuur met de deksel op de pan, dan garen ze door zonder dat de buitenkant verbrandt.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

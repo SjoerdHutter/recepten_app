@@ -1,0 +1,35 @@
+id: spruitjes-met-balsamico-en-geitenkaas-uit-de-oven
+title: Spruitjes met balsamico en geitenkaas uit de oven
+description: Spruitjes die in de oven zoet en krokant worden, met balsamico en geitenkaas.
+times:
+  prep: 10
+  active: 5
+  passive: 20
+methods: [oven]
+difficulty: makkelijk
+pans: 1
+servings: 4
+ingredients:
+  - { amount: 600, unit: g, ingredientId: spruitjes }
+  - { amount: 100, unit: g, ingredientId: geitenkaas }
+  - { amount: 50, unit: g, ingredientId: walnoten }
+  - { amount: 3, unit: el, ingredientId: olijfolie }
+  - { amount: 2, unit: el, ingredientId: balsamicoazijn }
+  - { amount: 1, unit: el, ingredientId: honing }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verwarm de oven voor op 220 graden hetelucht.
+    ovenTemp: 220
+  - text: Halveer de spruitjes en meng ze met olijfolie, zout en peper. Leg ze met de snijkant naar beneden op een bakplaat.
+  - text: Rooster 20 tot 25 minuten tot de buitenste blaadjes donker en krokant zijn.
+    timer: 1500
+  - text: Meng balsamicoazijn met honing en schep dit door de warme spruitjes.
+  - text: Verkruimel de geitenkaas erover en strooi de grof gehakte walnoten erop. Serveer meteen.
+tags: [bijgerecht, westers, vegetarisch, gezond]
+season: [1, 2, 12]
+allergens: [melk, noten, sulfiet]
+source: { type: text, text: Eigen recept }
+notes: Werkt ook goed met pecannoten of met een handvol granaatappelpitjes erover.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

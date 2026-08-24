@@ -1,0 +1,47 @@
+id: linzen-bolognese-pasta
+title: Linzen bolognese pasta
+description: Een ragu van linzen en paddenstoelen die drie kwartier zachtjes pruttelt tot hij dik en donker is.
+times:
+  prep: 15
+  active: 15
+  passive: 30
+methods: [koken, stoven]
+difficulty: gemiddeld
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 200, unit: g, ingredientId: linzen, note: "bruin of groen, gedroogd" }
+  - { amount: 400, unit: g, ingredientId: pasta, note: tagliatelle of spaghetti }
+  - { amount: 1, unit: stuks, ingredientId: ui }
+  - { amount: 2, unit: stuks, ingredientId: winterpeen }
+  - { amount: 2, unit: stengel, ingredientId: bleekselderij }
+  - { amount: 3, unit: teentje, ingredientId: knoflook }
+  - { amount: 15, unit: g, ingredientId: eekhoorntjesbrood, note: gedroogd }
+  - { amount: 2, unit: el, ingredientId: tomatenpuree }
+  - { amount: 400, unit: g, ingredientId: tomatenblokjes, note: uit blik }
+  - { amount: 150, unit: ml, ingredientId: rode-wijn }
+  - { amount: 400, unit: ml, ingredientId: groentebouillon }
+  - { amount: 2, unit: el, ingredientId: olijfolie }
+  - { amount: 1, unit: tl, ingredientId: oregano, note: gedroogd, scales: taste }
+  - { amount: 2, unit: stuks, ingredientId: laurierblad, scales: taste }
+  - { amount: 60, unit: g, ingredientId: parmezaanse-kaas }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Week het eekhoorntjesbrood 10 minuten in 100 milliliter heet water. Hak fijn en bewaar het weekvocht.
+    timer: 600
+  - text: Snipper ui, wortel en bleekselderij heel fijn. Fruit ze in de olijfolie op middelhoog vuur ongeveer 10 minuten tot ze zacht zijn.
+    timer: 600
+  - text: Voeg knoflook, paddenstoelen en tomatenpuree toe en bak 2 minuten mee tot de puree donkerder kleurt.
+    timer: 120
+  - text: Blus af met de rode wijn en laat grotendeels inkoken.
+  - text: Voeg linzen, tomatenblokjes, bouillon, weekvocht, oregano en laurier toe. Laat 35 tot 40 minuten zachtjes pruttelen tot de linzen gaar zijn en de saus dik is.
+    timer: 2400
+  - text: Kook de pasta beetgaar. Schep de saus door de pasta met een scheutje kookvocht en serveer met geraspte Parmezaanse kaas.
+tags: [pasta, italiaans, vegetarisch]
+season: []
+allergens: [gluten, melk, selderij, sulfiet]
+source: { type: book, title: "Ottolenghi, Flavour" }
+notes: "Gebruik minder olie dan in het boek staat. Dit is een werkversie: vervang de hoeveelheden door die uit Flavour zodra je het boek erbij hebt. Dit is een werkversie: vervang de hoeveelheden zodra je het kookboek erbij hebt."
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

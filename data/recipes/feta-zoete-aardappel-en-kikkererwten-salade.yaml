@@ -1,0 +1,44 @@
+id: feta-zoete-aardappel-en-kikkererwten-salade
+title: Feta, zoete aardappel en kikkererwten salade
+description: Een bakplaat de oven in, daarna alles door elkaar met feta, citroen en verse kruiden.
+times:
+  prep: 15
+  active: 5
+  passive: 25
+methods: [oven]
+difficulty: makkelijk
+pans: 1
+servings: 4
+ingredients:
+  - { amount: 800, unit: g, ingredientId: zoete-aardappel }
+  - { amount: 400, unit: g, ingredientId: kikkererwten, note: "uit blik, uitgelekt" }
+  - { amount: 200, unit: g, ingredientId: feta }
+  - { amount: 100, unit: g, ingredientId: rucola }
+  - { amount: 1, unit: stuks, ingredientId: rode-ui }
+  - { amount: 50, unit: g, ingredientId: pompoenpitten }
+  - { amount: 15, unit: g, ingredientId: peterselie, note: platte }
+  - { amount: 2, unit: el, ingredientId: olijfolie, note: voor het roosteren }
+  - { amount: 3, unit: el, ingredientId: olijfolie, note: voor de dressing }
+  - { amount: 1, unit: el, ingredientId: honing }
+  - { amount: 1, unit: el, ingredientId: citroen, note: alleen het sap }
+  - { amount: 1, unit: tl, ingredientId: mosterd, note: Dijon }
+  - { amount: 1, unit: tl, ingredientId: komijn, note: gemalen, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: paprikapoeder, note: gerookt, scales: taste }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verwarm de oven voor op 200 graden hetelucht.
+    ovenTemp: 200
+  - text: Snijd de zoete aardappel in blokjes van 2 centimeter en meng met olijfolie, komijn, paprikapoeder, zout en peper.
+  - text: Rooster 30 minuten. Voeg na 15 minuten de kikkererwten toe.
+    timer: 1800
+  - text: Klop de dressing van olijfolie, honing, citroensap en mosterd.
+  - text: Rooster de pompoenpitten kort droog in een pan.
+  - text: Meng rucola, de gesneden rode ui, de warme zoete aardappel en de kikkererwten. Verdeel de dressing erover en werk af met verkruimelde feta, peterselie en pompoenpitten.
+tags: [maaltijdsalade, midden-oosters, vegetarisch, gezond]
+season: []
+allergens: [melk, mosterd]
+source: { type: text, text: Pinterest }
+notes: Lauwwarm het lekkerst. Voeg granaatappelpitjes toe voor extra frisheid.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

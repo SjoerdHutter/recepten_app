@@ -15,6 +15,9 @@ export const UNITS = [
   'snufje',
   'teentje',
   'bosje',
+  'stengel',
+  'takje',
+  'blad',
 ] as const;
 
 export type Unit = (typeof UNITS)[number];
@@ -44,6 +47,9 @@ export const UNIT_INFO: Record<Unit, UnitInfo> = {
   snufje: { dimension: 'aantal', base: 1, singular: 'snufje', plural: 'snufjes' },
   teentje: { dimension: 'aantal', base: 1, singular: 'teentje', plural: 'teentjes' },
   bosje: { dimension: 'aantal', base: 1, singular: 'bosje', plural: 'bosjes' },
+  stengel: { dimension: 'aantal', base: 1, singular: 'stengel', plural: 'stengels' },
+  takje: { dimension: 'aantal', base: 1, singular: 'takje', plural: 'takjes' },
+  blad: { dimension: 'aantal', base: 1, singular: 'blad', plural: 'blaadjes' },
 };
 
 export interface Quantity {

@@ -10,7 +10,7 @@ difficulty: makkelijk
 pans: 2
 servings: 4
 ingredients:
-  - { amount: 1.2, unit: kg, ingredientId: aardappel, note: kruimig, in stukken }
+  - { amount: 1.2, unit: kg, ingredientId: aardappel, note: "kruimig, in stukken" }
   - { amount: 500, unit: g, ingredientId: boerenkool, note: fijngesneden }
   - { amount: 1, unit: stuks, ingredientId: rookworst }
   - { amount: 150, unit: g, ingredientId: spekblokjes }

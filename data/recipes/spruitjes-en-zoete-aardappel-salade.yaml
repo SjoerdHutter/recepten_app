@@ -1,0 +1,47 @@
+id: spruitjes-en-zoete-aardappel-salade
+title: Spruitjes en zoete aardappel salade
+description: Rauwe spruitjes in dunne plakjes tegen geroosterde zoete aardappel, met een dressing op basis van miso.
+times:
+  prep: 20
+  active: 10
+  passive: 25
+methods: [oven, geen bereiding]
+difficulty: makkelijk
+pans: 2
+servings: 6
+ingredients:
+  - { amount: 500, unit: g, ingredientId: zoete-aardappel }
+  - { amount: 400, unit: g, ingredientId: kikkererwten, note: "uit blik, uitgelekt en droog gedept" }
+  - { amount: 200, unit: g, ingredientId: boerenkool, note: fijngesneden }
+  - { amount: 350, unit: g, ingredientId: spruitjes, note: in dunne plakjes }
+  - { amount: 2, unit: stuks, ingredientId: avocado }
+  - { amount: 15, unit: g, ingredientId: peterselie, note: platte }
+  - { amount: 2, unit: el, ingredientId: olijfolie, note: voor het roosteren }
+  - { amount: 60, unit: ml, ingredientId: olijfolie, note: voor de dressing }
+  - { amount: 40, unit: g, ingredientId: parmezaanse-kaas, note: geraspt }
+  - { amount: 2, unit: el, ingredientId: tahin }
+  - { amount: 2, unit: el, ingredientId: mosterd, note: Dijon }
+  - { amount: 2, unit: tl, ingredientId: miso, note: wit }
+  - { amount: 2, unit: teentje, ingredientId: knoflook }
+  - { amount: 2, unit: stuks, ingredientId: citroen }
+  - { amount: 1, unit: tl, ingredientId: chipotlepoeder, scales: taste }
+  - { amount: 2, unit: tl, ingredientId: paprikapoeder, note: gerookt, scales: taste }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verwarm de oven voor op 220 graden hetelucht.
+    ovenTemp: 220
+  - text: Snijd de zoete aardappel in plakken van 1 centimeter. Meng op een bakplaat met de kikkererwten, 2 eetlepels olijfolie, chipotlepoeder, gerookt paprikapoeder, zout en peper.
+  - text: Rooster 30 tot 35 minuten tot de randen bruin en de kikkererwten krokant zijn. Schep halverwege om.
+    timer: 2100
+  - text: "Meng ondertussen de dressing: olijfolie, Parmezaanse kaas, tahin, mosterd, miso, geraspte knoflook en het sap van beide citroenen. Klop glad en breng op smaak."
+  - text: Doe boerenkool en spruitjes in een grote kom en masseer de dressing er met je handen doorheen. Laat 10 minuten staan zodat de bladeren zachter worden.
+    timer: 600
+  - text: Schep de warme zoete aardappel en kikkererwten erdoor. Verdeel de avocado en de peterselie erover.
+tags: [maaltijdsalade, vegetarisch, gezond]
+season: [1, 2, 12]
+allergens: [melk, soja, mosterd, sesam]
+source: { type: url, url: https://halfbakedharvest.com/kale-caesar-salad, title: halfbakedharvest.com }
+notes: De miso vervangt de worcestersaus, zodat de salade vegetarisch blijft. Gebruik bewust minder olie in de dressing dan het origineel.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z
