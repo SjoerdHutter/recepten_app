@@ -11,13 +11,22 @@ export interface CachedFile {
   text: string;
 }
 
+/** Een opslagactie die nog naar GitHub moet; zie draftQueue.ts. */
+export interface QueuedSave {
+  id: string;
+  payload: unknown;
+  queuedAt: string;
+  error?: string;
+}
+
 interface ReceptenDB extends DBSchema {
   files: { key: string; value: CachedFile };
   kv: { key: string; value: unknown };
+  drafts: { key: string; value: QueuedSave };
 }
 
 const DB_NAME = 'recepten';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 
 let dbPromise: Promise<IDBPDatabase<ReceptenDB>> | null = null;
 
@@ -27,6 +36,9 @@ export const getDb = (): Promise<IDBPDatabase<ReceptenDB>> => {
       if (!db.objectStoreNames.contains('files'))
         db.createObjectStore('files', { keyPath: 'path' });
       if (!db.objectStoreNames.contains('kv')) db.createObjectStore('kv');
+      if (!db.objectStoreNames.contains('drafts')) {
+        db.createObjectStore('drafts', { keyPath: 'id' });
+      }
     },
   });
   return dbPromise;
@@ -70,4 +82,14 @@ export const kvRestore = async (data: Record<string, unknown>): Promise<void> =>
     ...Object.entries(data).map(([key, value]) => tx.store.put(value, key)),
     tx.done,
   ]);
+};
+
+export const readDrafts = async (): Promise<QueuedSave[]> => (await getDb()).getAll('drafts');
+
+export const putDraft = async (draft: QueuedSave): Promise<void> => {
+  await (await getDb()).put('drafts', draft);
+};
+
+export const deleteDraft = async (id: string): Promise<void> => {
+  await (await getDb()).delete('drafts', id);
 };

@@ -116,6 +116,30 @@ Zie de README voor de risico-afweging. In code gelden drie harde regels:
   bibliotheek ("1 ui is 150 g"). Ontbreekt die factor, dan blijven het bewust
   twee regels op de lijst in plaats van één verkeerde optelling.
 
+## Terugschrijven
+
+Wat de app schrijft moet er precies zo uitzien als wat er al staat, anders levert
+elke wijziging een onleesbare diff op. `recipeToYaml` gebruikt daarvoor de
+yaml-bibliotheek met een vaste veldvolgorde, en de tests dwingen af dat alle
+receptbestanden byte voor byte terugkomen. Aanhalingstekens worden bewust niet
+met de hand gezet: bij de import ging dat mis omdat een notitie met een komma
+binnen accolades de waarde afkapte, zonder foutmelding.
+
+Eén opslagactie kan drie bestanden raken: nieuwe ingrediënten, een foto en het
+recept. Die volgorde is niet willekeurig. Het recept gaat als laatste, zodat het
+nooit verwijst naar iets dat er nog niet is.
+
+Elke schrijfactie geeft de bestandssha mee die de app kent. Klopt die niet meer,
+dan weigert GitHub en krijg je een melding, in plaats van dat een wijziging die
+je elders maakte stilletjes verdwijnt. Bij een nieuw recept gaat er juist géén
+sha mee: dan weigert GitHub als het bestand al bestaat, en dat is precies de
+waarschuwing die je wilt.
+
+Zonder verbinding gaat het recept in een wachtrij in IndexedDB, die bij de
+eerstvolgende synchronisatie wordt leeggewerkt. Een botsing op de sha blijft daar
+staan met een melding erbij; een netwerkfout stopt de ronde in plaats van de rest
+van de wachtrij te verspelen.
+
 ## Afgeleide waarden staan niet in de bestanden
 
 Totale tijd, kosten per portie en voedingswaarde worden berekend uit wat er wél

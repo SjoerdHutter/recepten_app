@@ -1,11 +1,14 @@
 import { useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { removeRecipe } from '../../data/recipes/saveRecipe';
 import { ALLERGEN_LABELS, MONTH_LABELS } from '../../domain/schema/enums';
 import { activeMinutes, totalMinutes } from '../../domain/schema/recipe';
 import { scaleRecipe } from '../../domain/scaling/scale';
 import { formatMinutes, formatQuantity } from '../../domain/units/format';
 import { useData, useRecipe } from '../../state/data';
 import { useLocalState } from '../../state/localState';
+import { useSettings } from '../../state/settings';
+import { Sheet } from '../../ui/Sheet';
 import { Icon } from '../../ui/Icon';
 import { Button, Card, Stepper, Tag } from '../../ui/controls';
 
@@ -19,7 +22,12 @@ const Regel = ({ label, value }: { label: string; value: string }) => (
 export const RecipePage = () => {
   const { id } = useParams();
   const recipe = useRecipe(id);
-  const { library, loading } = useData();
+  const { library, loading, refresh } = useData();
+  const { token, canWrite } = useSettings();
+  const navigate = useNavigate();
+  const [verwijderOpen, setVerwijderOpen] = useState(false);
+  const [verwijderFout, setVerwijderFout] = useState<string | null>(null);
+  const [bezigMetVerwijderen, setBezigMetVerwijderen] = useState(false);
   const {
     selection,
     isSelected,
@@ -209,6 +217,65 @@ export const RecipePage = () => {
           <Icon name="printer" className="h-4 w-4" />
         </Button>
       </div>
+
+      {canWrite ? (
+        <div className="flex gap-2 print-hidden">
+          <Button
+            variant="secondary"
+            full
+            onClick={() => navigate(`/recept/${recipe.id}/bewerken`)}
+          >
+            <Icon name="potlood" className="h-4 w-4" />
+            Bewerken
+          </Button>
+          <Button
+            variant="danger"
+            onClick={() => setVerwijderOpen(true)}
+            aria-label="Recept verwijderen"
+          >
+            <Icon name="prullenbak" className="h-4 w-4" />
+          </Button>
+        </div>
+      ) : null}
+
+      <Sheet
+        open={verwijderOpen}
+        onClose={() => setVerwijderOpen(false)}
+        title="Recept verwijderen"
+        footer={
+          <div className="flex gap-2 pb-1">
+            <Button variant="ghost" onClick={() => setVerwijderOpen(false)}>
+              Annuleren
+            </Button>
+            <Button
+              variant="danger"
+              full
+              disabled={bezigMetVerwijderen}
+              onClick={async () => {
+                setBezigMetVerwijderen(true);
+                setVerwijderFout(null);
+                try {
+                  await removeRecipe(recipe, token);
+                  await refresh();
+                  navigate('/');
+                } catch (error) {
+                  setVerwijderFout(error instanceof Error ? error.message : 'Verwijderen mislukt.');
+                } finally {
+                  setBezigMetVerwijderen(false);
+                }
+              }}
+            >
+              {bezigMetVerwijderen ? 'Bezig…' : 'Definitief verwijderen'}
+            </Button>
+          </div>
+        }
+      >
+        <p className="text-ink-2">
+          <span className="font-semibold text-ink">{recipe.title}</span> wordt uit de repo
+          verwijderd. Het blijft in de git-geschiedenis staan, dus terughalen kan altijd nog.
+        </p>
+        {verwijderFout ? <p className="mt-3 text-sm text-danger">{verwijderFout}</p> : null}
+      </Sheet>
     </article>
   );
 };

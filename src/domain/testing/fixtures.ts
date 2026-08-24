@@ -64,6 +64,15 @@ export const testIngredients: Ingredient[] = [
     allergens: [],
   },
   {
+    id: 'peper',
+    name: 'zwarte peper',
+    synonyms: ['peper'],
+    category: 'kruiden',
+    defaultUnit: 'snufje',
+    conversions: {},
+    allergens: [],
+  },
+  {
     id: 'zout',
     name: 'zout',
     synonyms: [],

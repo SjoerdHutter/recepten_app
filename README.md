@@ -100,10 +100,27 @@ een browser staat.
 
 ### In de app
 
-Vanaf milestone 2 zit er een invoerformulier in de app dat het bestand schrijft
-via de GitHub API. Zonder token genereert dat formulier het complete
-receptbestand met een kopieerknop en een link naar het "new file"-scherm van
-GitHub.
+Druk op de plusknop rechtsonder in het overzicht. Het formulier loopt in zes
+blokken door het recept heen: basis, tijd en vorm, ingrediënten, stappen,
+kenmerken en opslaan. Een paar dingen die het op een telefoon prettig maken:
+
+- **Plakken.** Heb je de tekst van een recept ergens vandaan? Plak hem in één
+  keer; de app haalt eruit wat hij herkent en jij loopt het na.
+- **Ingrediënten** hebben autocomplete op de bibliotheek, en eenheden kies je
+  met knoppen in plaats van uit een lijst met veertien opties.
+- **Een onbekend ingrediënt** voeg je meteen toe aan de bibliotheek; de app
+  vraagt alleen om een schap en een eenheid.
+- **Een foto** maak je met de camera of kies je uit je galerij. Hij wordt
+  verkleind naar maximaal 1200 pixels en opgeslagen als webp.
+- **Zonder bereik** wordt het recept als concept bewaard en vanzelf gecommit
+  zodra je weer online bent. Het aantal wachtende concepten staat in de balk
+  bovenaan.
+- **Bestaande recepten** bewerk en verwijder je met de knoppen onderaan het
+  recept.
+
+Zonder token werkt hetzelfde formulier in leesmodus: het laatste blok toont het
+complete receptbestand met een kopieerknop en een link naar het "new
+file"-scherm van GitHub.
 
 ### Rechtstreeks op GitHub
 
