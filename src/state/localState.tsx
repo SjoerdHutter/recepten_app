@@ -8,8 +8,10 @@ import {
   type ReactNode,
 } from 'react';
 import { kvGet, kvSet } from '../data/db/idb';
+import type { Pantry, PantryItem } from '../domain/pantry/pantry';
 import type { Category } from '../domain/schema/enums';
 import type { ManualItem } from '../domain/shopping/aggregate';
+import type { Unit } from '../domain/units/units';
 
 /**
  * Alles wat alleen op dit toestel bestaat: de selectie, de afvinkstatus en de
@@ -25,6 +27,8 @@ export const LOCAL_KEYS = {
   selection: 'selectie',
   manual: 'lijst.losseItems',
   checked: 'lijst.afgevinkt',
+  pantry: 'voorraad',
+  subtractPantry: 'lijst.voorraadAftrekken',
 } as const;
 
 function usePersistentState<T>(key: string, initial: T) {
@@ -55,11 +59,41 @@ function usePersistentState<T>(key: string, initial: T) {
   return [value, setValue, ready] as const;
 }
 
+export interface PantryPatch {
+  amount?: number | undefined;
+  unit?: Unit | undefined;
+  bestBefore?: string | undefined;
+}
+
+/**
+ * Lege velden er weer uit halen. Zonder dit blijft er `amount: undefined` in de
+ * opslag achter zodra je een hoeveelheid weer weghaalt, en dat leest terug als
+ * "er staat een hoeveelheid".
+ */
+const schoon = (item: PantryItem): PantryItem => {
+  const uit: PantryItem = { ingredientId: item.ingredientId, addedAt: item.addedAt };
+  if (item.amount !== undefined && item.unit) {
+    uit.amount = item.amount;
+    uit.unit = item.unit;
+  }
+  if (item.bestBefore) uit.bestBefore = item.bestBefore;
+  return uit;
+};
+
 interface LocalValue {
   selection: SelectionEntry[];
   manualItems: ManualItem[];
   checked: Record<string, boolean>;
+  pantry: Pantry;
+  /** Of de boodschappenlijst rekening houdt met de voorraadkast. */
+  subtractPantry: boolean;
   ready: boolean;
+  hasInPantry: (ingredientId: string) => boolean;
+  addToPantry: (ingredientId: string, patch?: PantryPatch) => void;
+  updatePantryItem: (ingredientId: string, patch: PantryPatch) => void;
+  removeFromPantry: (ingredientId: string) => void;
+  togglePantry: (ingredientId: string) => void;
+  setSubtractPantry: (waarde: boolean) => void;
   isSelected: (recipeId: string) => boolean;
   toggleSelection: (recipeId: string, servings: number) => void;
   setServings: (recipeId: string, servings: number) => void;
@@ -86,10 +120,20 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
     LOCAL_KEYS.checked,
     {},
   );
+  const [pantry, setPantry, pantryReady] = usePersistentState<Pantry>(LOCAL_KEYS.pantry, []);
+  const [subtractPantry, setSubtractPantry, subtractReady] = usePersistentState<boolean>(
+    LOCAL_KEYS.subtractPantry,
+    true,
+  );
 
   const isSelected = useCallback(
     (recipeId: string) => selection.some((entry) => entry.recipeId === recipeId),
     [selection],
+  );
+
+  const hasInPantry = useCallback(
+    (ingredientId: string) => pantry.some((item) => item.ingredientId === ingredientId),
+    [pantry],
   );
 
   const value = useMemo<LocalValue>(
@@ -97,8 +141,39 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
       selection,
       manualItems,
       checked,
-      ready: selectionReady && manualReady && checkedReady,
+      pantry,
+      subtractPantry,
+      ready: selectionReady && manualReady && checkedReady && pantryReady && subtractReady,
       isSelected,
+      hasInPantry,
+      setSubtractPantry,
+      addToPantry(ingredientId, patch) {
+        setPantry((huidig) =>
+          huidig.some((item) => item.ingredientId === ingredientId)
+            ? // Al in huis: alleen aanvullen wat er meegegeven wordt.
+              huidig.map((item) =>
+                item.ingredientId === ingredientId ? schoon({ ...item, ...patch }) : item,
+              )
+            : [...huidig, schoon({ ingredientId, addedAt: new Date().toISOString(), ...patch })],
+        );
+      },
+      updatePantryItem(ingredientId, patch) {
+        setPantry((huidig) =>
+          huidig.map((item) =>
+            item.ingredientId === ingredientId ? schoon({ ...item, ...patch }) : item,
+          ),
+        );
+      },
+      removeFromPantry(ingredientId) {
+        setPantry((huidig) => huidig.filter((item) => item.ingredientId !== ingredientId));
+      },
+      togglePantry(ingredientId) {
+        setPantry((huidig) =>
+          huidig.some((item) => item.ingredientId === ingredientId)
+            ? huidig.filter((item) => item.ingredientId !== ingredientId)
+            : [...huidig, { ingredientId, addedAt: new Date().toISOString() }],
+        );
+      },
       toggleSelection(recipeId, servings) {
         setSelection((huidig) =>
           huidig.some((entry) => entry.recipeId === recipeId)
@@ -139,13 +214,20 @@ export const LocalStateProvider = ({ children }: { children: ReactNode }) => {
       selection,
       manualItems,
       checked,
+      pantry,
+      subtractPantry,
       selectionReady,
       manualReady,
       checkedReady,
+      pantryReady,
+      subtractReady,
       isSelected,
+      hasInPantry,
       setSelection,
       setManualItems,
       setChecked,
+      setPantry,
+      setSubtractPantry,
     ],
   );
 

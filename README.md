@@ -144,6 +144,37 @@ aan het bestand van de juiste categorie in
 [`data/ingredients/`](data/ingredients/). Zonder koppeling telt de
 boodschappenlijst het niet netjes op.
 
+## De voorraadkast
+
+Onder het tabblad **Voorraad** vink je aan wat je in huis hebt. Alleen aanvinken
+is genoeg; een hoeveelheid en een houdbaarheidsdatum mag je erbij zetten, maar
+hoeft niet.
+
+Dat levert drie dingen op:
+
+- **De boodschappenlijst trekt het af.** Heb je 200 g ui staan en vraagt het
+  recept er drie, dan staat er nog anderhalve ui op je lijst. Wat je helemaal in
+  huis hebt blijft staan, doorgestreept en gemarkeerd — het verdwijnt nooit
+  stilletjes, want in de winkel wil je kunnen zien dát de app iets wegstreepte.
+  Met de schakelaar bovenaan de lijst zet je het uit.
+- **"Wat kan ik maken"** zet de gerechten waarvoor je alles in huis hebt
+  bovenaan, daarna die waarvoor je er nog één of twee mist. Optionele
+  ingrediënten en dingen naar smaak tellen niet mee als missend; anders zou elk
+  gerecht eeuwig melden dat je zout mist.
+- **Bijna over.** Vul je een houdbaarheidsdatum in, dan verschijnt het bovenaan
+  zodra het bijna zover is, met de knop **Wat kan ik ermee?**
+
+Die laatste knop is de restjesmodus, ook los te openen via elk ingrediënt in je
+kast. Hij toont niet elk recept waar het in zit — in een currysaus gaat twee
+eetlepel kool en die ligt morgen nog in de koelkast. Standaard zie je alleen
+gerechten waarin het ingrediënt echt de hoofdmoot is, met het aandeel erbij.
+
+Na het boodschappen doen verplaatst één knop alles wat je afvinkte naar je
+voorraadkast.
+
+De voorraadkast staat alleen op dit toestel en gaat mee in de back-up bij
+Instellingen.
+
 ## De ingrediëntenbibliotheek
 
 Onder **Instellingen ▸ Ingrediëntenbibliotheek** staat elk canoniek ingrediënt

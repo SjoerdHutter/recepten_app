@@ -1,5 +1,11 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  applyPantry,
+  effectiveQuantity,
+  stillToBuy,
+  withoutCovered,
+} from '../../domain/pantry/subtract';
 import { CATEGORIES, CATEGORY_LABELS, type Category } from '../../domain/schema/enums';
 import { buildShoppingList, type ShoppingSelection } from '../../domain/shopping/aggregate';
 import { shoppingListToText } from '../../domain/shopping/text';
@@ -22,6 +28,10 @@ export const ShoppingPage = () => {
     clearSelection,
     addManualItem,
     removeManualItem,
+    pantry,
+    subtractPantry,
+    setSubtractPantry,
+    addToPantry,
   } = useLocalState();
 
   const [nieuwItem, setNieuwItem] = useState('');
@@ -39,16 +49,41 @@ export const ShoppingPage = () => {
     [selection, dataset.recipes],
   );
 
-  const groepen = useMemo(
-    () => buildShoppingList(selecties, library, manualItems),
-    [selecties, library, manualItems],
-  );
+  const groepen = useMemo(() => {
+    const basis = buildShoppingList(selecties, library, manualItems);
+    return subtractPantry ? applyPantry(basis, pantry, library) : basis;
+  }, [selecties, library, manualItems, subtractPantry, pantry]);
 
   const alleRegels = groepen.flatMap((groep) => groep.lines);
-  const afgevinkt = alleRegels.filter((regel) => checked[regel.key]).length;
+  const teHalen = stillToBuy(groepen);
+  const gedekt = alleRegels.length - teHalen.length;
+  const afgevinkt = teHalen.filter((regel) => checked[regel.key]).length;
+
+  // Wat je al in huis hebt hoort niet in de tekst die je deelt of meeneemt.
+  const meeneemlijst = subtractPantry ? withoutCovered(groepen) : groepen;
+
+  /** Na het boodschappen doen: wat je afvinkte staat nu in je kast. */
+  const naarVoorraad = () => {
+    const regels = teHalen.filter(
+      (regel) => checked[regel.key] && regel.ingredientId && !regel.manual,
+    );
+    for (const regel of regels) {
+      const rest = effectiveQuantity(regel);
+      addToPantry(
+        regel.ingredientId as string,
+        rest ? { amount: rest.amount, unit: rest.unit } : {},
+      );
+    }
+    clearChecked();
+    setMelding(
+      regels.length === 1
+        ? '1 item naar de voorraadkast verplaatst.'
+        : `${regels.length} items naar de voorraadkast verplaatst.`,
+    );
+  };
 
   const kopieer = async () => {
-    const tekst = shoppingListToText(groepen, { withSources: true });
+    const tekst = shoppingListToText(meeneemlijst, { withSources: true });
     try {
       await navigator.clipboard.writeText(tekst);
       setMelding('Gekopieerd naar het klembord.');
@@ -58,7 +93,7 @@ export const ShoppingPage = () => {
   };
 
   const deel = async () => {
-    const tekst = shoppingListToText(groepen);
+    const tekst = shoppingListToText(meeneemlijst);
     if (!navigator.share) {
       await kopieer();
       return;
@@ -77,9 +112,35 @@ export const ShoppingPage = () => {
         <p className="mt-1 text-sm text-ink-2">
           {alleRegels.length === 0
             ? 'Nog niets op de lijst.'
-            : `${afgevinkt} van ${alleRegels.length} afgevinkt`}
+            : `${afgevinkt} van ${teHalen.length} afgevinkt`}
+          {gedekt > 0 ? ` · ${gedekt} heb je al` : ''}
         </p>
       </header>
+
+      {pantry.length > 0 ? (
+        <button
+          type="button"
+          onClick={() => setSubtractPantry(!subtractPantry)}
+          aria-pressed={subtractPantry}
+          className="flex min-h-12 items-center gap-3 rounded-2xl border border-line bg-surface px-3 text-left print-hidden"
+        >
+          <span
+            className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md border ${
+              subtractPantry ? 'border-accent bg-accent text-on-accent' : 'border-line'
+            }`}
+          >
+            {subtractPantry ? <Icon name="vink" className="h-4 w-4" /> : null}
+          </span>
+          <span className="flex-1 text-sm">
+            <span className="block font-medium">Voorraadkast aftrekken</span>
+            <span className="block text-xs text-ink-3">
+              {subtractPantry
+                ? 'Wat je in huis hebt staat doorgestreept en gaat niet mee in het delen.'
+                : 'De lijst toont alles, ook wat al in je kast staat.'}
+            </span>
+          </span>
+        </button>
+      ) : null}
 
       {selecties.length === 0 && manualItems.length === 0 ? (
         <div className="rounded-2xl border border-line bg-surface px-4 py-8 text-center">
@@ -125,18 +186,34 @@ export const ShoppingPage = () => {
           </h2>
           <Card className="divide-y divide-line">
             {[...groep.lines]
-              // Afgevinkte regels zakken naar beneden, dan blijft bovenin staan
-              // wat je nog moet pakken.
-              .sort((a, b) => Number(checked[a.key] ?? false) - Number(checked[b.key] ?? false))
+              // Afgevinkte regels en wat je al in huis hebt zakken naar beneden,
+              // dan blijft bovenin staan wat je nog moet pakken.
+              .sort(
+                (a, b) =>
+                  Number((checked[a.key] ?? false) || a.stock?.coverage === 'volledig') -
+                  Number((checked[b.key] ?? false) || b.stock?.coverage === 'volledig'),
+              )
               .map((regel) => {
-                const isAf = checked[regel.key] ?? false;
+                const stock = regel.stock;
+                const inHuis = stock?.coverage === 'volledig';
+                const isAf = (checked[regel.key] ?? false) || inHuis;
+                const hoeveelheid = effectiveQuantity(regel);
+                // Nooit stilletjes wegstrepen: als de app iets aftrekt moet je
+                // in de winkel kunnen zien waaróm.
+                const voorraadTag =
+                  stock?.coverage === 'deels' && stock.have
+                    ? `${formatQuantity(stock.have)} in huis`
+                    : stock?.coverage === 'onbekend' && stock.have
+                      ? `je hebt ${formatQuantity(stock.have)}, niet om te rekenen`
+                      : null;
                 return (
                   <div key={regel.key} className="flex items-start gap-3 px-3">
                     <button
                       type="button"
                       onClick={() => toggleChecked(regel.key)}
                       aria-pressed={isAf}
-                      className="flex min-h-14 flex-1 items-start gap-3 py-3 text-left"
+                      disabled={inHuis}
+                      className="flex min-h-14 flex-1 items-start gap-3 py-3 text-left disabled:cursor-default"
                     >
                       <span
                         className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border ${
@@ -147,10 +224,16 @@ export const ShoppingPage = () => {
                       </span>
                       <span className={isAf ? 'text-ink-3 line-through' : ''}>
                         <span className="font-medium">
-                          {regel.quantity ? `${formatQuantity(regel.quantity)} ` : ''}
+                          {hoeveelheid ? `${formatQuantity(hoeveelheid)} ` : ''}
                           {regel.label}
                         </span>
                         {regel.optional ? <Tag>optioneel</Tag> : null}
+                        {inHuis ? <Tag tone="ok">in huis</Tag> : null}
+                        {voorraadTag ? (
+                          <Tag tone={stock?.coverage === 'onbekend' ? 'warn' : 'ok'}>
+                            {voorraadTag}
+                          </Tag>
+                        ) : null}
                         {regel.sources.length > 0 ? (
                           <span className="mt-0.5 block text-xs text-ink-3">
                             {regel.sources
@@ -231,6 +314,12 @@ export const ShoppingPage = () => {
             <Icon name="printer" className="h-4 w-4" />
             Printen
           </Button>
+          {afgevinkt > 0 ? (
+            <Button variant="primary" onClick={naarVoorraad}>
+              <Icon name="kast" className="h-4 w-4" />
+              {afgevinkt} naar voorraad
+            </Button>
+          ) : null}
           {afgevinkt > 0 ? (
             <Button variant="ghost" onClick={clearChecked}>
               Vinkjes wissen

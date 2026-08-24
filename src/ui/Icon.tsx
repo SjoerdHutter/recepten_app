@@ -29,6 +29,8 @@ const PATHS = {
   wolkUit: 'M3 3l18 18M7 18a4 4 0 0 1-.4-8 6 6 0 0 1 9-3.6M20 15.5A3.5 3.5 0 0 0 17 12',
   slot: 'M7 11V8a5 5 0 0 1 10 0v3M6 11h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1Z',
   potlood: 'M4 20h4L20 8a2.8 2.8 0 0 0-4-4L4 16v4Z',
+  kast: 'M5 3h14a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm-1 8h16M10 7v2m0 6v2',
+  waarschuwing: 'M12 3 2 20h20L12 3Zm0 6v5m0 3h.01',
 } as const;
 
 export type IconName = keyof typeof PATHS;
