@@ -8,17 +8,33 @@ const recept = makeRecipe({
   servings: 4,
   ingredients: [
     { amount: 800, unit: 'g', ingredientId: 'ui' },
-    { amount: 2, unit: 'stuks', ingredientId: 'laurierblad', scales: false },
+    { amount: 2, unit: 'stuks', ingredientId: 'laurierblad', scales: 'fixed' },
     { amount: 3, unit: 'stuks', ingredientId: 'ei' },
     { amount: 1, unit: 'snufje', ingredientId: 'zout' },
     { amount: 2, unit: 'el', ingredientId: 'olijfolie' },
+    { amount: 2, unit: 'tl', ingredientId: 'peper', scales: 'taste' },
+    { unit: undefined, ingredientId: 'zout', scales: 'taste' },
   ],
 });
 
 describe('schalen naar een ander aantal personen', () => {
   it('laat alles staan bij hetzelfde aantal', () => {
     const geschaald = scaleRecipe(recept, 4, testLibrary);
-    expect(geschaald.map((i) => i.amount)).toEqual([800, 2, 3, 1, 2]);
+    expect(geschaald.map((i) => i.amount)).toEqual([800, 2, 3, 1, 2, 2, undefined]);
+  });
+
+  it('schaalt kruiden met de wortel van de factor', () => {
+    // Vier keer zoveel curry heeft geen vier keer zoveel peper nodig.
+    const geschaald = scaleRecipe(recept, 16, testLibrary);
+    expect(geschaald[0]?.amount).toBe(3200); // gewoon maal vier
+    expect(geschaald[5]?.amount).toBe(4); // 2 tl maal wortel vier
+  });
+
+  it('laat "naar smaak" zonder hoeveelheid staan', () => {
+    const geschaald = scaleRecipe(recept, 8, testLibrary);
+    expect(geschaald[6]?.amount).toBeUndefined();
+    expect(geschaald[6]?.unit).toBeUndefined();
+    expect(geschaald[6]?.label).toBe('zout');
   });
 
   it('rekent netjes om naar drie personen', () => {

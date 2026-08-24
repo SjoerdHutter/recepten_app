@@ -9,27 +9,44 @@ import {
 } from './enums';
 
 /**
+ * Hoe een ingrediënt meebeweegt met het aantal personen.
+ * - `linear`  gewoon vermenigvuldigen; dit is het normale geval
+ * - `taste`   kruiden, zout en pittige pasta's. Die schalen met de wortel van
+ *             de factor: dubbel zoveel curry heeft geen dubbele hoeveelheid
+ *             chili nodig, dat wordt niet te eten.
+ * - `fixed`   hoort bij een vorm of een bakblik en verandert nooit mee
+ */
+export const SCALING = ['linear', 'taste', 'fixed'] as const;
+export type Scaling = (typeof SCALING)[number];
+export const scalingSchema = z.enum(SCALING);
+
+/**
  * Een ingrediëntregel verwijst naar de bibliotheek. `name` is de vangnetnaam
  * voor een regel die (nog) niet gekoppeld is: de app dwingt bij opslaan een
  * koppeling af, maar een met de hand op github.com toegevoegde regel mag blijven
  * staan en verschijnt later in het opruimscherm.
+ *
+ * `amount` en `unit` mogen samen ontbreken. Dat is de regel "peper en zout naar
+ * smaak": wel in het recept, niet af te wegen en niet te kopen.
  */
 export const recipeIngredientSchema = z
   .object({
-    amount: z.number().positive(),
-    unit: unitSchema,
+    amount: z.number().positive().optional(),
+    unit: unitSchema.optional(),
     ingredientId: slugSchema.optional(),
     name: z.string().min(1).optional(),
     /** Vrije toelichting: "fijngesneden", "op kamertemperatuur". */
     note: z.string().optional(),
-    /** Laurierblad of een bakblik schaalt niet mee met het aantal personen. */
-    scales: z.boolean().default(true),
+    scales: scalingSchema.default('linear'),
     optional: z.boolean().default(false),
     /** Bij welke stap dit ingrediënt hoort (1-gebaseerd), voor de kookmodus. */
     step: z.number().int().positive().optional(),
   })
   .refine((line) => Boolean(line.ingredientId ?? line.name), {
     message: 'een ingrediëntregel heeft een ingredientId of een name nodig',
+  })
+  .refine((line) => (line.amount === undefined) === (line.unit === undefined), {
+    message: 'geef hoeveelheid en eenheid samen op, of allebei niet',
   });
 
 export const recipeStepSchema = z.object({

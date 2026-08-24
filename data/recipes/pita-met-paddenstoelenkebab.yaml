@@ -1,0 +1,46 @@
+id: pita-met-paddenstoelenkebab
+title: Pita met paddenstoelenkebab
+description: Paddenstoelen uit de oven met sumak en tahin, in een warm pitabroodje.
+times:
+  prep: 15
+  active: 8
+  passive: 12
+methods: [oven, bakken]
+difficulty: gemiddeld
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 500, unit: g, ingredientId: paddenstoelen, note: gemengd }
+  - { amount: 4, unit: stuks, ingredientId: pitabroodje }
+  - { amount: 1, unit: stuks, ingredientId: rode-ui }
+  - { amount: 2, unit: teentje, ingredientId: knoflook }
+  - { amount: 2, unit: stuks, ingredientId: tomaat }
+  - { amount: 100, unit: g, ingredientId: sla, note: little gem }
+  - { amount: 200, unit: g, ingredientId: yoghurt, note: Grieks of plantaardig }
+  - { amount: 2, unit: el, ingredientId: tahin }
+  - { amount: 1, unit: stuks, ingredientId: citroen }
+  - { amount: 15, unit: g, ingredientId: peterselie, note: platte }
+  - { amount: 2, unit: el, ingredientId: olijfolie }
+  - { amount: 2, unit: tl, ingredientId: paprikapoeder, note: gerookt, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: komijn, note: gemalen, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: korianderpoeder, scales: taste }
+  - { amount: 0.5, unit: tl, ingredientId: kaneel, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: sumak, scales: taste }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Verwarm de oven voor op 220 graden hetelucht.
+    ovenTemp: 220
+  - text: Scheur de paddenstoelen in grove stukken en meng met olijfolie, geperste knoflook, paprikapoeder, komijn, koriander, kaneel, zout en peper.
+  - text: Rooster 18 tot 20 minuten op een bakplaat tot de randen donker en krokant zijn. Schep halverwege om.
+    timer: 1200
+  - text: Roer yoghurt, tahin, citroensap en een snuf zout tot een gladde saus.
+  - text: Meng de dun gesneden rode ui met sumak en wat citroensap.
+  - text: Warm de pitabroodjes op, snijd ze open en vul met sla, tomaat, de paddenstoelen, de uitjes, de tahinsaus en peterselie.
+tags: [brood, midden-oosters, vegetarisch, gezond]
+season: []
+allergens: [gluten, melk, sesam]
+source: { type: book, title: Kookboek Vegan }
+notes: "Werkversie zodat de app een compleet recept heeft. Neem de exacte hoeveelheden over uit je kookboek. Gebruik plantaardige yoghurt voor een veganistische versie. Dit is een werkversie: vervang de hoeveelheden zodra je het kookboek erbij hebt."
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

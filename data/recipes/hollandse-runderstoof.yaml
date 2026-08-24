@@ -15,15 +15,9 @@ ingredients:
   - { amount: 40, unit: g, ingredientId: boter }
   - { amount: 330, unit: ml, ingredientId: donker-bier }
   - { amount: 1, unit: stuks, ingredientId: bouillonblokje, note: runderbouillon }
-  - { amount: 2, unit: stuks, ingredientId: laurierblad, scales: false }
-  - { amount: 3, unit: stuks, ingredientId: kruidnagel, scales: false }
-  - {
-      amount: 1,
-      unit: stuks,
-      ingredientId: brood,
-      note: een dikke snee,
-      aan één kant royaal met mosterd besmeerd,
-    }
+  - { amount: 2, unit: stuks, ingredientId: laurierblad, scales: fixed }
+  - { amount: 3, unit: stuks, ingredientId: kruidnagel, scales: fixed }
+  - { amount: 1, unit: stuks, ingredientId: brood, note: "een dikke snee, aan één kant royaal met mosterd besmeerd" }
   - { amount: 2, unit: el, ingredientId: mosterd }
   - { amount: 1, unit: el, ingredientId: appelstroop }
   - { amount: 1, unit: el, ingredientId: azijn }

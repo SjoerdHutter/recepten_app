@@ -1,0 +1,38 @@
+id: pasta-avocado-carbonara
+title: Pasta avocado carbonara
+description: Een romige saus van avocado en ei, zonder room. Klaar zodra de pasta gaar is.
+times:
+  prep: 10
+  active: 12
+  passive: 0
+methods: [koken]
+difficulty: makkelijk
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 400, unit: g, ingredientId: spaghetti }
+  - { amount: 2, unit: stuks, ingredientId: avocado, note: rijp }
+  - { amount: 3, unit: stuks, ingredientId: ei, note: alleen de dooier }
+  - { amount: 1, unit: stuks, ingredientId: ei }
+  - { amount: 80, unit: g, ingredientId: pecorino, note: "of Parmezaanse kaas, geraspt" }
+  - { amount: 1, unit: teentje, ingredientId: knoflook }
+  - { amount: 1, unit: stuks, ingredientId: citroen }
+  - { amount: 100, unit: g, ingredientId: diepvriesdoperwten }
+  - { amount: 10, unit: g, ingredientId: basilicum, note: vers }
+  - { ingredientId: peper, scales: taste }
+  - { ingredientId: zout, scales: taste }
+steps:
+  - text: Kook de spaghetti in ruim gezouten water beetgaar. Kook de doperwten de laatste 3 minuten mee.
+    timer: 180
+  - text: Pureer ondertussen een avocado met het sap van een halve citroen, de geperste knoflook en een snuf zout tot een gladde creme.
+  - text: Klop de eidooiers en het hele ei los met de geraspte kaas en veel zwarte peper.
+  - text: Giet de pasta af en bewaar 200 milliliter kookvocht. Doe de pasta terug in de warme pan, van het vuur af.
+  - text: Roer eerst het eimengsel erdoor en daarna de avocadocreme, met scheutjes kookvocht tot de saus glad en romig is. Blijf van het vuur af zodat het ei niet schift.
+  - text: Serveer met de tweede avocado in plakjes, basilicum, extra kaas en peper.
+tags: [pasta, italiaans, vegetarisch, gezond, snel]
+season: []
+allergens: [gluten, ei, melk]
+source: { type: text, text: Eigen recept }
+notes: De avocado neemt de rol van het spek over en maakt de saus romig zonder room. Direct serveren, dit gerecht is niet geschikt om op te warmen.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

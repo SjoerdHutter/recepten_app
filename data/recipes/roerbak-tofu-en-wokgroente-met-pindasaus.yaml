@@ -1,0 +1,42 @@
+id: roerbak-tofu-en-wokgroente-met-pindasaus
+title: Roerbak tofu en wokgroente met pindasaus
+description: Alles op hoog vuur door de wok, met een pindasaus die je in de pan aanmaakt.
+times:
+  prep: 10
+  active: 15
+  passive: 0
+methods: [wok, koken]
+difficulty: makkelijk
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 400, unit: g, ingredientId: tofu, note: stevig }
+  - { amount: 300, unit: g, ingredientId: noedels, note: mie of udon }
+  - { amount: 500, unit: g, ingredientId: wokgroente }
+  - { amount: 1, unit: el, ingredientId: maizena }
+  - { amount: 2, unit: el, ingredientId: zonnebloemolie }
+  - { amount: 2, unit: el, ingredientId: sojasaus, scales: taste }
+  - { amount: 100, unit: g, ingredientId: pindakaas }
+  - { amount: 200, unit: ml, ingredientId: kokosmelk }
+  - { amount: 1, unit: el, ingredientId: ketjap }
+  - { amount: 1, unit: tl, ingredientId: sambal, scales: taste }
+  - { amount: 1, unit: teentje, ingredientId: knoflook }
+  - { amount: 10, unit: g, ingredientId: gember, note: "vers, geraspt" }
+  - { amount: 1, unit: stuks, ingredientId: limoen }
+  - { amount: 30, unit: g, ingredientId: pindas, note: gehakt }
+steps:
+  - text: Pers de tofu droog, snijd in blokjes en meng met de maizena en een eetlepel sojasaus.
+  - text: Bak de tofu in de zonnebloemolie in ongeveer 8 minuten rondom krokant. Schep uit de wok.
+    timer: 480
+  - text: Kook de noedels beetgaar en giet af.
+  - text: Wok de groente 4 minuten op hoog vuur.
+    timer: 240
+  - text: Roer pindakaas, kokosmelk, ketjap, sambal, geperste knoflook, geraspte gember en de rest van de sojasaus tot een gladde saus en laat kort meewarmen.
+  - text: Schep noedels, tofu en saus door de groente. Werk af met limoensap en gehakte pinda's.
+tags: [noedels, aziatisch, vegetarisch, vegan, gezond, snel]
+season: []
+allergens: [gluten, pinda, soja]
+source: { type: text, text: Eigen recept }
+notes: De saus is ook los te maken en drie dagen houdbaar in de koelkast.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

@@ -1,0 +1,40 @@
+id: pistache-rol-met-frambozen-en-witte-chocolade
+title: Pistache rol met frambozen en witte chocolade
+description: Een luchtige biscuitrol van gemalen pistache, gevuld met witte chocoladeroom en frambozen.
+times:
+  prep: 30
+  active: 15
+  passive: 15
+methods: [oven]
+difficulty: uitdagend
+pans: 2
+servings: 8
+ingredients:
+  - { amount: 5, unit: stuks, ingredientId: ei }
+  - { amount: 120, unit: g, ingredientId: suiker }
+  - { amount: 100, unit: g, ingredientId: pistachenoten, note: gemalen }
+  - { amount: 40, unit: g, ingredientId: bloem }
+  - { amount: 1, unit: tl, ingredientId: bakpoeder }
+  - { amount: 1, unit: snufje, ingredientId: zout, scales: taste }
+  - { amount: 250, unit: ml, ingredientId: slagroom }
+  - { amount: 100, unit: g, ingredientId: witte-chocolade }
+  - { amount: 200, unit: g, ingredientId: frambozen }
+  - { amount: 1, unit: el, ingredientId: poedersuiker }
+steps:
+  - text: Verwarm de oven voor op 180 graden en bekleed een bakplaat van ongeveer 30 bij 40 centimeter met bakpapier.
+    ovenTemp: 180
+  - text: Klop de eieren met de suiker in 8 minuten luchtig en bleek.
+    timer: 480
+  - text: Spatel de gemalen pistachenoten, bloem, bakpoeder en zout er voorzichtig door.
+  - text: Verdeel het beslag over de plaat en bak 12 tot 15 minuten tot de bovenkant net veert.
+    timer: 900
+  - text: Stort de cake op een vel bakpapier bestrooid met poedersuiker en rol hem lauwwarm met papier en al op. Laat afkoelen.
+  - text: Smelt de witte chocolade, laat iets afkoelen en spatel door de stijfgeklopte slagroom.
+  - text: Rol de cake uit, bestrijk met de room, verdeel de frambozen erover en rol weer op. Koel minstens een uur voor het aansnijden.
+tags: [dessert, westers, vegetarisch]
+season: [6, 7, 8]
+allergens: [gluten, ei, melk, noten, soja]
+source: { type: book, title: "Ottolenghi, Sweet" }
+notes: "Dit is een werkversie zodat de app een compleet recept heeft. Vervang de hoeveelheden door die uit Sweet zodra je het boek erbij hebt. Dit is een werkversie: vervang de hoeveelheden zodra je het kookboek erbij hebt."
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

@@ -1,0 +1,47 @@
+id: champignon-risotto
+title: Champignon risotto
+description: Twintig minuten roeren met een glas wijn erbij. Gedroogd eekhoorntjesbrood geeft de diepte.
+times:
+  prep: 10
+  active: 25
+  passive: 5
+methods: [koken, bakken]
+difficulty: gemiddeld
+pans: 3
+servings: 4
+ingredients:
+  - { amount: 320, unit: g, ingredientId: risottorijst, note: arborio of carnaroli }
+  - { amount: 500, unit: g, ingredientId: champignon, note: kastanje }
+  - { amount: 20, unit: g, ingredientId: eekhoorntjesbrood, note: gedroogd }
+  - { amount: 1, unit: stuks, ingredientId: sjalot }
+  - { amount: 2, unit: teentje, ingredientId: knoflook }
+  - { amount: 150, unit: ml, ingredientId: witte-wijn, note: droog }
+  - { amount: 1200, unit: ml, ingredientId: groentebouillon }
+  - { amount: 40, unit: g, ingredientId: boter }
+  - { amount: 60, unit: g, ingredientId: parmezaanse-kaas, note: geraspt }
+  - { amount: 2, unit: el, ingredientId: olijfolie }
+  - { amount: 5, unit: takje, ingredientId: tijm, note: vers, scales: taste }
+  - { amount: 15, unit: g, ingredientId: peterselie, note: platte }
+  - { amount: 250, unit: g, ingredientId: cherrytomaat }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Week het eekhoorntjesbrood in 200 milliliter heet water. Hak fijn en voeg het weekvocht bij de bouillon. Houd de bouillon tegen de kook aan.
+  - text: Rooster de cherrytomaten met een scheutje olie 20 minuten op 200 graden in de oven.
+    timer: 1200
+    ovenTemp: 200
+  - text: Bak de gesneden champignons in de helft van de olijfolie op hoog vuur tot ze bruin zijn. Bestrooi met zout en zet apart.
+  - text: Fruit de gesnipperde sjalot met knoflook en tijm in de rest van de olie. Voeg de rijst toe en bak 2 minuten tot de korrels glazig zijn.
+    timer: 120
+  - text: Blus af met de witte wijn. Voeg daarna telkens een pollepel bouillon toe en roer tot die is opgenomen, ongeveer 18 minuten in totaal.
+    timer: 1080
+  - text: Roer de champignons, de boter en de Parmezaanse kaas erdoor. Laat 2 minuten rusten met de deksel op de pan.
+    timer: 120
+  - text: Serveer met de geroosterde tomaatjes en peterselie.
+tags: [rijst, italiaans, vegetarisch]
+season: []
+allergens: [melk, selderij, sulfiet]
+source: { type: text, text: Eigen recept }
+notes: Extra lekker met tomaatjes uit de oven. Die kun je tegelijk met de risotto klaarmaken.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

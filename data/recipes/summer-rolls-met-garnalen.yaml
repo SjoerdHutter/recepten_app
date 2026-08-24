@@ -1,0 +1,40 @@
+id: summer-rolls-met-garnalen
+title: Summer rolls met garnalen
+description: Koud, fris en met de hand gerold. Het snijwerk kost de meeste tijd, de rest is stapelen.
+times:
+  prep: 30
+  active: 10
+  passive: 0
+methods: [koken, geen bereiding]
+difficulty: gemiddeld
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 12, unit: stuks, ingredientId: rijstpapier, note: 22 centimeter }
+  - { amount: 100, unit: g, ingredientId: rijstvermicelli }
+  - { amount: 300, unit: g, ingredientId: garnalen, note: gekookt }
+  - { amount: 1, unit: stuks, ingredientId: komkommer }
+  - { amount: 1, unit: stuks, ingredientId: winterpeen }
+  - { amount: 100, unit: g, ingredientId: sla, note: little gem }
+  - { amount: 10, unit: g, ingredientId: munt, note: vers }
+  - { amount: 10, unit: g, ingredientId: koriander, note: vers }
+  - { amount: 3, unit: el, ingredientId: pindakaas }
+  - { amount: 2, unit: el, ingredientId: hoisinsaus }
+  - { amount: 1, unit: el, ingredientId: sojasaus }
+  - { amount: 1, unit: tl, ingredientId: sriracha, scales: taste }
+  - { amount: 1, unit: stuks, ingredientId: limoen }
+  - { amount: 2, unit: el, ingredientId: water, note: "warm, voor de saus" }
+steps:
+  - text: Week de rijstvermicelli volgens de verpakking, spoel koud af en laat goed uitlekken.
+  - text: Snijd komkommer en wortel in dunne reepjes. Halveer de garnalen in de lengte.
+  - text: Roer de dipsaus van pindakaas, hoisinsaus, sojasaus, sriracha, limoensap en warm water tot een gladde saus.
+  - text: Week een vel rijstpapier 10 seconden in lauw water en leg het op een vochtige doek.
+  - text: Leg onderin een blaadje sla, wat vermicelli, groente en kruiden. Leg de garnalen in een rij bovenaan, zodat ze straks door het papier heen zichtbaar zijn.
+  - text: Vouw de zijkanten naar binnen en rol strak op. Herhaal en serveer meteen met de dipsaus.
+tags: [noedels, aziatisch, gezond]
+season: []
+allergens: [gluten, pinda, soja, schaaldieren, sesam]
+source: { type: text, text: Eigen recept }
+notes: Dek gerolde summer rolls af met een vochtige doek zodat ze niet uitdrogen. Ze zijn niet geschikt om in te vriezen.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

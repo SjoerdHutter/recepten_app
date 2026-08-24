@@ -1,0 +1,49 @@
+id: zoete-aardappel-curry-met-krokante-sesam-kikkererwten
+title: Zoete aardappel curry met krokante sesam kikkererwten
+description: Romige curry van rode linzen en zoete aardappel, met krokante sesamkikkererwten erover.
+times:
+  prep: 10
+  active: 10
+  passive: 15
+methods: [koken, stoven, airfryer, oven]
+difficulty: makkelijk
+pans: 2
+servings: 6
+ingredients:
+  - { amount: 700, unit: g, ingredientId: zoete-aardappel }
+  - { amount: 150, unit: g, ingredientId: rode-linzen }
+  - { amount: 2, unit: stuks, ingredientId: sjalot }
+  - { amount: 25, unit: g, ingredientId: gember, note: "vers, geraspt" }
+  - { amount: 4, unit: el, ingredientId: currypasta, note: Thais, scales: taste }
+  - { amount: 400, unit: ml, ingredientId: kokosmelk }
+  - { amount: 800, unit: ml, ingredientId: groentebouillon }
+  - { amount: 1, unit: el, ingredientId: sojasaus }
+  - { amount: 2, unit: el, ingredientId: vissaus, note: of extra sojasaus }
+  - { amount: 1, unit: el, ingredientId: pindakaas }
+  - { amount: 60, unit: g, ingredientId: spinazie, note: babyspinazie }
+  - { amount: 15, unit: g, ingredientId: koriander, note: vers }
+  - { amount: 1, unit: stuks, ingredientId: limoen }
+  - { amount: 2, unit: el, ingredientId: olijfolie }
+  - { amount: 400, unit: g, ingredientId: kikkererwten, note: "uit blik, uitgelekt en droog gedept" }
+  - { amount: 2, unit: el, ingredientId: sesamolie }
+  - { amount: 1, unit: el, ingredientId: sesamzaad }
+  - { ingredientId: zout, scales: taste }
+steps:
+  - text: Meng de kikkererwten met sesamolie, sesamzaad en zout. Doe ze 15 minuten in de airfryer op 190 graden of 25 minuten in de oven op 200 graden tot ze krokant zijn.
+    timer: 900
+    ovenTemp: 190
+  - text: Verhit de olijfolie in een ruime pan en fruit de fijngesneden sjalot met de geraspte gember 3 minuten.
+    timer: 180
+  - text: Roer de currypasta erdoor en bak nog een minuut.
+  - text: Voeg bouillon, rode linzen, geschilde en in blokjes gesneden zoete aardappel, vissaus, sojasaus en pindakaas toe. Breng aan de kook en laat 15 tot 20 minuten zachtjes koken tot alles zacht is.
+    timer: 1200
+  - text: Roer de kokosmelk en de spinazie erdoor en warm nog 5 minuten door.
+    timer: 300
+  - text: Breng op smaak met limoensap en zout. Serveer met koriander, de krokante kikkererwten en eventueel rijst.
+tags: [curry, indisch, vegetarisch, gezond]
+season: []
+allergens: [gluten, pinda, soja, vis, selderij, sesam]
+source: { type: url, url: https://halfbakedharvest.com/sweet-potato-lentil-curry, title: halfbakedharvest.com }
+notes: Doe de kikkererwten in de airfryer of de oven, dat werkt beter dan in de pan. Vervang de vissaus door extra sojasaus voor een veganistische versie. Met plantaardige zuivel is dit gerecht veganistisch.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

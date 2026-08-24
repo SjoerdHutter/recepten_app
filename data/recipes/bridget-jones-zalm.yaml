@@ -1,0 +1,36 @@
+id: bridget-jones-zalm
+title: Bridget Jones zalm
+description: Zalm in de pan met kappertjes en citroen. Een kwartier, meer is het niet.
+times:
+  prep: 10
+  active: 15
+  passive: 0
+methods: [bakken]
+difficulty: makkelijk
+pans: 1
+servings: 4
+ingredients:
+  - { amount: 4, unit: stuks, ingredientId: zalmfilet }
+  - { amount: 60, unit: g, ingredientId: pijnboompitten }
+  - { amount: 2, unit: el, ingredientId: kappertjes }
+  - { amount: 1, unit: stuks, ingredientId: rode-peper, scales: taste }
+  - { amount: 20, unit: g, ingredientId: peterselie, note: platte }
+  - { amount: 1, unit: stuks, ingredientId: citroen }
+  - { amount: 3, unit: el, ingredientId: olijfolie }
+  - { amount: 20, unit: g, ingredientId: boter }
+  - { ingredientId: zout, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Dep de zalm droog en bestrooi met zout en peper.
+  - text: Verhit een eetlepel olijfolie in een koekenpan en bak de zalm 4 minuten op de huidzijde, keer en bak nog 2 minuten. Haal uit de pan en houd warm.
+    timer: 240
+  - text: Smelt de boter in dezelfde pan en bak de pijnboompitten tot ze goudbruin zijn. Let op, dat gaat snel.
+  - text: Haal van het vuur en roer de kappertjes, de fijngesneden chilipeper, de gehakte peterselie, de rest van de olijfolie en het sap en de rasp van de citroen erdoor.
+  - text: Lepel de salsa over de zalm en serveer met aardappelen of een groene salade.
+tags: [vis, westers, gezond, snel]
+season: []
+allergens: [melk, noten, vis]
+source: { type: book, title: "Ottolenghi, Simpel" }
+notes: "Werkversie zodat de app een compleet recept heeft. Neem de exacte hoeveelheden over uit Simpel. Dit is een werkversie: vervang de hoeveelheden zodra je het kookboek erbij hebt."
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

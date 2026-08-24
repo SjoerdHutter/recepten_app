@@ -11,17 +11,17 @@ pans: 2
 servings: 12
 ingredients:
   - { amount: 300, unit: g, ingredientId: zelfrijzend-bakmeel }
-  - { amount: 200, unit: g, ingredientId: boter, note: koud, in blokjes }
+  - { amount: 200, unit: g, ingredientId: boter, note: "koud, in blokjes" }
   - { amount: 150, unit: g, ingredientId: bruine-suiker }
-  - { amount: 1, unit: stuks, ingredientId: ei, note: losgeklopt, een deel voor het bestrijken }
+  - { amount: 1, unit: stuks, ingredientId: ei, note: "losgeklopt, een deel voor het bestrijken" }
   - { amount: 1, unit: snufje, ingredientId: zout }
-  - { amount: 1, unit: kg, ingredientId: appel, note: goudreinetten, geschild en in partjes }
+  - { amount: 1, unit: kg, ingredientId: appel, note: "goudreinetten, geschild en in partjes" }
   - { amount: 2, unit: tl, ingredientId: kaneel }
   - { amount: 8, unit: g, ingredientId: vanillesuiker }
   - { amount: 2, unit: el, ingredientId: paneermeel }
   - { amount: 75, unit: g, ingredientId: rozijnen, optional: true }
   - { amount: 1, unit: stuks, ingredientId: citroen, note: alleen het sap }
-  - { amount: 1, unit: el, ingredientId: bloem, scales: false, note: om de vorm mee te bestuiven }
+  - { amount: 1, unit: el, ingredientId: bloem, scales: fixed, note: om de vorm mee te bestuiven }
 steps:
   - text: Kneed het bakmeel, de boter, de bruine suiker, het zout en tweederde van het ei snel tot een samenhangend deeg. Laat het een halfuur rusten in de koelkast.
     timer: 1800

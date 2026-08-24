@@ -111,3 +111,25 @@
   defaultUnit: ml
   packaging: { amount: 1000, unit: ml }
   allergens: [melk]
+- id: cheddar
+  name: cheddar
+  synonyms: [geraspte cheddar]
+  nameEn: cheddar
+  category: zuivel
+  defaultUnit: g
+  allergens: [melk]
+- id: pecorino
+  name: pecorino
+  synonyms: [ricotta salata]
+  nameEn: pecorino
+  category: zuivel
+  defaultUnit: g
+  allergens: [melk]
+- id: tortellini
+  name: tortellini
+  synonyms: [verse kaastortellini]
+  nameEn: tortellini
+  category: zuivel
+  defaultUnit: g
+  packaging: { amount: 250, unit: g }
+  allergens: [gluten, melk, ei]

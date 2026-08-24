@@ -154,3 +154,38 @@
   nameEn: italian herbs
   category: kruiden
   defaultUnit: tl
+- id: munt
+  name: munt
+  synonyms: [verse munt, pepermunt]
+  nameEn: mint
+  category: kruiden
+  defaultUnit: g
+  conversions: { bosje: { g: 20 } }
+- id: salie
+  name: salie
+  synonyms: [verse salie]
+  nameEn: sage
+  category: kruiden
+  defaultUnit: blad
+- id: gedroogde-basilicum
+  name: gedroogde basilicum
+  nameEn: dried basil
+  category: kruiden
+  defaultUnit: tl
+- id: korianderpoeder
+  name: korianderpoeder
+  synonyms: [gemalen koriander]
+  nameEn: ground coriander
+  category: kruiden
+  defaultUnit: tl
+- id: chipotlepoeder
+  name: chipotlepoeder
+  synonyms: [chipotle]
+  nameEn: chipotle powder
+  category: kruiden
+  defaultUnit: tl
+- id: sumak
+  name: sumak
+  nameEn: sumac
+  category: kruiden
+  defaultUnit: tl

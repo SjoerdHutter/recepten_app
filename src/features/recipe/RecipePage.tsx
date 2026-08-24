@@ -107,14 +107,19 @@ export const RecipePage = () => {
               className="flex gap-3 px-4 py-2.5"
             >
               <span className="min-w-16 shrink-0 text-right font-semibold tabular-nums">
-                {formatQuantity({ amount: item.amount, unit: item.unit })}
+                {item.amount !== undefined && item.unit !== undefined
+                  ? formatQuantity({ amount: item.amount, unit: item.unit })
+                  : ''}
               </span>
               <span className="flex-1">
                 {item.label}
                 {item.line.note ? <span className="text-ink-2">, {item.line.note}</span> : null}
                 <span className="ml-1.5 inline-flex gap-1 align-middle">
                   {item.line.optional ? <Tag>optioneel</Tag> : null}
-                  {!item.line.scales ? <Tag tone="warn">schaalt niet mee</Tag> : null}
+                  {item.line.scales === 'fixed' ? <Tag tone="warn">schaalt niet mee</Tag> : null}
+                  {item.line.scales === 'taste' && item.amount === undefined ? (
+                    <Tag>naar smaak</Tag>
+                  ) : null}
                 </span>
               </span>
             </div>

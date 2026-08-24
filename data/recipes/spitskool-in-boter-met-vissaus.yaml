@@ -1,0 +1,34 @@
+id: spitskool-in-boter-met-vissaus
+title: Spitskool in boter met vissaus
+description: Spitskool die langzaam zacht wordt in boter, met een scheut vissaus voor de diepte.
+times:
+  prep: 5
+  active: 15
+  passive: 0
+methods: [bakken]
+difficulty: makkelijk
+pans: 1
+servings: 4
+ingredients:
+  - { amount: 800, unit: g, ingredientId: spitskool }
+  - { amount: 40, unit: g, ingredientId: boter }
+  - { amount: 1, unit: el, ingredientId: vissaus, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: suiker, scales: taste }
+  - { amount: 0.5, unit: stuks, ingredientId: citroen, scales: taste }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Snijd de spitskool in kwarten en houd de harde kern eraan zodat de partjes bij elkaar blijven.
+  - text: Smelt de boter in een ruime koekenpan op middelhoog vuur.
+  - text: Leg de partjes in de pan en bak ze 5 minuten per snijvlak tot ze goed bruin kleuren.
+    timer: 300
+  - text: Voeg een scheut water toe, doe de deksel op de pan en laat 5 minuten stomen tot de kool net gaar is.
+    timer: 300
+  - text: Voeg de vissaus en het snufje suiker toe, schep om en laat kort inkoken.
+  - text: Maak af met een scheutje citroensap en zwarte peper.
+tags: [bijgerecht, westers, snel]
+season: []
+allergens: [melk, vis]
+source: { type: text, text: Eigen recept }
+notes: "Let op: vissaus is niet vegetarisch. Vervang de vissaus door een lichte sojasaus of witte miso als je het gerecht vegetarisch wilt houden."
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

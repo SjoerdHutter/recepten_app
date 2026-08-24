@@ -128,10 +128,13 @@ boodschappenlijst het niet netjes op.
 ## Eenheden
 
 Uitsluitend metrisch: `g`, `kg`, `ml`, `l`, `tl`, `el`, `stuks`, `snufje`,
-`teentje`, `bosje`. Temperaturen in graden Celsius. Bij het optellen worden gram
+`teentje`, `bosje`, `stengel`, `takje`, `blad`. Een regel mag ook helemaal geen
+hoeveelheid hebben; dat is "peper en zout naar smaak". Temperaturen in graden Celsius. Bij het optellen worden gram
 en kilo samengevoegd, en milliliter en liter ook; een theelepel is 5 ml en een
 eetlepel 15 ml. Hoeveelheden worden praktisch afgerond, dus geen 0,333 ei maar
-een half ei, en 1500 g wordt 1,5 kg.
+een half ei, en 1500 g wordt 1,5 kg. Kruiden en zout schalen met de wortel van
+de factor (`scales: taste`), want dubbel zoveel curry heeft geen dubbele
+hoeveelheid chili nodig.
 
 ## Later: importeren van buitenaf
 

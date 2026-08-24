@@ -287,3 +287,45 @@
   category: groente-en-fruit
   defaultUnit: stuks
   conversions: { stuks: { g: 15 } }
+- id: spruitjes
+  name: spruitje
+  plural: spruitjes
+  nameEn: brussels sprouts
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+- id: avocado
+  name: avocado
+  plural: avocado's
+  nameEn: avocado
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 150 } }
+- id: frambozen
+  name: framboos
+  plural: frambozen
+  nameEn: raspberries
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 125, unit: g }
+- id: blauwe-bessen
+  name: blauwe bes
+  plural: blauwe bessen
+  nameEn: blueberries
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 125, unit: g }
+- id: paddenstoelen
+  name: paddenstoel
+  plural: paddenstoelen
+  synonyms: [gemengde paddenstoelen, bospaddenstoelen]
+  nameEn: mushrooms
+  category: groente-en-fruit
+  defaultUnit: g
+- id: wokgroente
+  name: wokgroente
+  synonyms: [roerbakgroente]
+  nameEn: stir-fry vegetables
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }

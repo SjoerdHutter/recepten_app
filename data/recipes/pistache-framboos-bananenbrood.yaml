@@ -1,0 +1,40 @@
+id: pistache-framboos-bananenbrood
+title: Pistache framboos bananenbrood
+description: Bananenbrood met pistache en frambozen. Vijftig minuten oven en verder niets te doen.
+times:
+  prep: 15
+  active: 5
+  passive: 50
+methods: [oven]
+difficulty: makkelijk
+pans: 1
+servings: 10
+ingredients:
+  - { amount: 3, unit: stuks, ingredientId: banaan, note: rijp, scales: fixed }
+  - { amount: 200, unit: g, ingredientId: bloem, scales: fixed }
+  - { amount: 100, unit: g, ingredientId: bruine-suiker, note: lichtbruin, scales: fixed }
+  - { amount: 100, unit: g, ingredientId: boter, note: gesmolten, scales: fixed }
+  - { amount: 2, unit: stuks, ingredientId: ei, scales: fixed }
+  - { amount: 1, unit: tl, ingredientId: bakpoeder, scales: fixed }
+  - { amount: 0.5, unit: tl, ingredientId: baksoda, scales: fixed }
+  - { amount: 1, unit: snufje, ingredientId: zout, scales: taste }
+  - { amount: 1, unit: tl, ingredientId: vanille-extract, scales: fixed }
+  - { amount: 80, unit: g, ingredientId: pistachenoten, note: gehakt, scales: fixed }
+  - { amount: 150, unit: g, ingredientId: frambozen, scales: fixed }
+steps:
+  - text: Verwarm de oven voor op 175 graden en bekleed een cakevorm van 25 centimeter met bakpapier.
+    ovenTemp: 175
+  - text: Prak de bananen fijn en meng met de gesmolten boter, de suiker, de eieren en het vanille extract.
+  - text: Meng bloem, bakpoeder, baksoda en zout apart en spatel dit door het natte mengsel tot je net geen droge bloem meer ziet.
+  - text: Spatel twee derde van de pistachenoten erdoor en daarna voorzichtig de frambozen.
+  - text: Schep in de vorm, strooi de rest van de pistachenoten erover en bak 50 tot 55 minuten. Test met een satestokje.
+    timer: 3300
+  - text: Laat 15 minuten in de vorm staan en daarna volledig afkoelen op een rooster.
+    timer: 900
+tags: [dessert, westers, vegetarisch]
+season: [6, 7, 8]
+allergens: [gluten, ei, melk, noten]
+source: { type: book, title: Kookboek bananenbrood }
+notes: "Werkversie zodat de app een compleet recept heeft. De hoeveelheden horen bij een cakevorm van 25 centimeter en schalen dus niet mee met het aantal personen. Bevroren frambozen kunnen ook, dan niet ontdooien. Dit is een werkversie: vervang de hoeveelheden zodra je het kookboek erbij hebt."
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z

@@ -1,0 +1,36 @@
+id: wraps-met-appel-en-geitenkaas
+title: Wraps met appel en geitenkaas
+description: Een kwartier en geen pan nodig. Zoete appel tegen zoute geitenkaas.
+times:
+  prep: 15
+  active: 0
+  passive: 0
+methods: [geen bereiding, bakken]
+difficulty: makkelijk
+pans: 1
+servings: 4
+ingredients:
+  - { amount: 4, unit: stuks, ingredientId: tortilla }
+  - { amount: 150, unit: g, ingredientId: geitenkaas, note: zacht }
+  - { amount: 2, unit: stuks, ingredientId: appel, note: bijvoorbeeld Elstar }
+  - { amount: 80, unit: g, ingredientId: rucola }
+  - { amount: 50, unit: g, ingredientId: walnoten }
+  - { amount: 2, unit: el, ingredientId: honing }
+  - { amount: 1, unit: el, ingredientId: mosterd }
+  - { amount: 1, unit: el, ingredientId: olijfolie }
+  - { amount: 1, unit: el, ingredientId: citroen, note: alleen het sap }
+  - { ingredientId: peper, scales: taste }
+steps:
+  - text: Rooster de walnoten kort droog in een pan en hak ze grof.
+  - text: Klop een dressing van honing, mosterd, olijfolie en citroensap.
+  - text: Snijd de appels in dunne partjes en meng ze met wat citroensap zodat ze niet verkleuren.
+  - text: Verwarm de wraps kort in een droge koekenpan zodat ze soepel worden.
+  - text: Bestrijk elke wrap met geitenkaas, verdeel rucola, appel en walnoten erover en sprenkel de dressing erop.
+  - text: Maal er peper over, rol strak op en snijd schuin doormidden.
+tags: [wraps, westers, vegetarisch, gezond, snel]
+season: []
+allergens: [gluten, melk, noten, mosterd]
+source: { type: text, text: Eigen recept }
+notes: Ideaal als snelle lunch. Voeg gerookte kip toe voor een niet vegetarische variant.
+createdAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-08-24T16:00:00Z
