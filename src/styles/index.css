@@ -1,0 +1,153 @@
+@import 'tailwindcss';
+
+/* Donkere modus volgt een class op <html>, gezet door het script in index.html.
+   Zo kan de systeeminstelling gevolgd worden én handmatig overschreven. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --app-bg: #f2f4f8;
+  --app-surface: #ffffff;
+  --app-surface-2: #e8edf4;
+  --app-ink: #10192a;
+  --app-ink-2: #43536e;
+  --app-ink-3: #6e7e98;
+  --app-line: #d3dbe6;
+  --app-accent: #1f4e9c;
+  --app-on-accent: #ffffff;
+  --app-accent-soft: #dee8f8;
+  --app-ok: #3f6b2a;
+  --app-ok-soft: #e2ebd6;
+  --app-warn: #8f6212;
+  --app-warn-soft: #f3e8cf;
+  --app-danger: #9d2b22;
+  --app-danger-soft: #f6dedb;
+}
+
+.dark {
+  --app-bg: #0c1420;
+  --app-surface: #121c2b;
+  --app-surface-2: #1a2536;
+  --app-ink: #e6edf6;
+  --app-ink-2: #a8b7cc;
+  --app-ink-3: #7b8ca6;
+  --app-line: #253449;
+  --app-accent: #86acea;
+  --app-on-accent: #0c1420;
+  --app-accent-soft: #17273e;
+  --app-ok: #96c46b;
+  --app-ok-soft: #1b2a19;
+  --app-warn: #d9a74e;
+  --app-warn-soft: #2c2415;
+  --app-danger: #f08d82;
+  --app-danger-soft: #2e1a18;
+}
+
+@theme inline {
+  --color-bg: var(--app-bg);
+  --color-surface: var(--app-surface);
+  --color-surface-2: var(--app-surface-2);
+  --color-ink: var(--app-ink);
+  --color-ink-2: var(--app-ink-2);
+  --color-ink-3: var(--app-ink-3);
+  --color-line: var(--app-line);
+  --color-accent: var(--app-accent);
+  --color-on-accent: var(--app-on-accent);
+  --color-accent-soft: var(--app-accent-soft);
+  --color-ok: var(--app-ok);
+  --color-ok-soft: var(--app-ok-soft);
+  --color-warn: var(--app-warn);
+  --color-warn-soft: var(--app-warn-soft);
+  --color-danger: var(--app-danger);
+  --color-danger-soft: var(--app-danger-soft);
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+  background: var(--app-bg);
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--app-ink);
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+}
+
+/* Eén hand, natte vingers: alles wat je aanraakt is minstens 44px hoog en
+   krijgt geen hover-afhankelijk gedrag. */
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* iOS zoomt in op invoervelden onder 16px. */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+.safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+
+.safe-top {
+  padding-top: max(env(safe-area-inset-top), 0px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Printen: alleen de inhoud, zwart op wit, geen navigatie. */
+@media print {
+  :root,
+  .dark {
+    --app-bg: #ffffff;
+    --app-surface: #ffffff;
+    --app-surface-2: #ffffff;
+    --app-ink: #000000;
+    --app-ink-2: #222222;
+    --app-ink-3: #444444;
+    --app-line: #999999;
+    --app-accent: #000000;
+    --app-accent-soft: #ffffff;
+    --app-on-accent: #ffffff;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+
+  .print-block {
+    display: block !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+}

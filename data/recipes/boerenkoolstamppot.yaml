@@ -1,0 +1,38 @@
+id: boerenkoolstamppot
+title: Boerenkoolstamppot met rookworst
+description: Winterkost zoals het hoort. Eén pan, een halfuur, en niemand die klaagt.
+times:
+  prep: 20
+  active: 25
+  passive: 0
+methods: [koken]
+difficulty: makkelijk
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 1.2, unit: kg, ingredientId: aardappel, note: kruimig, in stukken }
+  - { amount: 500, unit: g, ingredientId: boerenkool, note: fijngesneden }
+  - { amount: 1, unit: stuks, ingredientId: rookworst }
+  - { amount: 150, unit: g, ingredientId: spekblokjes }
+  - { amount: 100, unit: ml, ingredientId: melk, note: warm }
+  - { amount: 40, unit: g, ingredientId: boter }
+  - { amount: 2, unit: el, ingredientId: mosterd }
+  - { amount: 1, unit: snufje, ingredientId: nootmuskaat }
+  - { amount: 3, unit: snufje, ingredientId: zout }
+  - { amount: 2, unit: snufje, ingredientId: peper }
+steps:
+  - text: Doe de aardappelen in een grote pan, leg de boerenkool erbovenop en giet er water bij tot de aardappelen net onderstaan. Voeg zout toe.
+  - text: Breng aan de kook en laat twintig minuten koken tot de aardappelen gaar zijn.
+    timer: 1200
+  - text: Verwarm de rookworst ondertussen mee boven op de stamppot of in een pannetje water van tegen de kook aan.
+    timer: 1200
+  - text: Bak de spekblokjes in een droge koekenpan uit tot ze knapperig zijn.
+    timer: 480
+  - text: Giet de pan af, stamp alles grof en meng de warme melk en de boter erdoor. Breng op smaak met nootmuskaat, peper en zout.
+  - text: Schep de spekblokjes met het uitgebakken vet erdoor en serveer met de rookworst en een flinke lepel mosterd.
+tags: [comfort food]
+season: [10, 11, 12, 1, 2]
+allergens: [gluten, melk, mosterd]
+notes: Zonder spek en met een vegetarische worst werkt het net zo goed.
+createdAt: 2026-08-24T09:35:00Z
+updatedAt: 2026-08-24T09:35:00Z

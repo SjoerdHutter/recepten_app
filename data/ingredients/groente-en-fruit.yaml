@@ -1,0 +1,289 @@
+# Groente en fruit. Eén bestand per supermarktcategorie; de volgorde binnen het
+# bestand maakt niet uit, de app sorteert zelf op naam.
+- id: ui
+  name: ui
+  plural: uien
+  synonyms: [gele ui, uitje]
+  nameEn: onion
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 150 } }
+- id: rode-ui
+  name: rode ui
+  plural: rode uien
+  nameEn: red onion
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 140 } }
+- id: sjalot
+  name: sjalot
+  plural: sjalotten
+  nameEn: shallot
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 40 } }
+- id: knoflook
+  name: knoflook
+  synonyms: [knoflookteen, teentje knoflook, knoflookteentje]
+  nameEn: garlic
+  category: groente-en-fruit
+  defaultUnit: teentje
+  conversions: { teentje: { g: 5 } }
+- id: prei
+  name: prei
+  plural: preien
+  nameEn: leek
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 200 } }
+- id: winterpeen
+  name: winterpeen
+  plural: winterpenen
+  synonyms: [wortel, wortels, wortelen, peen]
+  nameEn: carrot
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 120 } }
+- id: bleekselderij
+  name: bleekselderij
+  synonyms: [selderijstengel, selderiestengel]
+  nameEn: celery
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 60 } }
+  allergens: [selderij]
+- id: knolselderij
+  name: knolselderij
+  nameEn: celeriac
+  category: groente-en-fruit
+  defaultUnit: g
+  allergens: [selderij]
+- id: aardappel
+  name: aardappel
+  plural: aardappelen
+  synonyms: [kruimige aardappel, vastkokende aardappel]
+  nameEn: potato
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 150 } }
+  packaging: { amount: 2500, unit: g }
+- id: krieltjes
+  name: krieltje
+  plural: krieltjes
+  synonyms: [krielaardappel, krielaardappelen]
+  nameEn: baby potato
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 750, unit: g }
+- id: zoete-aardappel
+  name: zoete aardappel
+  plural: zoete aardappelen
+  nameEn: sweet potato
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 300 } }
+- id: courgette
+  name: courgette
+  plural: courgettes
+  nameEn: courgette
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 250 } }
+- id: aubergine
+  name: aubergine
+  plural: aubergines
+  nameEn: aubergine
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 300 } }
+- id: paprika
+  name: paprika
+  plural: paprika's
+  synonyms: [rode paprika, gele paprika, groene paprika]
+  nameEn: bell pepper
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 160 } }
+- id: tomaat
+  name: tomaat
+  plural: tomaten
+  nameEn: tomato
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 110 } }
+- id: cherrytomaat
+  name: cherrytomaat
+  plural: cherrytomaten
+  synonyms: [kerstomaat, kerstomaten]
+  nameEn: cherry tomato
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 250, unit: g }
+- id: komkommer
+  name: komkommer
+  plural: komkommers
+  nameEn: cucumber
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 400 } }
+- id: champignon
+  name: champignon
+  plural: champignons
+  synonyms: [kastanjechampignon, kastanjechampignons]
+  nameEn: mushroom
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 250, unit: g }
+- id: spinazie
+  name: spinazie
+  synonyms: [verse spinazie]
+  nameEn: spinach
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 300, unit: g }
+- id: boerenkool
+  name: boerenkool
+  nameEn: kale
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+- id: witte-kool
+  name: witte kool
+  nameEn: white cabbage
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 1200 } }
+- id: spitskool
+  name: spitskool
+  plural: spitskolen
+  nameEn: pointed cabbage
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 700 } }
+- id: bloemkool
+  name: bloemkool
+  plural: bloemkolen
+  nameEn: cauliflower
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 800 } }
+- id: broccoli
+  name: broccoli
+  nameEn: broccoli
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 400 } }
+- id: venkel
+  name: venkel
+  plural: venkelknollen
+  synonyms: [venkelknol]
+  nameEn: fennel
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 300 } }
+- id: sperziebonen
+  name: sperzieboon
+  plural: sperziebonen
+  synonyms: [haricots verts]
+  nameEn: green beans
+  category: groente-en-fruit
+  defaultUnit: g
+- id: doperwten
+  name: doperwt
+  plural: doperwten
+  nameEn: peas
+  category: groente-en-fruit
+  defaultUnit: g
+- id: pompoen
+  name: pompoen
+  plural: pompoenen
+  synonyms: [flespompoen, butternut]
+  nameEn: pumpkin
+  category: groente-en-fruit
+  defaultUnit: g
+- id: rode-biet
+  name: rode biet
+  plural: rode bieten
+  synonyms: [biet, bieten]
+  nameEn: beetroot
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 150 } }
+- id: sla
+  name: sla
+  synonyms: [ijsbergsla, kropsla, botersla]
+  nameEn: lettuce
+  category: groente-en-fruit
+  defaultUnit: stuks
+- id: rucola
+  name: rucola
+  nameEn: rocket
+  category: groente-en-fruit
+  defaultUnit: g
+  packaging: { amount: 75, unit: g }
+- id: citroen
+  name: citroen
+  plural: citroenen
+  nameEn: lemon
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { ml: 45, g: 100 } }
+- id: limoen
+  name: limoen
+  plural: limoenen
+  nameEn: lime
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { ml: 25, g: 65 } }
+- id: sinaasappel
+  name: sinaasappel
+  plural: sinaasappels
+  nameEn: orange
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 180 } }
+- id: appel
+  name: appel
+  plural: appels
+  synonyms: [goudreinet, goudreinetten, elstar, jonagold]
+  nameEn: apple
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { stuks: { g: 170 } }
+- id: banaan
+  name: banaan
+  plural: bananen
+  nameEn: banana
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 120 } }
+- id: peer
+  name: peer
+  plural: peren
+  nameEn: pear
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 175 } }
+- id: gember
+  name: gember
+  synonyms: [verse gember, gemberwortel]
+  nameEn: ginger
+  category: groente-en-fruit
+  defaultUnit: g
+  conversions: { el: { g: 8 } }
+- id: rode-peper
+  name: rode peper
+  plural: rode pepers
+  synonyms: [chilipeper, chilipepers]
+  nameEn: red chilli
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 15 } }
+- id: lente-ui
+  name: lente-ui
+  plural: lente-uitjes
+  synonyms: [bosui, bosuitjes, lente uitje]
+  nameEn: spring onion
+  category: groente-en-fruit
+  defaultUnit: stuks
+  conversions: { stuks: { g: 15 } }

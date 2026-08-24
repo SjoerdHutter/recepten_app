@@ -1,0 +1,37 @@
+id: gegrilde-makreel-met-venkelsalade
+title: Gegrilde makreel met venkelsalade
+description: Vette vis van de grill met een frisse, knapperige salade ernaast. Weinig ingrediënten, veel smaak.
+times:
+  prep: 20
+  active: 15
+  passive: 0
+methods: [grill]
+difficulty: gemiddeld
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 4, unit: stuks, ingredientId: makreel, note: schoongemaakt }
+  - { amount: 2, unit: stuks, ingredientId: venkel, note: flinterdun geschaafd }
+  - { amount: 1, unit: stuks, ingredientId: rode-ui, note: in dunne ringen }
+  - { amount: 2, unit: stuks, ingredientId: citroen }
+  - { amount: 4, unit: el, ingredientId: olijfolie }
+  - { amount: 1, unit: tl, ingredientId: mosterd }
+  - { amount: 1, unit: tl, ingredientId: honing }
+  - { amount: 1, unit: bosje, ingredientId: peterselie, note: grof gehakt }
+  - { amount: 3, unit: snufje, ingredientId: zout }
+  - { amount: 2, unit: snufje, ingredientId: peper }
+steps:
+  - text: Laat de grill of de barbecue goed heet worden. Kerf de vis aan beide kanten twee keer in.
+  - text: Wrijf de makreel in met olijfolie, zout en peper en leg in de buikholte een paar schijfjes citroen.
+  - text: Meng voor de dressing het sap van een citroen met de mosterd, de honing, de rest van de olijfolie, zout en peper.
+  - text: Schep de venkel en de rode ui door de dressing en laat tien minuten staan, dan wordt de ui milder.
+    timer: 600
+  - text: Grill de makreel vijf tot zes minuten per kant, tot de huid knapperig is en het vlees van de graat loslaat.
+    timer: 660
+  - text: Meng de peterselie door de salade en serveer de vis er direct bij.
+tags: []
+season: [5, 6, 7, 8, 9]
+allergens: [vis, mosterd]
+notes: Vraag de visboer de makreel schoon te maken, dat scheelt een kwartier.
+createdAt: 2026-08-24T09:25:00Z
+updatedAt: 2026-08-24T09:25:00Z

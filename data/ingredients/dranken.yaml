@@ -1,0 +1,35 @@
+# Dranken, ook de flessen die in een gerecht verdwijnen.
+- id: donker-bier
+  name: donker bier
+  synonyms: [abdijbier, dubbelbier, bokbier]
+  nameEn: dark beer
+  category: dranken
+  defaultUnit: ml
+  packaging: { amount: 330, unit: ml }
+  allergens: [gluten]
+- id: witte-wijn
+  name: witte wijn
+  nameEn: white wine
+  category: dranken
+  defaultUnit: ml
+  packaging: { amount: 750, unit: ml }
+  allergens: [sulfiet]
+- id: rode-wijn
+  name: rode wijn
+  nameEn: red wine
+  category: dranken
+  defaultUnit: ml
+  packaging: { amount: 750, unit: ml }
+  allergens: [sulfiet]
+- id: water
+  name: water
+  nameEn: water
+  category: dranken
+  defaultUnit: ml
+- id: sinaasappelsap
+  name: sinaasappelsap
+  synonyms: [jus d'orange]
+  nameEn: orange juice
+  category: dranken
+  defaultUnit: ml
+  packaging: { amount: 1000, unit: ml }

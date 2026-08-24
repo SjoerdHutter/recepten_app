@@ -1,0 +1,41 @@
+name: Controle
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  controle:
+    name: Lint, types, tests en schema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Opmaak
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Types
+        run: npm run typecheck
+
+      - name: Tests
+        run: npm test
+
+      # Valideert elk recept- en ingrediëntbestand tegen het Zod-schema, zodat
+      # een wijziging die rechtstreeks op github.com is gemaakt niet stilletjes
+      # kapot gaat.
+      - name: Schema van de databestanden
+        run: npm run validate
+
+      - name: Build
+        run: npm run build

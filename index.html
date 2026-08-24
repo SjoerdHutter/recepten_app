@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5"
+    />
+    <title>Recepten</title>
+    <meta name="description" content="Persoonlijk kookboek: kiezen, boodschappen doen en koken." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1f4e9c" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Recepten" />
+    <link rel="icon" href="/recepten_app/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/recepten_app/icons/apple-touch-icon.png" />
+    <script>
+      // Zet het thema voordat er iets getekend wordt, anders zie je bij het
+      // openen een witte flits voordat de donkere modus aanslaat.
+      (function () {
+        try {
+          var keuze = localStorage.getItem('recepten.theme') || 'system';
+          var donker =
+            keuze === 'dark' ||
+            (keuze === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', donker);
+          document.documentElement.style.colorScheme = donker ? 'dark' : 'light';
+        } catch (e) {
+          /* privémodus zonder localStorage: val terug op licht */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

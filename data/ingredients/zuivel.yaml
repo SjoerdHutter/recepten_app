@@ -1,0 +1,113 @@
+# Zuivel en eieren.
+- id: melk
+  name: melk
+  synonyms: [halfvolle melk, volle melk]
+  nameEn: milk
+  category: zuivel
+  defaultUnit: ml
+  packaging: { amount: 1000, unit: ml }
+  allergens: [melk]
+- id: slagroom
+  name: slagroom
+  synonyms: [room, verse room]
+  nameEn: cream
+  category: zuivel
+  defaultUnit: ml
+  packaging: { amount: 250, unit: ml }
+  allergens: [melk]
+- id: kookroom
+  name: kookroom
+  nameEn: cooking cream
+  category: zuivel
+  defaultUnit: ml
+  packaging: { amount: 250, unit: ml }
+  allergens: [melk]
+- id: creme-fraiche
+  name: crème fraîche
+  synonyms: [creme fraiche]
+  nameEn: creme fraiche
+  category: zuivel
+  defaultUnit: ml
+  packaging: { amount: 125, unit: ml }
+  allergens: [melk]
+- id: yoghurt
+  name: yoghurt
+  synonyms: [Griekse yoghurt, volle yoghurt]
+  nameEn: yoghurt
+  category: zuivel
+  defaultUnit: ml
+  packaging: { amount: 500, unit: ml }
+  allergens: [melk]
+- id: boter
+  name: boter
+  synonyms: [roomboter, ongezouten boter]
+  nameEn: butter
+  category: zuivel
+  defaultUnit: g
+  conversions: { el: { g: 15 } }
+  packaging: { amount: 250, unit: g }
+  allergens: [melk]
+- id: ei
+  name: ei
+  plural: eieren
+  nameEn: egg
+  category: zuivel
+  defaultUnit: stuks
+  conversions: { stuks: { g: 55 } }
+  packaging: { amount: 10, unit: stuks }
+  allergens: [ei]
+- id: kaas
+  name: kaas
+  synonyms: [belegen kaas, jonge kaas, geraspte kaas]
+  nameEn: cheese
+  category: zuivel
+  defaultUnit: g
+  allergens: [melk]
+- id: parmezaanse-kaas
+  name: parmezaanse kaas
+  synonyms: [parmezaan, parmigiano]
+  nameEn: parmesan
+  category: zuivel
+  defaultUnit: g
+  allergens: [melk]
+- id: feta
+  name: feta
+  nameEn: feta
+  category: zuivel
+  defaultUnit: g
+  packaging: { amount: 200, unit: g }
+  allergens: [melk]
+- id: mozzarella
+  name: mozzarella
+  nameEn: mozzarella
+  category: zuivel
+  defaultUnit: g
+  packaging: { amount: 125, unit: g }
+  allergens: [melk]
+- id: ricotta
+  name: ricotta
+  nameEn: ricotta
+  category: zuivel
+  defaultUnit: g
+  packaging: { amount: 250, unit: g }
+  allergens: [melk]
+- id: geitenkaas
+  name: geitenkaas
+  nameEn: goat cheese
+  category: zuivel
+  defaultUnit: g
+  allergens: [melk]
+- id: roomkaas
+  name: roomkaas
+  synonyms: [monchou]
+  nameEn: cream cheese
+  category: zuivel
+  defaultUnit: g
+  allergens: [melk]
+- id: karnemelk
+  name: karnemelk
+  nameEn: buttermilk
+  category: zuivel
+  defaultUnit: ml
+  packaging: { amount: 1000, unit: ml }
+  allergens: [melk]

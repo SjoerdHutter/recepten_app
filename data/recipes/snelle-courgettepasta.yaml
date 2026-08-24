@@ -1,0 +1,36 @@
+id: snelle-courgettepasta
+title: Snelle courgettepasta met citroen en ricotta
+description: Klaar in de tijd die de pasta nodig heeft. Frisse zomerpasta zonder ingewikkelde saus.
+times:
+  prep: 5
+  active: 12
+  passive: 0
+methods: [koken]
+difficulty: makkelijk
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 350, unit: g, ingredientId: spaghetti }
+  - { amount: 2, unit: stuks, ingredientId: courgette, note: in dunne halve plakjes }
+  - { amount: 2, unit: teentje, ingredientId: knoflook, note: fijngesneden }
+  - { amount: 3, unit: el, ingredientId: olijfolie }
+  - { amount: 250, unit: g, ingredientId: ricotta }
+  - { amount: 1, unit: stuks, ingredientId: citroen, note: rasp en sap }
+  - { amount: 40, unit: g, ingredientId: parmezaanse-kaas, note: geraspt }
+  - { amount: 1, unit: bosje, ingredientId: basilicum }
+  - { amount: 2, unit: snufje, ingredientId: zout }
+  - { amount: 1, unit: snufje, ingredientId: peper }
+steps:
+  - text: Zet een ruime pan water op met zout en kook de spaghetti beetgaar volgens de aanwijzing op de verpakking.
+    timer: 540
+  - text: Verhit ondertussen de olijfolie in een koekenpan en bak de courgette op hoog vuur goudbruin. Voeg de laatste minuut de knoflook toe.
+    timer: 420
+  - text: Klop de ricotta los met de citroenrasp, het citroensap en een flinke draai peper.
+  - text: Schep de uitgelekte pasta door de courgette met een scheutje kookvocht, en roer de ricotta erdoor tot een romige saus ontstaat.
+  - text: Maak af met parmezaan en gescheurde blaadjes basilicum.
+tags: [vegetarisch, snel]
+season: [6, 7, 8, 9]
+allergens: [gluten, melk]
+notes: Met een handvol rucola erdoor is het ook prima als koude salade.
+createdAt: 2026-08-24T09:05:00Z
+updatedAt: 2026-08-24T09:05:00Z

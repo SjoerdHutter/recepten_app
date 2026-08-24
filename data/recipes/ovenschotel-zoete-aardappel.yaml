@@ -1,0 +1,42 @@
+id: ovenschotel-zoete-aardappel
+title: Ovenschotel met zoete aardappel, spinazie en feta
+description: Alles in één schaal en dan de oven het werk laten doen. Glutenvrij en zonder vlees.
+times:
+  prep: 20
+  active: 10
+  passive: 40
+methods: [oven]
+difficulty: makkelijk
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 800, unit: g, ingredientId: zoete-aardappel, note: in blokjes van 2 cm }
+  - { amount: 300, unit: g, ingredientId: spinazie }
+  - { amount: 200, unit: g, ingredientId: feta, note: verkruimeld }
+  - { amount: 2, unit: stuks, ingredientId: rode-ui, note: in partjes }
+  - { amount: 3, unit: teentje, ingredientId: knoflook }
+  - { amount: 3, unit: el, ingredientId: olijfolie }
+  - { amount: 2, unit: tl, ingredientId: komijn }
+  - { amount: 3, unit: stuks, ingredientId: ei }
+  - { amount: 200, unit: ml, ingredientId: kookroom }
+  - { amount: 30, unit: g, ingredientId: pijnboompitten, optional: true }
+  - { amount: 2, unit: snufje, ingredientId: zout }
+  - { amount: 2, unit: snufje, ingredientId: peper }
+steps:
+  - text: Verwarm de oven voor op 200 graden.
+    ovenTemp: 200
+  - text: Meng de zoete aardappel en de rode ui met de olijfolie, de komijn, zout en peper en verdeel alles over een ovenschaal.
+  - text: Rooster twintig minuten in de oven, tot de randjes beginnen te kleuren.
+    timer: 1200
+    ovenTemp: 200
+  - text: Laat de spinazie in een pan slinken, knijp het vocht eruit en meng hem met de geperste knoflook door de ovenschaal.
+  - text: Klop de eieren los met de kookroom, giet dat over de schaal en verdeel de feta erover.
+  - text: Zet nog twintig minuten terug in de oven tot het eiermengsel gestold is. Strooi er eventueel pijnboompitten over.
+    timer: 1200
+    ovenTemp: 200
+tags: [vegetarisch, glutenvrij, meal prep]
+season: [9, 10, 11, 12, 1, 2, 3]
+allergens: [melk, ei, noten]
+notes: Zonder de pijnboompitten is het gerecht ook notenvrij.
+createdAt: 2026-08-24T09:10:00Z
+updatedAt: 2026-08-24T09:10:00Z

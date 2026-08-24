@@ -1,0 +1,39 @@
+id: airfryer-krieltjes-met-rozemarijn
+title: Krieltjes met rozemarijn uit de airfryer
+description: Knapperig van buiten, zacht van binnen, en je hoeft er nauwelijks bij te blijven.
+times:
+  prep: 10
+  active: 5
+  passive: 25
+methods: [airfryer]
+difficulty: makkelijk
+pans: 1
+servings: 4
+ingredients:
+  - { amount: 800, unit: g, ingredientId: krieltjes, note: gehalveerd }
+  - { amount: 2, unit: el, ingredientId: olijfolie }
+  - { amount: 2, unit: el, ingredientId: rozemarijn, note: fijngehakt }
+  - {
+      amount: 3,
+      unit: teentje,
+      ingredientId: knoflook,
+      note: ongepeld,
+      met de platte kant van een mes geplet,
+    }
+  - { amount: 1, unit: tl, ingredientId: paprikapoeder }
+  - { amount: 3, unit: snufje, ingredientId: zout }
+steps:
+  - text: Was de krieltjes en dep ze goed droog. Vocht is de vijand van een knapperig korstje.
+  - text: Meng ze met de olijfolie, de rozemarijn, het paprikapoeder en het zout tot alles glanst.
+  - text: Verwarm de airfryer voor op 180 graden.
+    ovenTemp: 180
+  - text: Doe de krieltjes met de geplette knoflook in de mand en schud hem niet te vol, anders stomen ze in plaats van dat ze bakken.
+  - text: Bak vijfentwintig minuten en schud de mand halverwege om.
+    timer: 1500
+    ovenTemp: 180
+tags: [vegetarisch, vegan, glutenvrij, snel]
+season: []
+allergens: []
+notes: In een gewone oven op 200 graden duurt het ongeveer veertig minuten.
+createdAt: 2026-08-24T09:30:00Z
+updatedAt: 2026-08-24T09:30:00Z

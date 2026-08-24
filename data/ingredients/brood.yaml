@@ -1,0 +1,37 @@
+# Brood en banket.
+- id: brood
+  name: brood
+  synonyms: [bruin brood, wit brood, casinobrood]
+  nameEn: bread
+  category: brood
+  defaultUnit: stuks
+  allergens: [gluten]
+- id: stokbrood
+  name: stokbrood
+  plural: stokbroden
+  synonyms: [baguette]
+  nameEn: baguette
+  category: brood
+  defaultUnit: stuks
+  allergens: [gluten]
+- id: ciabatta
+  name: ciabatta
+  nameEn: ciabatta
+  category: brood
+  defaultUnit: stuks
+  allergens: [gluten]
+- id: tortilla
+  name: tortilla
+  plural: tortillas
+  synonyms: [wrap, wraps]
+  nameEn: tortilla
+  category: brood
+  defaultUnit: stuks
+  allergens: [gluten]
+- id: pitabroodje
+  name: pitabroodje
+  plural: pitabroodjes
+  nameEn: pita
+  category: brood
+  defaultUnit: stuks
+  allergens: [gluten]

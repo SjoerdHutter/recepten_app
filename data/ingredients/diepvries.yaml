@@ -1,0 +1,35 @@
+# Diepvries.
+- id: diepvriesdoperwten
+  name: diepvriesdoperwten
+  synonyms: [erwtjes uit de diepvries]
+  nameEn: frozen peas
+  category: diepvries
+  defaultUnit: g
+  packaging: { amount: 450, unit: g }
+- id: diepvriesspinazie
+  name: diepvriesspinazie
+  nameEn: frozen spinach
+  category: diepvries
+  defaultUnit: g
+  packaging: { amount: 450, unit: g }
+- id: bladerdeeg
+  name: bladerdeeg
+  plural: plakjes bladerdeeg
+  nameEn: puff pastry
+  category: diepvries
+  defaultUnit: stuks
+  packaging: { amount: 10, unit: stuks }
+  allergens: [gluten]
+- id: diepvriesfrites
+  name: frites
+  synonyms: [friet, patat]
+  nameEn: fries
+  category: diepvries
+  defaultUnit: g
+  packaging: { amount: 1000, unit: g }
+- id: diepvriesgarnalen
+  name: diepvriesgarnalen
+  nameEn: frozen prawns
+  category: diepvries
+  defaultUnit: g
+  allergens: [schaaldieren]

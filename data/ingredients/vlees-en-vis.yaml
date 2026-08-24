@@ -1,0 +1,114 @@
+# Vlees, vis en vleesvervangers.
+- id: runderriblappen
+  name: runderriblappen
+  synonyms: [riblappen, sukadelappen, stoofvlees]
+  nameEn: beef chuck
+  category: vlees-en-vis
+  defaultUnit: g
+- id: rundergehakt
+  name: rundergehakt
+  synonyms: [gehakt, half-om-half gehakt]
+  nameEn: minced beef
+  category: vlees-en-vis
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+- id: kipfilet
+  name: kipfilet
+  plural: kipfilets
+  synonyms: [kippenborst]
+  nameEn: chicken breast
+  category: vlees-en-vis
+  defaultUnit: g
+  conversions: { stuks: { g: 150 } }
+- id: kippendijfilet
+  name: kippendijfilet
+  synonyms: [kipdijfilet, dijenvlees]
+  nameEn: chicken thigh
+  category: vlees-en-vis
+  defaultUnit: g
+- id: spekblokjes
+  name: spekblokjes
+  synonyms: [spek, ontbijtspek]
+  nameEn: bacon
+  category: vlees-en-vis
+  defaultUnit: g
+  packaging: { amount: 200, unit: g }
+- id: rookworst
+  name: rookworst
+  plural: rookworsten
+  nameEn: smoked sausage
+  category: vlees-en-vis
+  defaultUnit: stuks
+  conversions: { stuks: { g: 275 } }
+  allergens: [gluten]
+- id: varkenshaas
+  name: varkenshaas
+  nameEn: pork tenderloin
+  category: vlees-en-vis
+  defaultUnit: g
+- id: speklap
+  name: speklap
+  plural: speklappen
+  nameEn: pork belly
+  category: vlees-en-vis
+  defaultUnit: g
+- id: zalmfilet
+  name: zalmfilet
+  synonyms: [zalm]
+  nameEn: salmon fillet
+  category: vlees-en-vis
+  defaultUnit: g
+  conversions: { stuks: { g: 125 } }
+  allergens: [vis]
+- id: makreel
+  name: makreel
+  plural: makrelen
+  nameEn: mackerel
+  category: vlees-en-vis
+  defaultUnit: stuks
+  conversions: { stuks: { g: 300 } }
+  allergens: [vis]
+- id: kabeljauw
+  name: kabeljauwfilet
+  synonyms: [kabeljauw]
+  nameEn: cod
+  category: vlees-en-vis
+  defaultUnit: g
+  allergens: [vis]
+- id: garnalen
+  name: garnaal
+  plural: garnalen
+  synonyms: [gamba, gamba's]
+  nameEn: prawns
+  category: vlees-en-vis
+  defaultUnit: g
+  allergens: [schaaldieren]
+- id: mosselen
+  name: mossel
+  plural: mosselen
+  nameEn: mussels
+  category: vlees-en-vis
+  defaultUnit: kg
+  allergens: [weekdieren]
+- id: ansjovis
+  name: ansjovisfilet
+  plural: ansjovisfilets
+  synonyms: [ansjovis]
+  nameEn: anchovy
+  category: vlees-en-vis
+  defaultUnit: stuks
+  allergens: [vis]
+- id: tofu
+  name: tofu
+  synonyms: [tahoe]
+  nameEn: tofu
+  category: vlees-en-vis
+  defaultUnit: g
+  packaging: { amount: 250, unit: g }
+  allergens: [soja]
+- id: tempeh
+  name: tempeh
+  nameEn: tempeh
+  category: vlees-en-vis
+  defaultUnit: g
+  allergens: [soja]

@@ -1,0 +1,49 @@
+id: hollandse-runderstoof
+title: Hollandse runderstoof met donker bier
+description: Drie uur op het vuur, maar je staat er nog geen halfuur bij. De stoof wordt de volgende dag alleen maar beter.
+times:
+  prep: 20
+  active: 25
+  passive: 180
+methods: [stoven]
+difficulty: gemiddeld
+pans: 1
+servings: 4
+ingredients:
+  - { amount: 800, unit: g, ingredientId: runderriblappen, note: in blokken van 3 cm }
+  - { amount: 3, unit: stuks, ingredientId: ui, note: in halve ringen }
+  - { amount: 40, unit: g, ingredientId: boter }
+  - { amount: 330, unit: ml, ingredientId: donker-bier }
+  - { amount: 1, unit: stuks, ingredientId: bouillonblokje, note: runderbouillon }
+  - { amount: 2, unit: stuks, ingredientId: laurierblad, scales: false }
+  - { amount: 3, unit: stuks, ingredientId: kruidnagel, scales: false }
+  - {
+      amount: 1,
+      unit: stuks,
+      ingredientId: brood,
+      note: een dikke snee,
+      aan één kant royaal met mosterd besmeerd,
+    }
+  - { amount: 2, unit: el, ingredientId: mosterd }
+  - { amount: 1, unit: el, ingredientId: appelstroop }
+  - { amount: 1, unit: el, ingredientId: azijn }
+  - { amount: 2, unit: snufje, ingredientId: zout }
+  - { amount: 2, unit: snufje, ingredientId: peper }
+steps:
+  - text: Dep het vlees droog en bestrooi het met zout en peper. Laat het een halfuur buiten de koelkast liggen, dan bakt het mooier aan.
+  - text: Smelt de helft van de boter in een braadpan en bak het vlees in twee porties rondom bruin. Haal het uit de pan.
+    timer: 600
+  - text: Bak de uien in de rest van de boter zacht en lichtbruin. Roer af en toe.
+    timer: 480
+  - text: Doe het vlees terug in de pan, schenk het bier erbij en vul aan met water tot het vlees net onderstaat. Voeg het bouillonblokje, de laurier, de kruidnagels, de appelstroop en de azijn toe.
+  - text: Leg de snee brood met de mosterdkant naar beneden boven op het vlees. Die lost tijdens het stoven op en bindt de saus.
+  - text: Breng aan de kook, draai het vuur zo laag mogelijk en leg het deksel schuin op de pan. Laat drie uur stoven en roer elk halfuur even.
+    timer: 10800
+  - text: Vis de laurier en de kruidnagels eruit. Proef en maak af met zout, peper en eventueel nog een lepel mosterd.
+tags: [comfort food, meal prep]
+season: [10, 11, 12, 1, 2]
+allergens: [gluten, melk, mosterd, selderij]
+source: { type: text, text: Zoals mijn opa hem maakte }
+notes: Lekker met gekookte aardappelen en rode kool. Vriest goed in.
+createdAt: 2026-08-24T09:00:00Z
+updatedAt: 2026-08-24T09:00:00Z

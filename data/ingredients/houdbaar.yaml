@@ -1,0 +1,250 @@
+# Houdbare voorraad: pasta, rijst, blikken, olie en bakspullen.
+- id: olijfolie
+  name: olijfolie
+  synonyms: [extra vierge olijfolie]
+  nameEn: olive oil
+  category: houdbaar
+  defaultUnit: el
+  packaging: { amount: 500, unit: ml }
+- id: zonnebloemolie
+  name: zonnebloemolie
+  synonyms: [bakolie, plantaardige olie]
+  nameEn: sunflower oil
+  category: houdbaar
+  defaultUnit: el
+  packaging: { amount: 1000, unit: ml }
+- id: sesamolie
+  name: sesamolie
+  nameEn: sesame oil
+  category: houdbaar
+  defaultUnit: tl
+  allergens: [sesam]
+- id: azijn
+  name: witte wijnazijn
+  synonyms: [azijn, wijnazijn]
+  nameEn: white wine vinegar
+  category: houdbaar
+  defaultUnit: el
+- id: balsamicoazijn
+  name: balsamicoazijn
+  synonyms: [balsamico]
+  nameEn: balsamic vinegar
+  category: houdbaar
+  defaultUnit: el
+  allergens: [sulfiet]
+- id: spaghetti
+  name: spaghetti
+  nameEn: spaghetti
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  allergens: [gluten]
+- id: pasta
+  name: pasta
+  synonyms: [penne, fusilli, macaroni, tagliatelle]
+  nameEn: pasta
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  allergens: [gluten]
+- id: rijst
+  name: rijst
+  synonyms: [witte rijst, basmatirijst, pandanrijst]
+  nameEn: rice
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 1000, unit: g }
+- id: risottorijst
+  name: risottorijst
+  synonyms: [arborio]
+  nameEn: risotto rice
+  category: houdbaar
+  defaultUnit: g
+- id: couscous
+  name: couscous
+  nameEn: couscous
+  category: houdbaar
+  defaultUnit: g
+  allergens: [gluten]
+- id: bloem
+  name: bloem
+  synonyms: [tarwebloem, patentbloem]
+  nameEn: flour
+  category: houdbaar
+  defaultUnit: g
+  conversions: { el: { g: 10 } }
+  packaging: { amount: 1000, unit: g }
+  allergens: [gluten]
+- id: zelfrijzend-bakmeel
+  name: zelfrijzend bakmeel
+  nameEn: self-raising flour
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 500, unit: g }
+  allergens: [gluten]
+- id: paneermeel
+  name: paneermeel
+  nameEn: breadcrumbs
+  category: houdbaar
+  defaultUnit: g
+  allergens: [gluten]
+- id: suiker
+  name: suiker
+  synonyms: [kristalsuiker, witte suiker]
+  nameEn: sugar
+  category: houdbaar
+  defaultUnit: g
+  conversions: { el: { g: 12 } }
+  packaging: { amount: 1000, unit: g }
+- id: bruine-suiker
+  name: bruine basterdsuiker
+  synonyms: [basterdsuiker, bruine suiker]
+  nameEn: brown sugar
+  category: houdbaar
+  defaultUnit: g
+- id: honing
+  name: honing
+  nameEn: honey
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 21 } }
+- id: tomatenblokjes
+  name: tomatenblokjes
+  synonyms: [blik tomaten, gepelde tomaten, tomatenstukjes]
+  nameEn: chopped tomatoes
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }
+- id: tomatenpuree
+  name: tomatenpuree
+  nameEn: tomato paste
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 16 } }
+  packaging: { amount: 70, unit: g }
+- id: passata
+  name: passata
+  synonyms: [gezeefde tomaten]
+  nameEn: passata
+  category: houdbaar
+  defaultUnit: ml
+  packaging: { amount: 500, unit: ml }
+- id: kokosmelk
+  name: kokosmelk
+  nameEn: coconut milk
+  category: houdbaar
+  defaultUnit: ml
+  packaging: { amount: 400, unit: ml }
+- id: kikkererwten
+  name: kikkererwt
+  plural: kikkererwten
+  synonyms: [blik kikkererwten]
+  nameEn: chickpeas
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }
+- id: witte-bonen
+  name: witte boon
+  plural: witte bonen
+  nameEn: white beans
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 400, unit: g }
+- id: linzen
+  name: linze
+  plural: linzen
+  synonyms: [groene linzen, rode linzen]
+  nameEn: lentils
+  category: houdbaar
+  defaultUnit: g
+- id: sojasaus
+  name: sojasaus
+  synonyms: [ketjap asin, soja saus]
+  nameEn: soy sauce
+  category: houdbaar
+  defaultUnit: el
+  allergens: [soja, gluten]
+- id: ketjap
+  name: ketjap manis
+  synonyms: [ketjap, zoete sojasaus]
+  nameEn: sweet soy sauce
+  category: houdbaar
+  defaultUnit: el
+  allergens: [soja, gluten]
+- id: vissaus
+  name: vissaus
+  nameEn: fish sauce
+  category: houdbaar
+  defaultUnit: el
+  allergens: [vis]
+- id: cashewnoten
+  name: cashewnoot
+  plural: cashewnoten
+  synonyms: [cashews]
+  nameEn: cashews
+  category: houdbaar
+  defaultUnit: g
+  packaging: { amount: 200, unit: g }
+  allergens: [noten]
+- id: walnoten
+  name: walnoot
+  plural: walnoten
+  nameEn: walnuts
+  category: houdbaar
+  defaultUnit: g
+  allergens: [noten]
+- id: amandelen
+  name: amandel
+  plural: amandelen
+  synonyms: [amandelschaafsel, gemalen amandelen]
+  nameEn: almonds
+  category: houdbaar
+  defaultUnit: g
+  allergens: [noten]
+- id: pijnboompitten
+  name: pijnboompit
+  plural: pijnboompitten
+  nameEn: pine nuts
+  category: houdbaar
+  defaultUnit: g
+  allergens: [noten]
+- id: rozijnen
+  name: rozijn
+  plural: rozijnen
+  nameEn: raisins
+  category: houdbaar
+  defaultUnit: g
+- id: sesamzaad
+  name: sesamzaad
+  nameEn: sesame seeds
+  category: houdbaar
+  defaultUnit: el
+  allergens: [sesam]
+- id: bakpoeder
+  name: bakpoeder
+  nameEn: baking powder
+  category: houdbaar
+  defaultUnit: tl
+- id: kokosrasp
+  name: kokosrasp
+  nameEn: desiccated coconut
+  category: houdbaar
+  defaultUnit: g
+- id: pindakaas
+  name: pindakaas
+  nameEn: peanut butter
+  category: houdbaar
+  defaultUnit: el
+  conversions: { el: { g: 16 } }
+  allergens: [pinda]
+- id: mayonaise
+  name: mayonaise
+  nameEn: mayonnaise
+  category: houdbaar
+  defaultUnit: el
+  allergens: [ei, mosterd]
+- id: appelstroop
+  name: appelstroop
+  nameEn: apple syrup
+  category: houdbaar
+  defaultUnit: el

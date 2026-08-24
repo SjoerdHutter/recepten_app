@@ -1,0 +1,42 @@
+id: wokgroenten-met-kip-en-cashewnoten
+title: Wokgroenten met kip en cashewnoten
+description: Kwartier werk in één wok. Snijd alles klaar voor je begint, want daarna gaat het hard.
+times:
+  prep: 15
+  active: 12
+  passive: 0
+methods: [wok]
+difficulty: makkelijk
+pans: 2
+servings: 4
+ingredients:
+  - { amount: 500, unit: g, ingredientId: kipfilet, note: in reepjes }
+  - { amount: 300, unit: g, ingredientId: rijst }
+  - { amount: 2, unit: stuks, ingredientId: paprika, note: in reepjes }
+  - { amount: 300, unit: g, ingredientId: broccoli, note: in kleine roosjes }
+  - { amount: 4, unit: stuks, ingredientId: lente-ui, note: in ringetjes }
+  - { amount: 2, unit: teentje, ingredientId: knoflook }
+  - { amount: 15, unit: g, ingredientId: gember, note: geraspt }
+  - { amount: 100, unit: g, ingredientId: cashewnoten }
+  - { amount: 3, unit: el, ingredientId: sojasaus }
+  - { amount: 2, unit: el, ingredientId: ketjap }
+  - { amount: 1, unit: tl, ingredientId: sesamolie }
+  - { amount: 2, unit: el, ingredientId: zonnebloemolie }
+  - { amount: 1, unit: tl, ingredientId: sambal, optional: true }
+steps:
+  - text: Kook de rijst volgens de aanwijzing op de verpakking.
+    timer: 720
+  - text: Rooster de cashewnoten droog in de hete wok tot ze geuren en schep ze eruit.
+    timer: 180
+  - text: Verhit de zonnebloemolie en wok de kip in twee porties op hoog vuur gaar. Haal hem uit de wok.
+    timer: 360
+  - text: Wok de broccoli twee minuten, voeg dan de paprika toe en wok nog twee minuten. De groenten moeten knapperig blijven.
+    timer: 240
+  - text: Voeg de knoflook, de gember en het witte deel van de lente-ui toe en wok een halve minuut mee.
+  - text: Doe de kip terug in de wok, blus af met de sojasaus, de ketjap en de sesamolie en schep alles om. Maak af met de cashewnoten en het groene deel van de lente-ui.
+tags: [snel]
+season: []
+allergens: [soja, gluten, noten, sesam]
+notes: Met tofu in plaats van kip is het vegetarisch.
+createdAt: 2026-08-24T09:20:00Z
+updatedAt: 2026-08-24T09:20:00Z
