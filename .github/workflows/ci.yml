@@ -37,5 +37,12 @@ jobs:
       - name: Schema van de databestanden
         run: npm run validate
 
+      # Rapporteert wat er in de bibliotheek scheef staat. Faalt alleen op een
+      # verwijzing naar een ingrediënt dat niet bestaat; een losse naam is
+      # opruimwerk, geen fout, precies zoals afgesproken toen we kozen voor
+      # "strikt in de app, zacht in de CI".
+      - name: Staat van de bibliotheek
+        run: npm run report
+
       - name: Build
         run: npm run build

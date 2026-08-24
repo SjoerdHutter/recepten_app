@@ -29,4 +29,15 @@ describe('koppelen van ingrediëntnamen', () => {
     const resultaten = testLibrary.search('ui');
     expect(resultaten[0]?.id).toBe('ui');
   });
+
+  it('vindt een woord middenin een samenstelling', () => {
+    // Nederlandse samenstellingen: "olie" hoort olijfolie te vinden.
+    expect(testLibrary.search('olie').map((i) => i.id)).toContain('olijfolie');
+  });
+
+  it('matcht bij twee letters alleen aan het begin van een woord', () => {
+    // "ui" zit ook in kruimig en bouillon; die horen hier niet tussen.
+    const ids = testLibrary.search('ui', 20).map((i) => i.id);
+    expect(ids).toEqual(['ui']);
+  });
 });

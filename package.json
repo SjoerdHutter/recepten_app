@@ -14,6 +14,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "validate": "tsx scripts/validate-data.ts",
+    "report": "tsx scripts/library-report.ts",
+    "link": "tsx scripts/link-ingredients.ts",
     "icons": "node scripts/generate-icons.mjs"
   },
   "dependencies": {

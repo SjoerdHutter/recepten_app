@@ -140,6 +140,50 @@ eerstvolgende synchronisatie wordt leeggewerkt. Een botsing op de sha blijft daa
 staan met een melding erbij; een netwerkfout stopt de ronde in plaats van de rest
 van de wachtrij te verspelen.
 
+### Eén commit voor meerdere bestanden
+
+De Contents API kan maar één bestand per commit. Voor het toevoegen van een
+recept is dat genoeg, maar het samenvoegen van twee ingrediënten raakt het
+bibliotheekbestand én elk recept dat ernaar verwees. Als losse commits levert dat
+een onleesbare geschiedenis op, en erger: het kan halverwege stuklopen en
+recepten achterlaten die verwijzen naar een ingrediënt dat niet meer bestaat.
+
+`commitChanges` bouwt daarom via de Git Data API in vier stappen een nieuwe boom
+(ref lezen, boom bouwen op `base_tree`, commit maken, branch doorzetten). De
+branch wordt zonder `force` doorgezet: is er intussen elders gepusht, dan is het
+geen fast-forward en weigert GitHub. Dat is dezelfde bescherming als de sha bij
+losse bestanden, maar dan voor de hele wijziging.
+
+## Bibliotheekbeheer
+
+Bewerkingen op de bibliotheek zijn zuivere functies in `domain/ingredients/edits.ts`:
+erin gaat de huidige verzameling, eruit komt een nieuwe plus een lijst van welke
+bestanden herschreven moeten worden. Geen netwerk, geen bestanden. Daardoor zijn
+ze te testen en kan de UI eerst tonen wat er gaat gebeuren.
+
+Twee keuzes zijn de moeite van het onthouden waard:
+
+- **Hernoemen verandert het id niet.** Het id is waar elk recept naar verwijst;
+  dat omgooien zou elk receptbestand raken voor een cosmetische wijziging. De
+  oude naam blijft als synoniem staan, zodat een geplakt recept met die naam
+  blijft koppelen.
+- **Samenvoegen bewaart de opgeheven naam als synoniem.** Anders koppelt de
+  tekstparser die naam de volgende keer weer aan niets, en begint het opnieuw.
+
+`analyseLibrary` zoekt op wat er scheef staat: receptregels zonder koppeling,
+verwijzingen naar een ingrediënt dat niet bestaat, verweesde ingrediënten en
+dubbelingen. Dat is het sluitstuk van de keuze om de CI niet te laten falen op
+een losse naam: wat er met de hand bij komt mag blijven staan, maar het komt wel
+op een lijst in plaats van stil te verdwijnen.
+
+Dubbelingen worden op twee manieren gevonden: een gedeelde naam of synoniem
+(hard), en namen die op letterparen sterk op elkaar lijken (zacht). Bij dat
+tweede zit één Nederlandse eigenaardigheid ingebouwd: je maakt van een
+ingrediënt een ánder product door er een woord achter te plakken. Sinaasappel
+wordt sinaasappelsap, witte wijn wordt witte wijnazijn. Die lijken bijna
+identiek, terwijl je ze nooit wilt samenvoegen. Een meervoud voegt hooguit een
+letter of twee toe, dus daar ligt de grens.
+
 ## Afgeleide waarden staan niet in de bestanden
 
 Totale tijd, kosten per portie en voedingswaarde worden berekend uit wat er wél
@@ -163,7 +207,8 @@ aanraken, en zou een afgeleide waarde kunnen gaan afwijken van zijn bron.
 
 ## Wat er nog niet is
 
-Milestone 1 dekt kiezen en boodschappen doen. Het schema heeft de velden voor
+Milestone 1 tot en met 3 dekken kiezen, boodschappen doen, toevoegen vanaf je
+telefoon en het beheren van de bibliotheek. Het schema heeft de velden voor
 prijs, verpakking en voedingswaarde al, maar ze zijn optioneel en nog leeg;
 milestone 7 en 8 vullen ze. Het datamodel is met de latere milestones in het
 achterhoofd ontworpen (stapverwijzingen per ingrediënt voor de kookmodus,
