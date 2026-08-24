@@ -6,6 +6,10 @@ import { activeMinutes, totalMinutes } from '../../domain/schema/recipe';
 import { scaleRecipe } from '../../domain/scaling/scale';
 import { formatMinutes, formatQuantity } from '../../domain/units/format';
 import { cookPath } from '../cook/CookPage';
+import { RecipeHistory } from '../history/RecipeHistory';
+import { PlanSheet } from '../planner/PlanSheet';
+import { AmountSheet } from './AmountSheet';
+import { usePlanner } from '../../state/plannerState';
 import { useData, useRecipe } from '../../state/data';
 import { useLocalState } from '../../state/localState';
 import { useSettings } from '../../state/settings';
@@ -25,8 +29,11 @@ export const RecipePage = () => {
   const recipe = useRecipe(id);
   const { library, loading, refresh } = useData();
   const { token, canWrite } = useSettings();
+  const { isFavorite, toggleFavorite, overridesFor } = usePlanner();
   const navigate = useNavigate();
   const [verwijderOpen, setVerwijderOpen] = useState(false);
+  const [planOpen, setPlanOpen] = useState(false);
+  const [hoeveelheidRegel, setHoeveelheidRegel] = useState<number | null>(null);
   const [verwijderFout, setVerwijderFout] = useState<string | null>(null);
   const [bezigMetVerwijderen, setBezigMetVerwijderen] = useState(false);
   const {
@@ -43,9 +50,23 @@ export const RecipePage = () => {
   const [personen, setPersonen] = useState<number | null>(null);
   const aantal = personen ?? uitSelectie?.servings ?? recipe?.servings ?? 4;
 
+  // Eigen aanpassingen gaan vóór het schalen: ze gelden op het basisaantal
+  // personen van het recept, net als de hoeveelheden in het bestand zelf.
+  const metAanpassingen = useMemo(() => {
+    if (!recipe) return undefined;
+    const eigen = overridesFor(recipe.id);
+    if (Object.keys(eigen).length === 0) return recipe;
+    return {
+      ...recipe,
+      ingredients: recipe.ingredients.map((regel, index) =>
+        eigen[index] !== undefined ? { ...regel, amount: eigen[index] } : regel,
+      ),
+    };
+  }, [recipe, overridesFor]);
+
   const geschaald = useMemo(
-    () => (recipe ? scaleRecipe(recipe, aantal, library) : []),
-    [recipe, aantal, library],
+    () => (metAanpassingen ? scaleRecipe(metAanpassingen, aantal, library) : []),
+    [metAanpassingen, aantal, library],
   );
 
   if (!recipe) {
@@ -79,7 +100,20 @@ export const RecipePage = () => {
       </Link>
 
       <header>
-        <h1 className="text-2xl font-semibold leading-tight">{recipe.title}</h1>
+        <div className="flex items-start gap-2">
+          <h1 className="flex-1 text-2xl font-semibold leading-tight">{recipe.title}</h1>
+          <button
+            type="button"
+            onClick={() => toggleFavorite(recipe.id)}
+            aria-pressed={isFavorite(recipe.id)}
+            aria-label={isFavorite(recipe.id) ? 'Uit favorieten halen' : 'Favoriet maken'}
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-2xl print-hidden ${
+              isFavorite(recipe.id) ? 'text-danger' : 'text-ink-3'
+            }`}
+          >
+            {isFavorite(recipe.id) ? '♥' : '♡'}
+          </button>
+        </div>
         <p className="mt-1.5 text-ink-2">{recipe.description}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           <Tag>
@@ -118,11 +152,22 @@ export const RecipePage = () => {
               key={`${item.line.ingredientId ?? item.line.name}-${index}`}
               className="flex gap-3 px-4 py-2.5"
             >
-              <span className="min-w-16 shrink-0 text-right font-semibold tabular-nums">
-                {item.amount !== undefined && item.unit !== undefined
-                  ? formatQuantity({ amount: item.amount, unit: item.unit })
-                  : ''}
-              </span>
+              {item.amount !== undefined && item.unit !== undefined ? (
+                <button
+                  type="button"
+                  onClick={() => setHoeveelheidRegel(index)}
+                  className={`min-w-16 shrink-0 rounded-md text-right font-semibold tabular-nums print-hidden ${
+                    overridesFor(recipe.id)[index] !== undefined
+                      ? 'bg-accent-soft px-1 text-accent'
+                      : ''
+                  }`}
+                  aria-label={`Hoeveelheid van ${item.label} aanpassen`}
+                >
+                  {formatQuantity({ amount: item.amount, unit: item.unit })}
+                </button>
+              ) : (
+                <span className="min-w-16 shrink-0 text-right font-semibold tabular-nums" />
+              )}
               <span className="flex-1">
                 {item.label}
                 {item.line.note ? <span className="text-ink-2">, {item.line.note}</span> : null}
@@ -232,10 +277,34 @@ export const RecipePage = () => {
           <Icon name={opDeLijst ? 'vink' : 'plus'} className="h-4 w-4" />
           {opDeLijst ? 'Staat op de lijst' : 'Op de boodschappenlijst'}
         </Button>
+        <Button variant="secondary" onClick={() => setPlanOpen(true)} aria-label="Inplannen">
+          <Icon name="lijst" className="h-4 w-4" />
+        </Button>
         <Button variant="secondary" onClick={() => window.print()} aria-label="Recept printen">
           <Icon name="printer" className="h-4 w-4" />
         </Button>
       </div>
+
+      {hoeveelheidRegel !== null ? (
+        <AmountSheet
+          recipe={recipe}
+          lineIndex={hoeveelheidRegel}
+          servings={aantal}
+          onClose={() => setHoeveelheidRegel(null)}
+        />
+      ) : null}
+
+      {planOpen ? (
+        <PlanSheet
+          open
+          recipeId={recipe.id}
+          recipeTitle={recipe.title}
+          defaultServings={aantal}
+          onClose={() => setPlanOpen(false)}
+        />
+      ) : null}
+
+      <RecipeHistory recipeId={recipe.id} recipeTitle={recipe.title} servings={aantal} />
 
       {canWrite ? (
         <div className="flex gap-2 print-hidden">

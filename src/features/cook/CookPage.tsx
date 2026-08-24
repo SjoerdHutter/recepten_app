@@ -9,6 +9,7 @@ import { useLocalState } from '../../state/localState';
 import { useTimers } from '../../state/timers';
 import { Icon } from '../../ui/Icon';
 import { Button } from '../../ui/controls';
+import { CookLogSheet } from '../history/CookLogSheet';
 import { ConvertSheet } from './ConvertSheet';
 import { StepText } from './StepText';
 import { TimerBar } from './TimerBar';
@@ -30,6 +31,7 @@ export const CookPage = () => {
   const servings = Number(params.get('personen')) || recipe?.servings || 4;
   const [huidig, setHuidig] = useState(0);
   const [omrekenenOpen, setOmrekenenOpen] = useState(false);
+  const [logOpen, setLogOpen] = useState(false);
 
   const wakeLock = useWakeLock(true);
 
@@ -215,8 +217,8 @@ export const CookPage = () => {
             className="min-h-14 text-base"
             onClick={() => {
               if (!gedaan.includes(huidig)) toggleStepDone(recipe.id, huidig);
-              resetProgress(recipe.id);
-              navigate(`/recept/${recipe.id}`);
+              // Eerst vragen hoe het ging; pas daarna de voortgang wissen.
+              setLogOpen(true);
             }}
           >
             <Icon name="vink" className="h-5 w-5" />
@@ -229,6 +231,18 @@ export const CookPage = () => {
           </Button>
         )}
       </div>
+
+      <CookLogSheet
+        open={logOpen}
+        recipeId={recipe.id}
+        recipeTitle={recipe.title}
+        servings={servings}
+        onClose={() => {
+          setLogOpen(false);
+          resetProgress(recipe.id);
+          navigate(`/recept/${recipe.id}`);
+        }}
+      />
 
       <ConvertSheet
         open={omrekenenOpen}

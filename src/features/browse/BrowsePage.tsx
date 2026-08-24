@@ -3,8 +3,10 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { countActiveFilters, filterRecipes, hasActiveFilters } from '../../domain/filters/filter';
 import type { FilterState } from '../../domain/filters/filter';
 import { filtersFromParams, filtersToParams } from '../../domain/filters/url';
+import { pickSurprise } from '../../domain/history/history';
 import type { Recipe } from '../../domain/schema/recipe';
 import { useData } from '../../state/data';
+import { today, usePlanner } from '../../state/plannerState';
 import { Icon } from '../../ui/Icon';
 import { Button } from '../../ui/controls';
 import { Sheet } from '../../ui/Sheet';
@@ -13,6 +15,8 @@ import { RecipeCard } from './RecipeCard';
 
 export const BrowsePage = () => {
   const { dataset, library, loading } = useData();
+  const { history, favorites } = usePlanner();
+  const [alleenFavorieten, setAlleenFavorieten] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [verrassing, setVerrassing] = useState<Recipe | null>(null);
@@ -26,10 +30,10 @@ export const BrowsePage = () => {
     [setSearchParams],
   );
 
-  const resultaten = useMemo(
-    () => filterRecipes(dataset.recipes, filters, { library, month: maand }),
-    [dataset.recipes, filters, library, maand],
-  );
+  const resultaten = useMemo(() => {
+    const gefilterd = filterRecipes(dataset.recipes, filters, { library, month: maand });
+    return alleenFavorieten ? gefilterd.filter((r) => favorites.includes(r.id)) : gefilterd;
+  }, [dataset.recipes, filters, library, maand, alleenFavorieten, favorites]);
 
   const actieveFilters = countActiveFilters(filters);
 
@@ -39,12 +43,14 @@ export const BrowsePage = () => {
       // Alles al langsgekomen? Dan begint de ronde opnieuw.
       const pool = kandidaten.length > 0 ? kandidaten : resultaten;
       if (pool.length === 0) return;
-      const keuze = pool[Math.floor(Math.random() * pool.length)];
+      // Wat je net kookte weegt lichter mee, maar wordt niet uitgesloten:
+      // soms wíl je die stamppot voor de tweede keer deze maand.
+      const keuze = pickSurprise(pool, history, today());
       if (!keuze) return;
       setVerrassing(keuze);
       setGezien(kandidaten.length > 0 ? [...huidigGezien, keuze.id] : [keuze.id]);
     },
-    [resultaten],
+    [resultaten, history],
   );
 
   return (
@@ -66,6 +72,19 @@ export const BrowsePage = () => {
             className="h-12 w-full rounded-xl border border-line bg-surface pl-10 pr-3 text-ink placeholder:text-ink-3"
           />
         </div>
+        <button
+          type="button"
+          onClick={() => setAlleenFavorieten(!alleenFavorieten)}
+          aria-pressed={alleenFavorieten}
+          aria-label={alleenFavorieten ? 'Alle recepten tonen' : 'Alleen favorieten tonen'}
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border text-xl ${
+            alleenFavorieten
+              ? 'border-danger bg-danger-soft text-danger'
+              : 'border-line bg-surface text-ink-3 active:bg-surface-2'
+          }`}
+        >
+          {alleenFavorieten ? '♥' : '♡'}
+        </button>
         <button
           type="button"
           onClick={() => setFiltersOpen(true)}

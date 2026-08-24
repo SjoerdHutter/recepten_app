@@ -12,6 +12,8 @@ import { shoppingListToText } from '../../domain/shopping/text';
 import { formatQuantity } from '../../domain/units/format';
 import { useData } from '../../state/data';
 import { useLocalState } from '../../state/localState';
+import { usePlanner } from '../../state/plannerState';
+import { ArchiveSheet } from './ArchiveSheet';
 import { Icon } from '../../ui/Icon';
 import { Button, Card, Stepper, Tag } from '../../ui/controls';
 
@@ -37,6 +39,8 @@ export const ShoppingPage = () => {
   const [nieuwItem, setNieuwItem] = useState('');
   const [nieuweCategorie, setNieuweCategorie] = useState<Category>('overig');
   const [melding, setMelding] = useState<string | null>(null);
+  const [archiefOpen, setArchiefOpen] = useState(false);
+  const { archiveList, archive } = usePlanner();
 
   const selecties = useMemo<ShoppingSelection[]>(
     () =>
@@ -74,12 +78,33 @@ export const ShoppingPage = () => {
         rest ? { amount: rest.amount, unit: rest.unit } : {},
       );
     }
+    bewaarInArchief();
     clearChecked();
     setMelding(
       regels.length === 1
         ? '1 item naar de voorraadkast verplaatst.'
         : `${regels.length} items naar de voorraadkast verplaatst.`,
     );
+  };
+
+  /** Een momentopname bewaren voordat de lijst leeggemaakt wordt. */
+  const bewaarInArchief = () => {
+    if (alleRegels.length === 0) return;
+    archiveList({
+      label:
+        selecties.length > 0
+          ? `${selecties.length} ${selecties.length === 1 ? 'gerecht' : 'gerechten'}`
+          : 'Losse boodschappen',
+      recipeTitles: selecties.map((s) => s.recipe.title),
+      lines: alleRegels.map((regel) => {
+        const hoeveelheid = effectiveQuantity(regel);
+        return {
+          label: regel.label,
+          quantity: hoeveelheid ? formatQuantity(hoeveelheid) : null,
+          category: regel.category,
+        };
+      }),
+    });
   };
 
   const kopieer = async () => {
@@ -326,8 +351,19 @@ export const ShoppingPage = () => {
             </Button>
           ) : null}
           {selecties.length > 0 ? (
-            <Button variant="ghost" onClick={clearSelection}>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                bewaarInArchief();
+                clearSelection();
+              }}
+            >
               Recepten leegmaken
+            </Button>
+          ) : null}
+          {archive.length > 0 ? (
+            <Button variant="ghost" onClick={() => setArchiefOpen(true)}>
+              Eerdere lijsten ({archive.length})
             </Button>
           ) : null}
         </section>
@@ -338,6 +374,8 @@ export const ShoppingPage = () => {
           {melding}
         </p>
       ) : null}
+
+      <ArchiveSheet open={archiefOpen} onClose={() => setArchiefOpen(false)} />
     </div>
   );
 };

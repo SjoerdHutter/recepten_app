@@ -31,6 +31,8 @@ const PATHS = {
   potlood: 'M4 20h4L20 8a2.8 2.8 0 0 0-4-4L4 16v4Z',
   kast: 'M5 3h14a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm-1 8h16M10 7v2m0 6v2',
   waarschuwing: 'M12 3 2 20h20L12 3Zm0 6v5m0 3h.01',
+  kalender:
+    'M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm-1 5h16M8 3v4m8-4v4',
 } as const;
 
 export type IconName = keyof typeof PATHS;
