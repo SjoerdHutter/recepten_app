@@ -1,20 +1,33 @@
 import { Link } from 'react-router-dom';
 import { activeMinutes, totalMinutes, type Recipe } from '../../domain/schema/recipe';
 import { formatMinutes } from '../../domain/units/format';
+import { cookedRecently } from '../../domain/history/history';
 import { useLocalState } from '../../state/localState';
+import { today, usePlanner } from '../../state/plannerState';
 import { Icon } from '../../ui/Icon';
 import { Tag } from '../../ui/controls';
 
 export const RecipeCard = ({ recipe, servings }: { recipe: Recipe; servings?: number }) => {
   const { isSelected, toggleSelection } = useLocalState();
+  const { history, isFavorite } = usePlanner();
   const geselecteerd = isSelected(recipe.id);
+  // Hoeveel dagen geleden je dit kookte; undefined als het langer dan twee
+  // weken terug was.
+  const recent = cookedRecently(history, recipe.id, today());
   const totaal = totalMinutes(recipe.times);
   const actief = activeMinutes(recipe.times);
 
   return (
     <li className="rounded-2xl border border-line bg-surface">
       <Link to={`/recept/${recipe.id}`} className="block rounded-t-2xl px-4 pt-4">
-        <h3 className="text-[17px] font-semibold leading-snug">{recipe.title}</h3>
+        <h3 className="text-[17px] font-semibold leading-snug">
+          {isFavorite(recipe.id) ? (
+            <span className="mr-1 text-danger" aria-label="favoriet">
+              ♥
+            </span>
+          ) : null}
+          {recipe.title}
+        </h3>
         <p className="mt-1 line-clamp-2 text-sm text-ink-2">{recipe.description}</p>
         <div className="mt-3 flex flex-wrap items-center gap-1.5">
           <Tag>
@@ -23,6 +36,16 @@ export const RecipeCard = ({ recipe, servings }: { recipe: Recipe; servings?: nu
           </Tag>
           {/* Alleen tonen als het verschil er echt toe doet. */}
           {totaal !== actief ? <Tag tone="ok">{formatMinutes(actief)} werk</Tag> : null}
+          {/* Niet twee keer hetzelfde: zichtbaar wat er net op tafel stond. */}
+          {recent !== undefined ? (
+            <Tag tone="warn">
+              {recent === 0
+                ? 'vandaag gekookt'
+                : recent === 1
+                  ? 'gisteren gekookt'
+                  : `${recent} dagen geleden`}
+            </Tag>
+          ) : null}
           <Tag>{recipe.difficulty}</Tag>
           {recipe.methods.slice(0, 2).map((method) => (
             <Tag key={method}>{method}</Tag>

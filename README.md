@@ -170,6 +170,36 @@ Op iOS gebeurt dat vrijwel altijd. Daar is niets aan te doen zonder een server
 met pushberichten, en dat is precies wat deze app niet wil zijn. Zet voor een
 stoofpot van drie uur dus liever ook de wekker van je telefoon.
 
+## Weekmenu en geschiedenis
+
+Het tabblad **Week** toont zeven dagen. Zet er gerechten op via de lijstknop op
+een recept.
+
+- **Kook 2×.** Tik op een ingepland gerecht en kies extra dagen om ervan te
+  eten. De boodschappen worden dan groter, maar het gerecht blijft één regel op
+  je menu; op de tweede dag staat er "restje".
+- **Boodschappen voor deze week** zet het hele weekplan in één keer op je
+  boodschappenlijst, met de porties bij elkaar opgeteld.
+- **Delen** kan als tekst of als afbeelding.
+- Met een muis sleep je gerechten tussen dagen; op een telefoon verplaats je ze
+  via het paneel dat opengaat als je erop tikt.
+
+Na het koken vraagt de app of je het wilt vastleggen: een cijfer en vooral een
+notitie. _"Volgende keer de helft van de chili"_ is precies wat je een half jaar
+later wilt terugvinden, en het staat dan onder **Eerder gemaakt** op het recept.
+
+Wat je de laatste twee weken kookte krijgt een badge in het overzicht en weegt
+lichter mee in de verrassingsknop — niet uitgesloten, want soms wíl je het weer.
+
+Met het hartje maak je iets favoriet; het hartje naast het zoekveld filtert
+daarop.
+
+### Een hoeveelheid bijstellen
+
+Tik op een hoeveelheid in de ingrediëntenlijst. Je kunt hem **alleen voor jezelf**
+bewaren (blijft op dit toestel) of **altijd zo** maken, en dan gaat de wijziging
+het receptbestand in. Aanpassingen schalen gewoon mee met het aantal personen.
+
 ## De voorraadkast
 
 Onder het tabblad **Voorraad** vink je aan wat je in huis hebt. Alleen aanvinken

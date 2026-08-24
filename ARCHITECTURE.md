@@ -284,6 +284,47 @@ letterreeks erin". Anders matcht "ui" op "uiteraard". De 8% regels die in geen
 enkele stap genoemd worden verschijnen apart bij de laatste stap, zodat ze niet
 zoekraken.
 
+## Geschiedenis en planning
+
+### Wat lokaal blijft en wat de repo in gaat
+
+De kookgeschiedenis, favorieten, het weekplan en de bewaarde boodschappenlijsten
+staan alleen op dit toestel. Dat is geen technische beperking maar een grens:
+het receptbestand beschrijft het gerecht, niet jouw avonden. Wanneer jij iets
+kookte en wat je ervan vond hoort niet in een publieke repo, en het zou bij elke
+maaltijd een commit opleveren.
+
+Eén ding kan die grens bewust oversteken: een aangepaste hoeveelheid. Die begint
+als jouw aanpassing op dit toestel, en pas als je zegt dat het altijd zo moet
+gaat hij het receptbestand in. Dat onderscheid is de hele functie — je weet vaak
+pas na de tweede of derde keer dat het echt beter is met minder chili.
+
+Aanpassingen worden bewaard op het **basisaantal personen** van het recept, niet
+op het aantal dat je toevallig op je scherm hebt staan. Anders zou "150 gram"
+iets anders gaan betekenen zodra je van vier naar zes personen schuift.
+
+### Dubbele porties
+
+Een gerecht staat in het plan op de dag dat je het kóókt; extra eetdagen staan
+er als lijst bij. Dat onderscheid is de reden dat dit niet gewoon "een recept per
+dag" is: de boodschappen moeten kloppen voor twee maaltijden, maar je wilt niet
+twee keer dezelfde stoofpot op je weekmenu zien staan. `planToSelections` telt
+daarom de porties op over alle eetdagen en levert het gerecht één keer aan.
+
+### Niet twee keer hetzelfde
+
+De verrassingsknop trekt gewogen in plaats van uniform: wat je gisteren kookte
+weegt 0,1 en na twee weken weer vol mee. Bewust géén uitsluiting — soms wíl je
+die stamppot voor de tweede keer deze maand, en een knop die iets weigert is
+irritanter dan een knop die het onwaarschijnlijk maakt.
+
+### Verslepen
+
+Op een muis kun je een gerecht naar een andere dag slepen. Op een telefoon
+verplaats je het via het paneel dat opengaat als je erop tikt: slepen met een
+vinger over zeven kaarten die niet allemaal tegelijk in beeld passen is daar
+onbetrouwbaarder dan zeven dagknoppen.
+
 ## Afgeleide waarden staan niet in de bestanden
 
 Totale tijd, kosten per portie en voedingswaarde worden berekend uit wat er wél
@@ -307,8 +348,9 @@ aanraken, en zou een afgeleide waarde kunnen gaan afwijken van zijn bron.
 
 ## Wat er nog niet is
 
-Milestone 1 tot en met 5 dekken kiezen, boodschappen doen, toevoegen vanaf je
-telefoon, het beheren van de bibliotheek, de voorraadkast en het koken zelf. Het schema heeft de velden voor
+Milestone 1 tot en met 6 dekken kiezen, boodschappen doen, toevoegen vanaf je
+telefoon, het beheren van de bibliotheek, de voorraadkast, het koken zelf en het
+plannen en terugkijken. Het schema heeft de velden voor
 prijs, verpakking en voedingswaarde al, maar ze zijn optioneel en nog leeg;
 milestone 7 en 8 vullen ze. Het datamodel is met de latere milestones in het
 achterhoofd ontworpen (stapverwijzingen per ingrediënt voor de kookmodus,

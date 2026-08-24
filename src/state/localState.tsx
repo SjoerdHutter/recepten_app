@@ -1,14 +1,6 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from 'react';
-import { kvGet, kvSet } from '../data/db/idb';
+import { createContext, useCallback, useContext, useMemo, type ReactNode } from 'react';
 import type { Pantry, PantryItem } from '../domain/pantry/pantry';
+import { usePersistentState } from './persistent';
 import type { Category } from '../domain/schema/enums';
 import type { ManualItem } from '../domain/shopping/aggregate';
 import type { Unit } from '../domain/units/units';
@@ -31,34 +23,6 @@ export const LOCAL_KEYS = {
   subtractPantry: 'lijst.voorraadAftrekken',
   cookProgress: 'koken.voortgang',
 } as const;
-
-function usePersistentState<T>(key: string, initial: T) {
-  const [value, setValue] = useState<T>(initial);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    let afgebroken = false;
-    void kvGet<T>(key)
-      .then((opgeslagen) => {
-        if (!afgebroken && opgeslagen !== undefined) setValue(opgeslagen);
-      })
-      .catch(() => undefined)
-      .finally(() => {
-        if (!afgebroken) setReady(true);
-      });
-    return () => {
-      afgebroken = true;
-    };
-  }, [key]);
-
-  useEffect(() => {
-    // Pas wegschrijven nadat er gelezen is, anders overschrijft de beginwaarde
-    // wat er al stond.
-    if (ready) void kvSet(key, value).catch(() => undefined);
-  }, [key, value, ready]);
-
-  return [value, setValue, ready] as const;
-}
 
 export interface PantryPatch {
   amount?: number | undefined;
