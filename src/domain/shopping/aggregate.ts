@@ -45,6 +45,11 @@ export interface ShoppingLine {
   optional: boolean;
   sources: ShoppingSource[];
   manual: boolean;
+  /**
+   * Wat je hiervan al in huis hebt. Wordt pas ingevuld door applyPantry, zodat
+   * het optellen zelf niets van de voorraadkast hoeft te weten.
+   */
+  stock?: import('../pantry/subtract').StockInfo;
 }
 
 export interface ShoppingGroup {

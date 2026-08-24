@@ -184,6 +184,51 @@ wordt sinaasappelsap, witte wijn wordt witte wijnazijn. Die lijken bijna
 identiek, terwijl je ze nooit wilt samenvoegen. Een meervoud voegt hooguit een
 letter of twee toe, dus daar ligt de grens.
 
+## De voorraadkast
+
+De voorraadkast staat in IndexedDB, niet in de repo. Hij verandert elke dag; dat
+bijhouden in git zou een commit per pak melk opleveren, en het is bovendien
+niets waar een ander iets aan heeft. Hij gaat wel mee in de export en import,
+net als de selectie en de afvinkstatus.
+
+Een regel is `{ ingredientId, amount?, unit?, bestBefore? }`. Hoeveelheid en
+datum zijn allebei optioneel, en dat is een bewuste keuze: aanvinken dát je iets
+in huis hebt is het meeste waard en kost één tik. Alleen bij dingen die bederven
+of waar de hoeveelheid uitmaakt vul je meer in.
+
+Aftrekken gebeurt niet in `buildShoppingList` maar in een aparte stap,
+`applyPantry`. Zo hoeft het optellen zelf niets van de voorraadkast te weten en
+kan de aftrek met één schakelaar uit. Elke regel krijgt er een `stock` bij met
+`volledig`, `deels`, `niet` of `onbekend`.
+
+Die laatste is de eerlijke uitkomst wanneer de eenheden niet te vergelijken
+zijn: heb je "1 g olijfolie" staan en vraagt het recept twee eetlepels, dan kan
+de app dat zonder omrekenfactor niet beoordelen. Er wordt dan niets afgetrokken
+en je ziet staan wat je hebt.
+
+**Een regel verdwijnt nooit stilletjes.** Wat je al hebt blijft zichtbaar,
+doorgestreept en gemarkeerd, en zakt naar onderen. In de supermarkt moet je
+kunnen zien dát de app iets heeft weggestreept — als het niet klopt, sta je
+anders thuis zonder boter.
+
+### Wat telt als ontbrekend
+
+Bij "wat kan ik nu maken" tellen twee soorten regels bewust niet mee: optionele
+ingrediënten, en alles wat `scales: taste` is. Zonder die tweede uitzondering
+zou elk recept eeuwig melden dat je zout mist en zegt de ranglijst niets meer.
+Ze worden apart geteld en blijven zichtbaar. Te weinig hebben telt wél als
+missen, maar alleen als er in de voorraadkast én in het recept een hoeveelheid
+staat om te vergelijken.
+
+### Restjesmodus
+
+Elk recept dat kool bevat is geen antwoord op "die halve kool moet op": in een
+currysaus gaat twee eetlepel kool en die ligt morgen nog in de koelkast. Daarom
+kijkt `rankByIngredient` naar het aandeel in het totale gewicht van het gerecht.
+Alles wordt daarvoor naar gram gerekend; wat niet om te rekenen valt (een
+snufje, een bosje) telt niet mee in het totaal, want anders zou een recept met
+veel kruiden kunstmatig zakken.
+
 ## Afgeleide waarden staan niet in de bestanden
 
 Totale tijd, kosten per portie en voedingswaarde worden berekend uit wat er wél
@@ -207,8 +252,8 @@ aanraken, en zou een afgeleide waarde kunnen gaan afwijken van zijn bron.
 
 ## Wat er nog niet is
 
-Milestone 1 tot en met 3 dekken kiezen, boodschappen doen, toevoegen vanaf je
-telefoon en het beheren van de bibliotheek. Het schema heeft de velden voor
+Milestone 1 tot en met 4 dekken kiezen, boodschappen doen, toevoegen vanaf je
+telefoon, het beheren van de bibliotheek en de voorraadkast. Het schema heeft de velden voor
 prijs, verpakking en voedingswaarde al, maar ze zijn optioneel en nog leeg;
 milestone 7 en 8 vullen ze. Het datamodel is met de latere milestones in het
 achterhoofd ontworpen (stapverwijzingen per ingrediënt voor de kookmodus,

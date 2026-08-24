@@ -8,6 +8,7 @@ import { Icon, type IconName } from './Icon';
 const TABS: Array<{ to: string; label: string; icon: IconName }> = [
   { to: '/', label: 'Recepten', icon: 'boek' },
   { to: '/lijst', label: 'Boodschappen', icon: 'lijst' },
+  { to: '/voorraad', label: 'Voorraad', icon: 'kast' },
   { to: '/instellingen', label: 'Instellingen', icon: 'tandwiel' },
 ];
 

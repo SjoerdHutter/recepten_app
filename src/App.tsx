@@ -9,6 +9,7 @@ import { ShoppingPage } from './features/shopping/ShoppingPage';
 import { SettingsPage } from './features/settings/SettingsPage';
 import { RecipeFormPage } from './features/edit/RecipeFormPage';
 import { LibraryPage } from './features/library/LibraryPage';
+import { PantryPage } from './features/pantry/PantryPage';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
               <Route path="/recept/:id/bewerken" element={<RecipeFormPage />} />
               <Route path="/lijst" element={<ShoppingPage />} />
               <Route path="/bibliotheek" element={<LibraryPage />} />
+              <Route path="/voorraad" element={<PantryPage />} />
               <Route path="/instellingen" element={<SettingsPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
