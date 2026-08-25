@@ -4,6 +4,7 @@ import { REPO, repoSlug } from '../../config';
 import { kvDump, kvRestore } from '../../data/db/idb';
 import { useData } from '../../state/data';
 import { AI_MODELS, useSettings, type Theme } from '../../state/settings';
+import { checkForUpdate } from '../../pwa';
 import { Icon } from '../../ui/Icon';
 import { Button, Card, Chip, Stepper } from '../../ui/controls';
 
@@ -47,6 +48,28 @@ export const SettingsPage = () => {
   const [proxyInvoer, setProxyInvoer] = useState(importProxy);
   const [sleutelInvoer, setSleutelInvoer] = useState('');
   const [melding, setMelding] = useState<string | null>(null);
+
+  /**
+   * Als de helft van de bestanden afketst op een veldnaam, is de app oud en niet
+   * de data stuk. Dat is precies wat er gebeurde toen milestone 8 en 9 nieuwe
+   * velden toevoegden en er nog een oude service worker draaide.
+   */
+  const veelSchemafouten =
+    dataset.problems.length >= 5 &&
+    dataset.problems.every((probleem) => !probleem.message.startsWith('geen geldige YAML'));
+
+  const gebouwdOp = new Date(__APP_GEBOUWD_OP__).toLocaleString('nl-NL', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  });
+
+  const werkAppBij = async () => {
+    setMelding('Bezig met controleren…');
+    await checkForUpdate();
+    // Staat er een nieuwe versie klaar, dan neemt de service worker het over en
+    // herlaadt de app zichzelf; dan zie je deze melding niet eens.
+    setMelding('Je hebt de laatste versie.');
+  };
   const bestandKiezer = useRef<HTMLInputElement>(null);
 
   const exporteer = async () => {
@@ -350,6 +373,14 @@ export const SettingsPage = () => {
           {dataset.problems.length > 0 ? (
             <div className="rounded-xl bg-warn-soft px-3 py-2">
               <p className="text-sm font-medium text-warn">Deze bestanden kon ik niet lezen:</p>
+              {veelSchemafouten ? (
+                <p className="mt-1 text-xs text-warn">
+                  Zoveel bestanden tegelijk wijst bijna altijd op een verouderde app, niet op
+                  kapotte gegevens: deze versie kent velden nog niet die er inmiddels in staan. Werk
+                  hem bij met de knop onderaan bij{' '}
+                  <span className="font-medium">Over deze app</span>.
+                </p>
+              ) : null}
               <ul className="mt-1 flex flex-col gap-1 text-xs text-warn">
                 {dataset.problems.map((probleem) => (
                   <li key={probleem.path}>
@@ -417,6 +448,23 @@ export const SettingsPage = () => {
           . Je kunt ze ook rechtstreeks op GitHub aanpassen; de app pikt dat binnen een paar minuten
           op.
         </p>
+
+        <Card className="flex flex-col gap-3 px-4 py-3">
+          <div className="flex items-baseline justify-between gap-3 text-sm">
+            <span className="text-ink-2">Versie</span>
+            <span className="font-mono text-xs text-ink-2">{__APP_VERSIE__}</span>
+          </div>
+          <p className="text-xs text-ink-3">Gebouwd op {gebouwdOp}.</p>
+          <Button variant="secondary" onClick={() => void werkAppBij()}>
+            <Icon name="vernieuw" className="h-4 w-4" />
+            Controleren op een nieuwe versie
+          </Button>
+          <p className="text-xs text-ink-3">
+            De app werkt zichzelf bij zodra er een nieuwe versie klaarstaat. Vermoed je dat hij is
+            blijven hangen — bijvoorbeeld omdat er recepten ontbreken die er wel horen te zijn — dan
+            dwing je het hiermee af.
+          </p>
+        </Card>
       </Sectie>
 
       {melding ? (
