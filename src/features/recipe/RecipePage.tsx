@@ -10,6 +10,7 @@ import { cookPath } from '../cook/CookPage';
 import { RecipeHistory } from '../history/RecipeHistory';
 import { PlanSheet } from '../planner/PlanSheet';
 import { AmountSheet } from './AmountSheet';
+import { NutritionCard } from './NutritionCard';
 import { usePlanner } from '../../state/plannerState';
 import { useData, useRecipe } from '../../state/data';
 import { useLocalState } from '../../state/localState';
@@ -317,6 +318,8 @@ export const RecipePage = () => {
           onClose={() => setPlanOpen(false)}
         />
       ) : null}
+
+      {metAanpassingen ? <NutritionCard recipe={metAanpassingen} servings={aantal} /> : null}
 
       <RecipeHistory recipeId={recipe.id} recipeTitle={recipe.title} servings={aantal} />
 

@@ -39,6 +39,8 @@ export const filtersToParams = (filters: FilterState): URLSearchParams => {
   if (filters.tags.length) params.set('tags', filters.tags.join(','));
   if (filters.excludeAllergens.length) params.set('allergie', filters.excludeAllergens.join(','));
   if (filters.seasonOnly) params.set('seizoen', '1');
+  if (filters.maxKcal !== null) params.set('kcal', String(filters.maxKcal));
+  if (filters.minProtein !== null) params.set('eiwit', String(filters.minProtein));
   return params;
 };
 
@@ -60,4 +62,6 @@ export const filtersFromParams = (params: URLSearchParams): FilterState => ({
     (ALLERGENS as readonly string[]).includes(a),
   ),
   seasonOnly: params.get('seizoen') === '1',
+  maxKcal: getal(params.get('kcal')),
+  minProtein: getal(params.get('eiwit')),
 });

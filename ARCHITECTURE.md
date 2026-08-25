@@ -362,6 +362,56 @@ bulk regels in te zetten. Het deelvenster van het toestel is daarom de route:
 daar staan die apps in. De export stuurt kale regels zonder de recepten
 erachter, want een lijstjes-app wil geen toelichting.
 
+## Voedingswaarde
+
+### Richtwaarden, geen NEVO
+
+De opdracht noemde NEVO als bron. Die gegevens zijn hier niet op te halen — er
+is geen open API die de app zonder backend mag bevragen, en de tabel overtypen
+zonder hem gezien te hebben zou neerkomen op verzinnen met een geloofwaardig
+etiket erop. De 192 waarden in de bibliotheek zijn daarom met de hand ingevoerde
+**richtwaarden** voor een gemiddeld product, en ze staan als zodanig in de
+bestanden: `source: richtwaarde` met een peildatum. De app toont die bron. Wie
+er echte NEVO-cijfers in wil zetten, kan dat per ingrediënt doen in het
+beheerscherm; dan verandert `source` mee en blijft de rest werken.
+
+### Dekking hoort bij het getal
+
+Twee dingen maken de optelling onvermijdelijk onvolledig: niet elk ingrediënt
+heeft waarden, en niet elke regel is te wegen. `recipeNutrition` telt daarom
+naast de totalen ook bij hoeveel gram meegerekend is (`gramsCounted`) en hoeveel
+niet (`gramsMissing`), en houdt drie categorieën uit elkaar:
+
+- `known` — gewicht bekend, waarden bekend; telt mee.
+- `unknown` — gewicht bekend, waarden niet; drukt de dekking.
+- `unweighable` — niet te wegen, zoals een bosje peterselie of "naar smaak".
+  Dit drukt de dekking níét: er valt niets te missen wat je had kunnen meten.
+
+Die splitsing is er omdat de kaart anders zichzelf tegensprak ("berekend over
+100% van het gewicht; 1 ingrediënt heeft geen gegevens"). `coverage()` deelt
+alleen op het weegbare deel, en onder `BETROUWBAAR_VANAF` (80%) zegt de app dat
+het getal weinig voorstelt.
+
+### Volume naar gram gaat via milliliter
+
+`convertToBase` zoekt een omrekening op de **bron**eenheid, dus een dichtheid
+die als `conversions: { ml: { g: 0.92 } }` in de bibliotheek staat vindt hij
+niet bij een hoeveelheid in eetlepels. `gramsOf` rekent daarom eerst naar
+milliliter en past de dichtheid pas daarna toe. Zonder die stap lagen 35
+ingevulde dichtheden er ongebruikt bij en werd 2 el sojasaus als 30 g gerekend
+in plaats van 36 g. Ontbreekt de dichtheid, dan geldt 1 g/ml — goed voor water
+en bouillon, zo'n 8% mis bij olie — en wordt de regel geteld in
+`assumedDensity`, zodat de app het kan melden.
+
+### Het filter raadt niet
+
+`matchesNutrition` laat een recept met een dekking onder de 80% buiten een
+kcal- of eiwitfilter vallen. Het alternatief — het ontbrekende deel schatten —
+zou een verzonnen getal als harde grens gebruiken. Liever een recept missen dan
+"onder 400 kcal" beloven op grond van een gok. Het is ook de duurste controle in
+`matchesFilters` (de hele schaling en optelling per recept), dus hij staat
+achteraan, achter alle goedkope afwijzingen.
+
 ## Afgeleide waarden staan niet in de bestanden
 
 Totale tijd, kosten per portie en voedingswaarde worden berekend uit wat er wél
@@ -385,11 +435,13 @@ aanraken, en zou een afgeleide waarde kunnen gaan afwijken van zijn bron.
 
 ## Wat er nog niet is
 
-Milestone 1 tot en met 7 dekken kiezen, boodschappen doen, toevoegen vanaf je
+Milestone 1 tot en met 8 dekken kiezen, boodschappen doen, toevoegen vanaf je
 telefoon, het beheren van de bibliotheek, de voorraadkast, het koken zelf, het
-plannen en terugkijken, en de supermarkt met de kosten. Het schema heeft de velden voor
-prijs, verpakking en voedingswaarde al, maar ze zijn optioneel en nog leeg;
-milestone 7 en 8 vullen ze. Het datamodel is met de latere milestones in het
+plannen en terugkijken, de supermarkt met de kosten, en de voedingswaarde. Wat
+rest is milestone 9: importeren vanaf een receptensite en een foto omzetten met
+een taalmodel. Dat is het enige deel dat het "geen backend"-uitgangspunt raakt,
+en het komt daarom als twee optionele modules die verborgen blijven zolang je ze
+niet instelt. Het datamodel is met de latere milestones in het
 achterhoofd ontworpen (stapverwijzingen per ingrediënt voor de kookmodus,
 timerduur per stap, seizoen, allergenen als gesloten lijst), zodat er onderweg
 niets omgegooid hoeft te worden.

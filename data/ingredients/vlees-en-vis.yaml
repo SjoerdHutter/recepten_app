@@ -8,6 +8,7 @@
   defaultUnit: stuks
   price: { amount: 39.9, per: kg, date: 2026-08-24 }
   allergens: [vis]
+  nutrition: { kcal: 131, protein: 20, carbs: 0, fat: 4.8, fiber: 0, salt: 3.5, source: richtwaarde, date: 2026-08-24 }
 - id: garnalen
   name: garnaal
   plural: garnalen
@@ -17,6 +18,7 @@
   defaultUnit: g
   price: { amount: 21.9, per: kg, date: 2026-08-24 }
   allergens: [schaaldieren]
+  nutrition: { kcal: 99, protein: 24, carbs: 0.2, fat: 0.3, fiber: 0, salt: 0.6, source: richtwaarde, date: 2026-08-24 }
 - id: kabeljauw
   name: kabeljauwfilet
   synonyms: [kabeljauw]
@@ -25,6 +27,7 @@
   defaultUnit: g
   price: { amount: 24.9, per: kg, date: 2026-08-24 }
   allergens: [vis]
+  nutrition: { kcal: 82, protein: 18, carbs: 0, fat: 0.7, fiber: 0, salt: 0.2, source: richtwaarde, date: 2026-08-24 }
 - id: kipfilet
   name: kipfilet
   plural: kipfilets
@@ -34,6 +37,7 @@
   defaultUnit: g
   conversions: { stuks: { g: 150 } }
   price: { amount: 11.9, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 110, protein: 23, carbs: 0, fat: 1.7, fiber: 0, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: kippendijfilet
   name: kippendijfilet
   synonyms: [kipdijfilet, dijenvlees]
@@ -41,6 +45,7 @@
   category: vlees-en-vis
   defaultUnit: g
   price: { amount: 9.9, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 143, protein: 19, carbs: 0, fat: 7, fiber: 0, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: makreel
   name: makreel
   plural: makrelen
@@ -50,6 +55,7 @@
   conversions: { stuks: { g: 300 } }
   price: { amount: 14.9, per: kg, date: 2026-08-24 }
   allergens: [vis]
+  nutrition: { kcal: 205, protein: 19, carbs: 0, fat: 14, fiber: 0, salt: 0.2, source: richtwaarde, date: 2026-08-24 }
 - id: mosselen
   name: mossel
   plural: mosselen
@@ -58,6 +64,7 @@
   defaultUnit: kg
   price: { amount: 7.9, per: kg, date: 2026-08-24 }
   allergens: [weekdieren]
+  nutrition: { kcal: 86, protein: 12, carbs: 3.7, fat: 2.2, fiber: 0, salt: 0.7, source: richtwaarde, date: 2026-08-24 }
 - id: rookworst
   name: rookworst
   plural: rookworsten
@@ -67,6 +74,7 @@
   conversions: { stuks: { g: 275 } }
   price: { amount: 2.49, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
+  nutrition: { kcal: 300, protein: 13, carbs: 2, fat: 27, fiber: 0, salt: 2, source: richtwaarde, date: 2026-08-24 }
 - id: rundergehakt
   name: rundergehakt
   synonyms: [gehakt, half-om-half gehakt]
@@ -75,6 +83,7 @@
   defaultUnit: g
   packaging: { amount: 500, unit: g }
   price: { amount: 10.9, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 232, protein: 19, carbs: 0, fat: 17, fiber: 0, salt: 0.2, source: richtwaarde, date: 2026-08-24 }
 - id: runderriblappen
   name: runderriblappen
   synonyms: [riblappen, sukadelappen, stoofvlees]
@@ -82,6 +91,7 @@
   category: vlees-en-vis
   defaultUnit: g
   price: { amount: 13.9, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 190, protein: 20, carbs: 0, fat: 12, fiber: 0, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: spekblokjes
   name: spekblokjes
   synonyms: [spek, ontbijtspek]
@@ -90,6 +100,7 @@
   defaultUnit: g
   packaging: { amount: 200, unit: g }
   price: { amount: 11.9, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 330, protein: 15, carbs: 0.5, fat: 30, fiber: 0, salt: 2.5, source: richtwaarde, date: 2026-08-24 }
 - id: speklap
   name: speklap
   plural: speklappen
@@ -97,6 +108,7 @@
   category: vlees-en-vis
   defaultUnit: g
   price: { amount: 8.9, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 259, protein: 17, carbs: 0, fat: 21, fiber: 0, salt: 0.7, source: richtwaarde, date: 2026-08-24 }
 - id: tempeh
   name: tempeh
   nameEn: tempeh
@@ -104,6 +116,7 @@
   defaultUnit: g
   price: { amount: 11.9, per: kg, date: 2026-08-24 }
   allergens: [soja]
+  nutrition: { kcal: 193, protein: 19, carbs: 9, fat: 11, fiber: 5, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: tofu
   name: tofu
   synonyms: [tahoe]
@@ -113,12 +126,14 @@
   packaging: { amount: 250, unit: g }
   price: { amount: 7.9, per: kg, date: 2026-08-24 }
   allergens: [soja]
+  nutrition: { kcal: 76, protein: 8, carbs: 1.9, fat: 4.8, fiber: 0.3, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: varkenshaas
   name: varkenshaas
   nameEn: pork tenderloin
   category: vlees-en-vis
   defaultUnit: g
   price: { amount: 15.9, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 120, protein: 22, carbs: 0, fat: 3.5, fiber: 0, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: zalmfilet
   name: zalmfilet
   synonyms: [zalm]
@@ -128,3 +143,4 @@
   conversions: { stuks: { g: 125 } }
   price: { amount: 27.9, per: kg, date: 2026-08-24 }
   allergens: [vis]
+  nutrition: { kcal: 208, protein: 20, carbs: 0, fat: 13, fiber: 0, salt: 0.1, source: richtwaarde, date: 2026-08-24 }

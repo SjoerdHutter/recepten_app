@@ -309,6 +309,57 @@ een half ei, en 1500 g wordt 1,5 kg. Kruiden en zout schalen met de wortel van
 de factor (`scales: taste`), want dubbel zoveel curry heeft geen dubbele
 hoeveelheid chili nodig.
 
+## Voedingswaarde
+
+Op een recept staat onder de stappen wat een portie ongeveer bevat: energie,
+eiwit, koolhydraten, vet, vezels en zout. Het schaalt mee met het aantal
+personen dat je bovenaan instelt. In de filters kun je zoeken op **onder 400,
+600 of 800 kcal** of **vanaf 20 of 30 g eiwit** per portie.
+
+**Lees dit even.** De waarden komen uit de ingrediëntenbibliotheek en zijn daar
+met de hand ingevuld als **richtwaarden** voor een gemiddeld product. Het zijn
+géén NEVO-cijfers en ze zijn niet bij een fabrikant opgehaald; ze staan in de
+bestanden met `source: richtwaarde` en een peildatum. Dit is een indicatie en
+geen voedingsadvies. Voor wie op een gram eiwit of een halve gram zout zit te
+rekenen is dit niet nauwkeurig genoeg.
+
+Wat de app er wel eerlijk bij zet:
+
+- **Hoeveel er meegerekend is.** Onder de tabel staat welk deel van het gewicht
+  gegevens had. Is dat minder dan 80%, dan zegt de app dat met zoveel woorden.
+- **Wat er buiten viel.** Een bosje peterselie of "peper naar smaak" is niet te
+  wegen; die regels worden apart genoemd en drukken de dekking niet.
+- **Waar geraden is.** Voor een vloeistof zonder dichtheid in de bibliotheek
+  wordt 1 gram per milliliter aangenomen. Dat klopt voor water en bouillon en
+  zit er bij olie zo'n 8% naast, dus het aantal van die regels staat erbij.
+- **In het filter tellen onbetrouwbare recepten niet mee.** Een recept waarvan
+  minder dan 80% van het gewicht bekend is valt buiten een kcal- of eiwitfilter
+  in plaats van dat de app een getal verzint.
+
+Klopt een waarde niet, of wil je er echte NEVO-cijfers in zetten? Pas het
+ingrediënt aan bij **Instellingen ▸ Ingrediëntenbibliotheek**: daar staan de zes
+velden per 100 g, en de peildatum en bron gaan automatisch mee. In het bestand
+ziet dat er zo uit:
+
+```yaml
+- id: linzen
+  name: linze
+  plural: linzen
+  category: houdbaar
+  defaultUnit: g
+  nutrition:
+    {
+      kcal: 116,
+      protein: 9,
+      carbs: 20,
+      fat: 0.4,
+      fiber: 8,
+      salt: 0,
+      source: richtwaarde,
+      date: 2026-08-24,
+    }
+```
+
 ## Later: importeren van buitenaf
 
 Milestone 9 voegt twee optionele modules toe die de app verbergt zolang je ze
