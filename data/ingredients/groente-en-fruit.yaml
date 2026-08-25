@@ -10,6 +10,7 @@
   conversions: { stuks: { g: 150 } }
   packaging: { amount: 2500, unit: g }
   price: { amount: 1.49, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 77, protein: 2, carbs: 17, fat: 0.1, fiber: 2.2, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: appel
   name: appel
   plural: appels
@@ -19,6 +20,7 @@
   defaultUnit: g
   conversions: { stuks: { g: 170 } }
   price: { amount: 2.49, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 52, protein: 0.3, carbs: 14, fat: 0.2, fiber: 2.4, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: aubergine
   name: aubergine
   plural: aubergines
@@ -27,6 +29,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 300 } }
   price: { amount: 1.29, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 25, protein: 1, carbs: 6, fat: 0.2, fiber: 3, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: avocado
   name: avocado
   plural: avocado's
@@ -35,6 +38,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 150 } }
   price: { amount: 1.19, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 160, protein: 2, carbs: 9, fat: 15, fiber: 6.7, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: banaan
   name: banaan
   plural: bananen
@@ -43,6 +47,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 120 } }
   price: { amount: 0.35, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 89, protein: 1.1, carbs: 23, fat: 0.3, fiber: 2.6, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: blauwe-bessen
   name: blauwe bes
   plural: blauwe bessen
@@ -51,15 +56,17 @@
   defaultUnit: g
   packaging: { amount: 125, unit: g }
   price: { amount: 15.9, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 57, protein: 0.7, carbs: 14, fat: 0.3, fiber: 2.4, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: bleekselderij
   name: bleekselderij
   synonyms: [selderijstengel, selderiestengel]
   nameEn: celery
   category: groente-en-fruit
   defaultUnit: stuks
-  conversions: { stuks: { g: 60 } }
+  conversions: { stuks: { g: 60 }, stengel: { g: 60 } }
   price: { amount: 1.29, per: stuks, date: 2026-08-24 }
   allergens: [selderij]
+  nutrition: { kcal: 16, protein: 0.7, carbs: 3, fat: 0.2, fiber: 1.6, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: bloemkool
   name: bloemkool
   plural: bloemkolen
@@ -68,6 +75,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 800 } }
   price: { amount: 1.79, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 25, protein: 1.9, carbs: 5, fat: 0.3, fiber: 2, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: boerenkool
   name: boerenkool
   nameEn: kale
@@ -75,6 +83,7 @@
   defaultUnit: g
   packaging: { amount: 500, unit: g }
   price: { amount: 2.79, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 49, protein: 4.3, carbs: 9, fat: 0.9, fiber: 3.6, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: broccoli
   name: broccoli
   nameEn: broccoli
@@ -82,6 +91,7 @@
   defaultUnit: g
   conversions: { stuks: { g: 400 } }
   price: { amount: 2.49, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 34, protein: 2.8, carbs: 7, fat: 0.4, fiber: 2.6, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: champignon
   name: champignon
   plural: champignons
@@ -91,6 +101,7 @@
   defaultUnit: g
   packaging: { amount: 250, unit: g }
   price: { amount: 5.16, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 22, protein: 3.1, carbs: 3.3, fat: 0.3, fiber: 1, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: cherrytomaat
   name: cherrytomaat
   plural: cherrytomaten
@@ -100,6 +111,7 @@
   defaultUnit: g
   packaging: { amount: 250, unit: g }
   price: { amount: 7.16, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 18, protein: 0.9, carbs: 3.9, fat: 0.2, fiber: 1.2, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: citroen
   name: citroen
   plural: citroenen
@@ -108,6 +120,7 @@
   defaultUnit: stuks
   conversions: { stuks: { ml: 45, g: 100 } }
   price: { amount: 0.45, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 29, protein: 1.1, carbs: 9, fat: 0.3, fiber: 2.8, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: courgette
   name: courgette
   plural: courgettes
@@ -116,6 +129,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 250 } }
   price: { amount: 1.09, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 17, protein: 1.2, carbs: 3.1, fat: 0.3, fiber: 1, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: doperwten
   name: doperwt
   plural: doperwten
@@ -123,6 +137,7 @@
   category: groente-en-fruit
   defaultUnit: g
   price: { amount: 2.99, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 81, protein: 5.4, carbs: 14, fat: 0.4, fiber: 5.7, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: frambozen
   name: framboos
   plural: frambozen
@@ -131,6 +146,7 @@
   defaultUnit: g
   packaging: { amount: 125, unit: g }
   price: { amount: 15.6, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 52, protein: 1.2, carbs: 12, fat: 0.7, fiber: 6.5, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: gember
   name: gember
   synonyms: [verse gember, gemberwortel]
@@ -139,6 +155,7 @@
   defaultUnit: g
   conversions: { el: { g: 8 } }
   price: { amount: 7.99, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 80, protein: 1.8, carbs: 18, fat: 0.8, fiber: 2, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: knoflook
   name: knoflook
   synonyms: [knoflookteen, teentje knoflook, knoflookteentje]
@@ -147,6 +164,7 @@
   defaultUnit: teentje
   conversions: { teentje: { g: 5 } }
   price: { amount: 0.1, per: teentje, date: 2026-08-24 }
+  nutrition: { kcal: 149, protein: 6.4, carbs: 33, fat: 0.5, fiber: 2.1, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: knolselderij
   name: knolselderij
   nameEn: celeriac
@@ -154,6 +172,7 @@
   defaultUnit: g
   price: { amount: 1.99, per: stuks, date: 2026-08-24 }
   allergens: [selderij]
+  nutrition: { kcal: 42, protein: 1.5, carbs: 9.2, fat: 0.3, fiber: 1.8, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: komkommer
   name: komkommer
   plural: komkommers
@@ -162,6 +181,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 400 } }
   price: { amount: 0.99, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 15, protein: 0.7, carbs: 3.6, fat: 0.1, fiber: 0.5, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: krieltjes
   name: krieltje
   plural: krieltjes
@@ -171,6 +191,7 @@
   defaultUnit: g
   packaging: { amount: 750, unit: g }
   price: { amount: 2.65, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 77, protein: 2, carbs: 17, fat: 0.1, fiber: 2.2, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: lente-ui
   name: lente-ui
   plural: lente-uitjes
@@ -180,6 +201,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 15 } }
   price: { amount: 0.35, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 32, protein: 1.8, carbs: 7.3, fat: 0.2, fiber: 2.6, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: limoen
   name: limoen
   plural: limoenen
@@ -188,6 +210,7 @@
   defaultUnit: stuks
   conversions: { stuks: { ml: 25, g: 65 } }
   price: { amount: 0.45, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 30, protein: 0.7, carbs: 11, fat: 0.2, fiber: 2.8, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: paddenstoelen
   name: paddenstoel
   plural: paddenstoelen
@@ -196,6 +219,7 @@
   category: groente-en-fruit
   defaultUnit: g
   price: { amount: 9.9, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 22, protein: 3.1, carbs: 3.3, fat: 0.3, fiber: 1, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: paprika
   name: paprika
   plural: paprika's
@@ -205,6 +229,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 160 } }
   price: { amount: 1.09, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 31, protein: 1, carbs: 6, fat: 0.3, fiber: 2.1, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: peer
   name: peer
   plural: peren
@@ -213,6 +238,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 175 } }
   price: { amount: 2.29, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 57, protein: 0.4, carbs: 15, fat: 0.1, fiber: 3.1, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: pompoen
   name: pompoen
   plural: pompoenen
@@ -221,6 +247,7 @@
   category: groente-en-fruit
   defaultUnit: g
   price: { amount: 2.49, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 26, protein: 1, carbs: 6.5, fat: 0.1, fiber: 0.5, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: prei
   name: prei
   plural: preien
@@ -229,6 +256,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 200 } }
   price: { amount: 2.29, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 61, protein: 1.5, carbs: 14, fat: 0.3, fiber: 1.8, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: rode-biet
   name: rode biet
   plural: rode bieten
@@ -238,6 +266,7 @@
   defaultUnit: g
   conversions: { stuks: { g: 150 } }
   price: { amount: 2.19, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 43, protein: 1.6, carbs: 10, fat: 0.2, fiber: 2.8, salt: 0.2, source: richtwaarde, date: 2026-08-24 }
 - id: rode-peper
   name: rode peper
   plural: rode pepers
@@ -247,6 +276,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 15 } }
   price: { amount: 0.4, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 40, protein: 1.9, carbs: 9, fat: 0.4, fiber: 1.5, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: rode-ui
   name: rode ui
   plural: rode uien
@@ -255,6 +285,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 140 } }
   price: { amount: 1.79, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 40, protein: 1.1, carbs: 9, fat: 0.1, fiber: 1.7, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: rucola
   name: rucola
   nameEn: rocket
@@ -262,6 +293,7 @@
   defaultUnit: g
   packaging: { amount: 75, unit: g }
   price: { amount: 10.6, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 25, protein: 2.6, carbs: 3.7, fat: 0.7, fiber: 1.6, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: sinaasappel
   name: sinaasappel
   plural: sinaasappels
@@ -270,6 +302,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 180 } }
   price: { amount: 0.6, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 47, protein: 0.9, carbs: 12, fat: 0.1, fiber: 2.4, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: sjalot
   name: sjalot
   plural: sjalotten
@@ -278,6 +311,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 40 } }
   price: { amount: 0.35, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 72, protein: 2.5, carbs: 17, fat: 0.1, fiber: 3.2, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: sla
   name: sla
   synonyms: [ijsbergsla, kropsla, botersla]
@@ -285,6 +319,7 @@
   category: groente-en-fruit
   defaultUnit: stuks
   price: { amount: 1.19, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 15, protein: 1.4, carbs: 2.9, fat: 0.2, fiber: 1.3, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: sperziebonen
   name: sperzieboon
   plural: sperziebonen
@@ -293,6 +328,7 @@
   category: groente-en-fruit
   defaultUnit: g
   price: { amount: 3.99, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 31, protein: 1.8, carbs: 7, fat: 0.1, fiber: 3.4, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: spinazie
   name: spinazie
   synonyms: [verse spinazie]
@@ -301,6 +337,7 @@
   defaultUnit: g
   packaging: { amount: 300, unit: g }
   price: { amount: 4.3, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 23, protein: 2.9, carbs: 3.6, fat: 0.4, fiber: 2.2, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: spitskool
   name: spitskool
   plural: spitskolen
@@ -309,6 +346,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 700 } }
   price: { amount: 1.49, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 25, protein: 1.3, carbs: 5.8, fat: 0.1, fiber: 2.5, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: spruitjes
   name: spruitje
   plural: spruitjes
@@ -317,6 +355,7 @@
   defaultUnit: g
   packaging: { amount: 500, unit: g }
   price: { amount: 3.29, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 43, protein: 3.4, carbs: 9, fat: 0.3, fiber: 3.8, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: tomaat
   name: tomaat
   plural: tomaten
@@ -325,6 +364,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 110 } }
   price: { amount: 0.45, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 18, protein: 0.9, carbs: 3.9, fat: 0.2, fiber: 1.2, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: ui
   name: ui
   plural: uien
@@ -334,6 +374,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 150 } }
   price: { amount: 0.3, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 40, protein: 1.1, carbs: 9, fat: 0.1, fiber: 1.7, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: venkel
   name: venkel
   plural: venkelknollen
@@ -343,6 +384,7 @@
   defaultUnit: stuks
   conversions: { stuks: { g: 300 } }
   price: { amount: 1.69, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 31, protein: 1.2, carbs: 7.3, fat: 0.2, fiber: 3.1, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: winterpeen
   name: winterpeen
   plural: winterpenen
@@ -352,6 +394,7 @@
   defaultUnit: g
   conversions: { stuks: { g: 120 } }
   price: { amount: 1.19, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 41, protein: 0.9, carbs: 10, fat: 0.2, fiber: 2.8, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: witte-kool
   name: witte kool
   nameEn: white cabbage
@@ -359,6 +402,7 @@
   defaultUnit: g
   conversions: { stuks: { g: 1200 } }
   price: { amount: 1.29, per: stuks, date: 2026-08-24 }
+  nutrition: { kcal: 25, protein: 1.3, carbs: 5.8, fat: 0.1, fiber: 2.5, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: wokgroente
   name: wokgroente
   synonyms: [roerbakgroente]
@@ -367,6 +411,7 @@
   defaultUnit: g
   packaging: { amount: 400, unit: g }
   price: { amount: 4.98, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 30, protein: 1.8, carbs: 5, fat: 0.3, fiber: 2.2, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: zoete-aardappel
   name: zoete aardappel
   plural: zoete aardappelen
@@ -375,3 +420,4 @@
   defaultUnit: g
   conversions: { stuks: { g: 300 } }
   price: { amount: 2.49, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 86, protein: 1.6, carbs: 20, fat: 0.1, fiber: 3, salt: 0.1, source: richtwaarde, date: 2026-08-24 }

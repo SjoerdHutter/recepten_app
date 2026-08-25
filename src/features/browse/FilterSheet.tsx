@@ -189,6 +189,36 @@ export const FilterSheet = ({
           Nu in seizoen
         </Chip>
       </Sectie>
+
+      <Sectie title="Voedingswaarde per portie">
+        <div className="flex flex-wrap gap-1.5">
+          {[400, 600, 800].map((grens) => (
+            <Chip
+              key={grens}
+              active={filters.maxKcal === grens}
+              onClick={() => patch({ maxKcal: filters.maxKcal === grens ? null : grens })}
+            >
+              onder {grens} kcal
+            </Chip>
+          ))}
+        </div>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {[20, 30].map((grens) => (
+            <Chip
+              key={grens}
+              active={filters.minProtein === grens}
+              onClick={() => patch({ minProtein: filters.minProtein === grens ? null : grens })}
+            >
+              vanaf {grens} g eiwit
+            </Chip>
+          ))}
+        </div>
+        <p className="mt-2 text-xs text-ink-3">
+          Berekend uit richtwaarden per ingrediënt. Een recept waarvan te weinig bekend is valt
+          buiten dit filter in plaats van dat het geraden wordt. Dit is een indicatie en geen
+          voedingsadvies.
+        </p>
+      </Sectie>
     </Sheet>
   );
 };

@@ -5,23 +5,29 @@
   nameEn: bread
   category: brood
   defaultUnit: stuks
+  conversions: { stuks: { g: 35 } }
   price: { amount: 0.2, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
+  nutrition: { kcal: 265, protein: 9, carbs: 49, fat: 3.2, fiber: 2.7, salt: 1.2, source: richtwaarde, date: 2026-08-24 }
 - id: ciabatta
   name: ciabatta
   nameEn: ciabatta
   category: brood
   defaultUnit: stuks
+  conversions: { stuks: { g: 90 } }
   price: { amount: 1.49, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
+  nutrition: { kcal: 271, protein: 9, carbs: 52, fat: 2.5, fiber: 2.4, salt: 1.3, source: richtwaarde, date: 2026-08-24 }
 - id: pitabroodje
   name: pitabroodje
   plural: pitabroodjes
   nameEn: pita
   category: brood
   defaultUnit: stuks
+  conversions: { stuks: { g: 60 } }
   price: { amount: 0.35, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
+  nutrition: { kcal: 275, protein: 9, carbs: 55, fat: 1.2, fiber: 2.2, salt: 1.1, source: richtwaarde, date: 2026-08-24 }
 - id: platbrood
   name: plat brood
   plural: platte broden
@@ -29,8 +35,10 @@
   nameEn: flatbread
   category: brood
   defaultUnit: stuks
+  conversions: { stuks: { g: 90 } }
   price: { amount: 0.6, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
+  nutrition: { kcal: 275, protein: 9, carbs: 55, fat: 1.2, fiber: 2.2, salt: 1.1, source: richtwaarde, date: 2026-08-24 }
 - id: stokbrood
   name: stokbrood
   plural: stokbroden
@@ -38,8 +46,10 @@
   nameEn: baguette
   category: brood
   defaultUnit: stuks
+  conversions: { stuks: { g: 250 } }
   price: { amount: 1.19, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
+  nutrition: { kcal: 274, protein: 9, carbs: 55, fat: 1.5, fiber: 2.5, salt: 1.4, source: richtwaarde, date: 2026-08-24 }
 - id: tortilla
   name: tortilla
   plural: tortillas
@@ -47,5 +57,7 @@
   nameEn: tortilla
   category: brood
   defaultUnit: stuks
+  conversions: { stuks: { g: 45 } }
   price: { amount: 0.4, per: stuks, date: 2026-08-24 }
   allergens: [gluten]
+  nutrition: { kcal: 310, protein: 8, carbs: 52, fat: 8, fiber: 2.5, salt: 1.1, source: richtwaarde, date: 2026-08-24 }

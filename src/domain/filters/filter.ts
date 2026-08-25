@@ -3,6 +3,7 @@ import type { Recipe } from '../schema/recipe';
 import { activeMinutes, totalMinutes } from '../schema/recipe';
 import type { IngredientLibrary } from '../ingredients/library';
 import { normalizeName } from '../ingredients/library';
+import { matchesNutrition } from '../nutrition/nutrition';
 
 export interface FilterState {
   query: string;
@@ -20,6 +21,10 @@ export interface FilterState {
   /** Harde uitsluiting: recepten met dit allergeen verdwijnen. */
   excludeAllergens: Allergen[];
   seasonOnly: boolean;
+  /** Hoogstens zoveel kilocalorieën per portie; zie domain/nutrition. */
+  maxKcal: number | null;
+  /** Minstens zoveel gram eiwit per portie. */
+  minProtein: number | null;
 }
 
 export const EMPTY_FILTERS: FilterState = {
@@ -33,6 +38,8 @@ export const EMPTY_FILTERS: FilterState = {
   tags: [],
   excludeAllergens: [],
   seasonOnly: false,
+  maxKcal: null,
+  minProtein: null,
 };
 
 /** Verwijzingen naar ingrediënten in een recept, gekoppeld of niet. */
@@ -85,6 +92,18 @@ export const matchesFilters = (
   }
   if (filters.seasonOnly && !isInSeason(recipe, context.month)) return false;
 
+  // Voedingswaarde als laatste: het is de duurste controle, want daarvoor moet
+  // het hele recept doorgerekend worden.
+  if (
+    !matchesNutrition(
+      recipe,
+      { maxKcal: filters.maxKcal, minProtein: filters.minProtein },
+      context.library,
+    )
+  ) {
+    return false;
+  }
+
   if (filters.includeIngredients.length > 0 || filters.excludeIngredients.length > 0) {
     const keys = recipeIngredientKeys(recipe);
     if (!filters.includeIngredients.every((id) => keys.has(id))) return false;
@@ -116,7 +135,9 @@ export const countActiveFilters = (filters: FilterState): number =>
   filters.excludeIngredients.length +
   filters.tags.length +
   filters.excludeAllergens.length +
-  (filters.seasonOnly ? 1 : 0);
+  (filters.seasonOnly ? 1 : 0) +
+  (filters.maxKcal !== null ? 1 : 0) +
+  (filters.minProtein !== null ? 1 : 0);
 
 export const hasActiveFilters = (filters: FilterState): boolean =>
   countActiveFilters(filters) > 0 || filters.query.trim().length > 0;

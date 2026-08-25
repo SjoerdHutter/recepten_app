@@ -5,36 +5,46 @@
   nameEn: dark beer
   category: dranken
   defaultUnit: ml
+  conversions: { ml: { g: 1.01 } }
   packaging: { amount: 330, unit: ml }
   price: { amount: 2.4, per: l, date: 2026-08-24 }
   allergens: [gluten]
+  nutrition: { kcal: 45, protein: 0.5, carbs: 4, fat: 0, fiber: 0, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: rode-wijn
   name: rode wijn
   nameEn: red wine
   category: dranken
   defaultUnit: ml
+  conversions: { ml: { g: 0.99 } }
   packaging: { amount: 750, unit: ml }
   price: { amount: 7.99, per: l, date: 2026-08-24 }
   allergens: [sulfiet]
+  nutrition: { kcal: 85, protein: 0.1, carbs: 2.6, fat: 0, fiber: 0, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: sinaasappelsap
   name: sinaasappelsap
   synonyms: [jus d'orange]
   nameEn: orange juice
   category: dranken
   defaultUnit: ml
+  conversions: { ml: { g: 1.05 } }
   packaging: { amount: 1000, unit: ml }
   price: { amount: 1.79, per: l, date: 2026-08-24 }
+  nutrition: { kcal: 45, protein: 0.7, carbs: 10, fat: 0.2, fiber: 0.2, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: water
   name: water
   nameEn: water
   category: dranken
   defaultUnit: ml
+  conversions: { ml: { g: 1 } }
   price: { amount: 0, per: l, date: 2026-08-24 }
+  nutrition: { kcal: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: witte-wijn
   name: witte wijn
   nameEn: white wine
   category: dranken
   defaultUnit: ml
+  conversions: { ml: { g: 0.99 } }
   packaging: { amount: 750, unit: ml }
   price: { amount: 7.99, per: l, date: 2026-08-24 }
   allergens: [sulfiet]
+  nutrition: { kcal: 82, protein: 0.1, carbs: 2.6, fat: 0, fiber: 0, salt: 0, source: richtwaarde, date: 2026-08-24 }

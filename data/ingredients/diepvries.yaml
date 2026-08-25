@@ -8,6 +8,7 @@
   packaging: { amount: 10, unit: stuks }
   price: { amount: 4.5, per: kg, date: 2026-08-24 }
   allergens: [gluten]
+  nutrition: { kcal: 380, protein: 5, carbs: 36, fat: 24, fiber: 1.5, salt: 0.9, source: richtwaarde, date: 2026-08-24 }
 - id: diepvriesdoperwten
   name: diepvriesdoperwten
   synonyms: [erwtjes uit de diepvries]
@@ -16,6 +17,7 @@
   defaultUnit: g
   packaging: { amount: 450, unit: g }
   price: { amount: 2.29, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 81, protein: 5.4, carbs: 14, fat: 0.4, fiber: 5.7, salt: 0, source: richtwaarde, date: 2026-08-24 }
 - id: diepvriesgarnalen
   name: diepvriesgarnalen
   nameEn: frozen prawns
@@ -23,6 +25,7 @@
   defaultUnit: g
   price: { amount: 19.9, per: kg, date: 2026-08-24 }
   allergens: [schaaldieren]
+  nutrition: { kcal: 99, protein: 24, carbs: 0.2, fat: 0.3, fiber: 0, salt: 0.6, source: richtwaarde, date: 2026-08-24 }
 - id: diepvriesspinazie
   name: diepvriesspinazie
   nameEn: frozen spinach
@@ -30,6 +33,7 @@
   defaultUnit: g
   packaging: { amount: 450, unit: g }
   price: { amount: 2.19, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 23, protein: 2.9, carbs: 3.6, fat: 0.4, fiber: 2.2, salt: 0.1, source: richtwaarde, date: 2026-08-24 }
 - id: diepvriesfrites
   name: frites
   synonyms: [friet, patat]
@@ -38,3 +42,4 @@
   defaultUnit: g
   packaging: { amount: 1000, unit: g }
   price: { amount: 1.99, per: kg, date: 2026-08-24 }
+  nutrition: { kcal: 150, protein: 2.3, carbs: 24, fat: 5, fiber: 2.5, salt: 0.3, source: richtwaarde, date: 2026-08-24 }
