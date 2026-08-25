@@ -15,6 +15,16 @@ export default tseslint.config(
     rules: { 'no-console': 'off', 'no-undef': 'off' },
   },
   {
+    // De proxy draait op de rand van Cloudflare of Netlify: web-API's plus
+    // process.env, en geen enkele dependency.
+    files: ['proxy/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: { ...globals.serviceworker, ...globals.node },
+    },
+  },
+  {
     files: ['src/**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2022,

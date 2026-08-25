@@ -30,6 +30,7 @@ import { Icon } from '../../ui/Icon';
 import { Button, Card, Chip } from '../../ui/controls';
 import { IngredientRows } from './IngredientRows';
 import { PasteSheet } from './PasteSheet';
+import { WebImportSheet } from './WebImportSheet';
 import { StepRows } from './StepRows';
 import {
   draftFromRecipe,
@@ -66,6 +67,13 @@ const wissel = <T,>(lijst: T[], waarde: T): T[] =>
   lijst.includes(waarde) ? lijst.filter((entry) => entry !== waarde) : [...lijst, waarde];
 
 /**
+ * Een receptensite levert tientallen trefwoorden mee ("easy weeknight dinner",
+ * "30 minute meals"). Daarvan is alleen bruikbaar wat de app al als tag kent —
+ * de rest zou het filterscherm vervuilen met eenmalige Engelse termen.
+ */
+const bruikbareTag = (tag: string): boolean => (SUGGESTED_TAGS as readonly string[]).includes(tag);
+
+/**
  * Het formulier krijgt het bestaande recept als prop en zet zijn beginstand in
  * de useState-initialisatie. Zo hoeft er geen effect te zijn dat state overschrijft
  * zodra de gegevens binnen zijn.
@@ -74,7 +82,7 @@ const RecipeForm = ({ bestaand }: { bestaand: Recipe | undefined }) => {
   const navigate = useNavigate();
   const id = bestaand?.id;
   const { dataset, library, refresh, online } = useData();
-  const { token, canWrite, defaultServings } = useSettings();
+  const { token, canWrite, defaultServings, canImportUrl, canImportPhoto } = useSettings();
 
   const [draft, setDraft] = useState<RecipeDraft>(() =>
     bestaand ? draftFromRecipe(bestaand) : emptyDraft(defaultServings),
@@ -87,6 +95,7 @@ const RecipeForm = ({ bestaand }: { bestaand: Recipe | undefined }) => {
   const [bezig, setBezig] = useState(false);
   const [klaar, setKlaar] = useState<{ commitUrl: string; wachtrij: boolean } | null>(null);
   const [plakOpen, setPlakOpen] = useState(false);
+  const [importOpen, setImportOpen] = useState(false);
   const cameraRef = useRef<HTMLInputElement>(null);
   const galerijRef = useRef<HTMLInputElement>(null);
   const bewerken = Boolean(id);
@@ -135,10 +144,17 @@ const RecipeForm = ({ bestaand }: { bestaand: Recipe | undefined }) => {
     }
   };
 
-  const neemOver = (parsed: ParsedRecipe) => {
+  /**
+   * Wat een plakactie of een import oplevert, in het formulier zetten. Alle
+   * drie de routes komen hier uit, want daarna is het werk hetzelfde: nalopen
+   * en opslaan. Velden die de bron niet gevonden heeft blijven staan zoals ze
+   * stonden, zodat een import nooit iets wist wat je al had ingevuld.
+   */
+  const neemOver = (parsed: ParsedRecipe, gevondenFoto?: ResizedImage) => {
     setDraft((huidig) => ({
       ...huidig,
       title: parsed.title === 'Naamloos recept' ? huidig.title : parsed.title,
+      description: parsed.description ?? huidig.description,
       servings: parsed.servings ? String(parsed.servings) : huidig.servings,
       prep: parsed.times.prep ? String(parsed.times.prep) : huidig.prep,
       active: parsed.times.active ? String(parsed.times.active) : huidig.active,
@@ -158,9 +174,20 @@ const RecipeForm = ({ bestaand }: { bestaand: Recipe | undefined }) => {
           : huidig.ingredients,
       steps:
         parsed.steps.length > 0
-          ? parsed.steps.map((tekst) => ({ ...legeStap(), text: tekst }))
+          ? parsed.steps.map((tekst, index) => ({
+              ...legeStap(),
+              text: tekst,
+              ovenTemp: parsed.ovenTemps?.[index] ? String(parsed.ovenTemps[index]) : '',
+            }))
           : huidig.steps,
+      // Alleen tags die de app al kent; de rest van wat een site meelevert is
+      // zoekmachinevoer en hoort niet als filter in de bibliotheek te belanden.
+      tags: parsed.tags?.length
+        ? [...new Set([...huidig.tags, ...parsed.tags.filter(bruikbareTag)])]
+        : huidig.tags,
+      source: parsed.source ?? huidig.source,
     }));
+    if (gevondenFoto) setFoto(gevondenFoto);
     setBlok(0);
   };
 
@@ -277,10 +304,22 @@ const RecipeForm = ({ bestaand }: { bestaand: Recipe | undefined }) => {
       {blok === 0 ? (
         <div className="flex flex-col gap-4">
           {!bewerken ? (
-            <Button variant="secondary" full onClick={() => setPlakOpen(true)}>
-              <Icon name="kopieer" className="h-4 w-4" />
-              Een heel recept plakken
-            </Button>
+            <div className="flex flex-col gap-2">
+              <Button variant="secondary" full onClick={() => setPlakOpen(true)}>
+                <Icon name="kopieer" className="h-4 w-4" />
+                Een heel recept plakken
+              </Button>
+              {canImportUrl || canImportPhoto ? (
+                <Button variant="secondary" full onClick={() => setImportOpen(true)}>
+                  <Icon name="omlaag" className="h-4 w-4" />
+                  {canImportUrl && canImportPhoto
+                    ? 'Importeren van een site of foto'
+                    : canImportUrl
+                      ? 'Importeren vanaf een website'
+                      : 'Importeren vanaf een foto'}
+                </Button>
+              ) : null}
+            </div>
           ) : null}
           <Veld label="Titel">
             <input
@@ -668,6 +707,15 @@ const RecipeForm = ({ bestaand }: { bestaand: Recipe | undefined }) => {
         onClose={() => setPlakOpen(false)}
         onApply={neemOver}
       />
+
+      {canImportUrl || canImportPhoto ? (
+        <WebImportSheet
+          open={importOpen}
+          library={library}
+          onClose={() => setImportOpen(false)}
+          onApply={neemOver}
+        />
+      ) : null}
     </div>
   );
 };

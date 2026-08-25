@@ -10,8 +10,30 @@ const TOKEN_KEY = 'recepten.token';
 const THEME_KEY = 'recepten.theme';
 const SERVINGS_KEY = 'recepten.defaultServings';
 
+/**
+ * De twee optionele importmodules. Ze staan hier los van het GitHub-token,
+ * want ze horen bij een andere dienst en de app verbergt ze allebei zolang ze
+ * leeg zijn. Voor de API-sleutel geldt hetzelfde verhaal als voor het token:
+ * localStorage, geen back-up, en uitsluitend naar het adres van die ene API.
+ */
+const PROXY_KEY = 'recepten.importProxy';
+const AI_KEY = 'recepten.aiKey';
+const AI_MODEL_KEY = 'recepten.aiModel';
+
 export type Theme = 'system' | 'light' | 'dark';
 export type TokenState = 'geen' | 'controleren' | 'schrijven' | 'alleen-lezen' | 'fout';
+
+/**
+ * De modellen die een foto van een receptpagina aankunnen. Het goedkope model
+ * staat vooraan: een kookboekpagina is een paar duizend tokens, dus dit kost
+ * bij persoonlijk gebruik centen per maand.
+ */
+export const AI_MODELS = [
+  { id: 'claude-haiku-4-5-20251001', label: 'Haiku 4.5 — snel en goedkoop' },
+  { id: 'claude-sonnet-5', label: 'Sonnet 5 — beter bij slecht handschrift' },
+] as const;
+
+export const STANDAARD_MODEL = AI_MODELS[0].id;
 
 const lees = (key: string): string | null => {
   try {
@@ -37,10 +59,20 @@ interface SettingsValue {
   canWrite: boolean;
   theme: Theme;
   defaultServings: number;
+  /** Adres van de importproxy; leeg betekent: verberg het importeren van een URL. */
+  importProxy: string;
+  /** API-sleutel voor het omzetten van een foto; leeg betekent: verberg die knop. */
+  aiKey: string;
+  aiModel: string;
+  canImportUrl: boolean;
+  canImportPhoto: boolean;
   saveToken: (token: string) => void;
   clearToken: () => void;
   setTheme: (theme: Theme) => void;
   setDefaultServings: (servings: number) => void;
+  setImportProxy: (url: string) => void;
+  setAiKey: (key: string) => void;
+  setAiModel: (model: string) => void;
 }
 
 const SettingsContext = createContext<SettingsValue | null>(null);
@@ -65,6 +97,9 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
   const [defaultServings, setDefaultServingsState] = useState(() =>
     Number(lees(SERVINGS_KEY) ?? '4'),
   );
+  const [importProxy, setImportProxyState] = useState(() => lees(PROXY_KEY) ?? '');
+  const [aiKey, setAiKeyState] = useState(() => lees(AI_KEY) ?? '');
+  const [aiModel, setAiModelState] = useState(() => lees(AI_MODEL_KEY) ?? STANDAARD_MODEL);
 
   // De systeeminstelling blijft leidend zolang je niets forceert.
   useEffect(() => {
@@ -106,6 +141,11 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
       canWrite: tokenState === 'schrijven',
       theme,
       defaultServings,
+      importProxy,
+      aiKey,
+      aiModel,
+      canImportUrl: importProxy.trim().length > 0,
+      canImportPhoto: aiKey.trim().length > 0,
       saveToken(nieuw) {
         const opgeschoond = nieuw.trim();
         schrijf(TOKEN_KEY, opgeschoond || null);
@@ -128,8 +168,24 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
         setDefaultServingsState(aantal);
         schrijf(SERVINGS_KEY, String(aantal));
       },
+      setImportProxy(url) {
+        // Een adres met een schuine streep aan het eind zou verderop een dubbele
+        // slash opleveren; die haalt hij er hier één keer af.
+        const opgeschoond = url.trim().replace(/\/+$/, '');
+        setImportProxyState(opgeschoond);
+        schrijf(PROXY_KEY, opgeschoond || null);
+      },
+      setAiKey(key) {
+        const opgeschoond = key.trim();
+        setAiKeyState(opgeschoond);
+        schrijf(AI_KEY, opgeschoond || null);
+      },
+      setAiModel(model) {
+        setAiModelState(model);
+        schrijf(AI_MODEL_KEY, model);
+      },
     }),
-    [token, tokenState, tokenError, theme, defaultServings],
+    [token, tokenState, tokenError, theme, defaultServings, importProxy, aiKey, aiModel],
   );
 
   return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>;

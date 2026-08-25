@@ -51,8 +51,8 @@ Heet de repo anders? Pas dan `BASE` in [`vite.config.ts`](vite.config.ts) en
 ## Het GitHub-token
 
 Zonder token werkt de app in **leesmodus**: alles lezen, zoeken, schalen en
-boodschappenlijsten maken. Met een token kun je vanaf milestone 2 ook recepten
-toevoegen en aanpassen vanuit de app zelf.
+boodschappenlijsten maken. Met een token kun je ook recepten toevoegen,
+aanpassen en verwijderen vanuit de app zelf.
 
 ### Aanmaken
 
@@ -108,6 +108,9 @@ kenmerken en opslaan. Een paar dingen die het op een telefoon prettig maken:
 
 - **Plakken.** Heb je de tekst van een recept ergens vandaan? Plak hem in één
   keer; de app haalt eruit wat hij herkent en jij loopt het na.
+- **Importeren** vanaf een receptensite of een foto van een kookboekpagina, als
+  je die twee optionele hulpjes hebt ingesteld. Zie
+  [Importeren van buitenaf](#importeren-van-buitenaf).
 - **Ingrediënten** hebben autocomplete op de bibliotheek, en eenheden kies je
   met knoppen in plaats van uit een lijst met veertien opties.
 - **Een onbekend ingrediënt** voeg je meteen toe aan de bibliotheek; de app
@@ -360,13 +363,61 @@ ziet dat er zo uit:
     }
 ```
 
-## Later: importeren van buitenaf
+## Importeren van buitenaf
 
-Milestone 9 voegt twee optionele modules toe die de app verbergt zolang je ze
-niet instelt: importeren vanaf een receptensite (via een kleine eigen proxy,
-omdat de browser die pagina's niet rechtstreeks mag ophalen) en een foto van een
-kookboekpagina omzetten met een taalmodel (met je eigen API-sleutel). Beide
-komen in de instellingen te staan zodra ze er zijn.
+Twee **optionele** hulpjes bij het toevoegen van een recept. Stel je ze niet in,
+dan verbergt de app ze allebei en werkt de rest gewoon. Ze staan bij
+**Instellingen ▸ Importeren**, en de knop verschijnt in het invoerformulier
+zodra er één van de twee klaarstaat.
+
+Allebei komen ze uit op precies hetzelfde punt: het gewone formulier, ingevuld,
+met de controlestap ervoor. Er is geen route die het overslaat.
+
+### Vanaf een receptensite
+
+Je plakt een link, de app haalt de pagina op en leest de receptgegevens die er
+in de bron staan (`schema.org/Recipe` in JSON-LD — vrijwel elke receptensite
+levert dat mee, want Google gebruikt het). Buitenlandse maten worden omgerekend
+naar metrisch en Fahrenheit naar Celsius; de bron komt automatisch in het
+recept te staan.
+
+Hier is een klein tussenstukje voor nodig: een browser mag `allrecipes.com` niet
+ophalen vanaf `sjoerdhutter.github.io`. In
+[`proxy/README.md`](proxy/README.md) staat hoe je die proxy in een paar minuten
+gratis neerzet bij Cloudflare of Netlify; het adres plak je daarna in de
+instellingen. Dit is het enige onderdeel van het project dat niet in de browser
+draait.
+
+Wat je in de gaten moet houden:
+
+- **Niet elke site levert bruikbare gegevens.** Lukt het niet, dan zegt de app
+  dat en kun je de tekst plakken met "Een heel recept plakken".
+- **`recipeYield` is dubbelzinnig.** Bij een taart staat er "24 cookies" en dat
+  zijn geen 24 porties. Staat er geen woord als "servings" of "personen" bij,
+  dan neemt de app het getal wel over maar zegt erbij dat je het moet nakijken.
+- **Overnemen is niet hetzelfde als publiceren.** Een recept overtypen voor
+  eigen gebruik is iets anders dan de tekst van iemand anders in een openbare
+  repo zetten. Zet er in elk geval de bron bij; die vult de app zelf in.
+
+### Vanaf een foto
+
+Je fotografeert een kookboekpagina of een handgeschreven kaartje en een
+taalmodel typt over wat het ziet. Vul in de instellingen een API-sleutel in van
+[console.anthropic.com](https://console.anthropic.com/settings/keys) en kies een
+model. Eén pagina kost bij het goedkope model ongeveer een halve cent.
+
+Het model krijgt bewust één opdracht: overtypen, niets omrekenen, niets
+verzinnen. Wat het teruggeeft gaat door hetzelfde schema en dezelfde
+ingrediëntkoppeling als de andere twee routes, en in de controlestap staat altijd
+dat een taalmodel dit heeft overgetypt. Woorden die het niet kon lezen komen
+apart onderaan te staan in plaats van dat er iets aannemelijks voor verzonnen
+wordt.
+
+**Over die sleutel geldt hetzelfde als over het GitHub-token:** hij staat in de
+localStorage van je browser, gaat uitsluitend naar `api.anthropic.com`, staat
+nooit in een URL of een logregel, en gaat niet mee in een back-upbestand. Op een
+gedeeld toestel zou ik hem er niet in zetten. Vertrouw je het niet meer, dan
+trek je hem in op console.anthropic.com; dat werkt onmiddellijk.
 
 ## Verder lezen
 
