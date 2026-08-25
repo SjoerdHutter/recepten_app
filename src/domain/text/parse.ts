@@ -1,4 +1,4 @@
-import type { Scaling } from '../schema/recipe';
+import type { RecipeSource, Scaling } from '../schema/recipe';
 import type { IngredientLibrary } from '../ingredients/library';
 import { normalizeName } from '../ingredients/library';
 import type { Unit } from '../units/units';
@@ -28,6 +28,21 @@ export interface ParsedRecipe {
   steps: string[];
   /** Regels waar de parser geen raad mee wist. */
   leftovers: string[];
+  /**
+   * Velden die alleen bij het importeren van een website of een foto gevuld
+   * worden. De plakparser laat ze leeg — in een lap tekst staat geen bron en
+   * geen afbeelding. Ze staan hier zodat beide importroutes en het plakvenster
+   * hetzelfde formulier vullen, langs precies dezelfde weg.
+   */
+  description?: string;
+  tags?: string[];
+  /** Volledige URL van de foto op de bronpagina. */
+  image?: string;
+  source?: RecipeSource;
+  /** Oventemperatuur per stap, op dezelfde index als `steps`. */
+  ovenTemps?: Array<number | undefined>;
+  /** Wat de gebruiker bij de controle moet weten. */
+  warnings?: string[];
 }
 
 const KOP_INGREDIENTEN = /^(ingredi[eë]nten|benodigdheden|boodschappen|nodig)\b/i;

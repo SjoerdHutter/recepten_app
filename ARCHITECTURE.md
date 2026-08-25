@@ -412,6 +412,90 @@ zou een verzonnen getal als harde grens gebruiken. Liever een recept missen dan
 `matchesFilters` (de hele schaling en optelling per recept), dus hij staat
 achteraan, achter alle goedkope afwijzingen.
 
+## Importeren van buitenaf
+
+Dit is het enige deel dat het uitgangspunt "geen backend" raakt, en daarom is
+het opgezet als twee losse modules die de app zonder configuratie verbergt. Wie
+ze niet instelt merkt niet dat ze bestaan.
+
+### De proxy is met opzet dom
+
+Een browser mag een receptensite niet ophalen vanaf een ander adres; geen enkele
+site zet daar een CORS-header voor. Er is dus iets nodig dat op een server
+draait. Dat "iets" doet precies één ding: de pagina ophalen en doorgeven. Het
+lezen van het recept gebeurt in `src/domain/import/`, waar het te testen is en
+waar een verbetering geen nieuwe deploy van de proxy vraagt. De worker en de
+Netlify-functie delen `proxy/shared.js` en gebruiken alleen web-API's die ze
+allebei aanbieden; er zit geen enkele dependency in.
+
+Een open proxy is een cadeau aan een vreemde, dus er zitten vier grenzen in:
+`ALLOWED_ORIGIN` voor de CORS-header, alleen http en https, alleen HTML/JSON/
+tekst/afbeeldingen, en hoogstens 5 MB en 15 seconden.
+
+De belangrijkste is de controle op privéadressen. Die zat er meteen in, maar
+werkte niet: één regex met `^…$` eromheen waar `192\.168\.` in stond, en dat
+matcht `192.168.1.1` natuurlijk niet in zijn geheel. Elk adres in het eigen
+netwerk kwam er gewoon doorheen — de klassieke SSRF-fout. Het zijn nu twee
+regexen: een naam moet helemaal kloppen, een IP-adres alleen aan het begin. Er
+staan tests op in `src/data/import/proxyGuard.test.ts`, die het echte
+proxybestand importeren.
+
+### JSON-LD, niet de opmaak van de pagina
+
+Vrijwel elke receptensite zet `schema.org/Recipe` als JSON-LD in de bron, want
+Google gebruikt dat voor de zoekresultaten. Dat blok lezen is oneindig veel
+betrouwbaarder dan de HTML uitpluizen, en het is overal hetzelfde. De parser is
+bestand tegen wat sites er in de praktijk van maken: een `@graph`, meerdere
+blokken, één stukgeslagen blok, `HowToSection` met stappen erin, instructies als
+lap HTML, en `recipeYield` in vijf smaken.
+
+Twee afleidingen die de moeite waard zijn:
+
+- **Passieve tijd komt uit het verschil.** Staat er een `cookTime` én een
+  `totalTime`, dan is wat overblijft wachten: rijzen, marineren, afkoelen. Dat
+  onderscheid is het belangrijkste veld van dit model, dus het zou zonde zijn om
+  die informatie weg te gooien.
+- **`recipeYield` is dubbelzinnig.** "24 cookies" zijn geen 24 porties. Het
+  getal is nog steeds het beste dat er is, maar of het om personen gaat blijkt
+  alleen uit het woord ernaast. `parseYield` geeft dat er los bij terug, zodat
+  de controlestap het kan melden in plaats van te doen alsof.
+
+### Volume gaat naar milliliter, nooit rechtstreeks naar gram
+
+Een cup meel weegt 120 g en een cup suiker 200 g. `foreign.ts` rekent daarom
+alleen om binnen dezelfde dimensie; het wegen laat het over aan de dichtheden in
+de bibliotheek, die bij de voedingswaarde toch al nodig waren. Liever niets
+omrekenen dan iets verkeerd omrekenen.
+
+### Het model typt over, meer niet
+
+Bij de foto-import krijgt het taalmodel één opdracht: overschrijven wat er staat,
+in dezelfde losse regels als een receptensite ze levert. Het rekent niets om en
+koppelt niets. Alles daarna — `parseImportLine`, de eenheden, de temperatuur,
+de bibliotheek — is dezelfde code als bij de URL-import. Zo is er één plek waar
+het mis kan gaan in plaats van twee, en die plek is getest.
+
+Wat het model teruggeeft gaat door een Zod-schema, want het is een gok over wat
+er op een foto staat en niet iets om op te vertrouwen. Woorden die het niet kon
+lezen horen in `unreadable` en komen als niet-geplaatste regels terug; raden is
+erger dan een gat, want een gat zie je. In de controlestap staat altijd dat een
+taalmodel dit heeft overgetypt.
+
+De API-sleutel volgt dezelfde regels als het GitHub-token: localStorage,
+uitsluitend naar `api.anthropic.com`, nooit in een URL of logregel, niet in de
+back-up.
+
+### Drie routes, één controlestap
+
+Plakken, een URL en een foto komen alle drie uit op een `ParsedRecipe` en
+daarmee op `neemOver` in het formulier. Er is geen route die de controle
+overslaat, en velden die de bron niet gevonden heeft blijven staan zoals ze
+stonden — een import wist nooit iets wat je al had ingevuld.
+
+Van de trefwoorden die een site meelevert blijft alleen over wat de app al als
+tag kent. "easy weeknight dinner" en "30 minute meals" horen niet als filter in
+een persoonlijk kookboek.
+
 ## Afgeleide waarden staan niet in de bestanden
 
 Totale tijd, kosten per portie en voedingswaarde worden berekend uit wat er wél
@@ -433,15 +517,18 @@ aanraken, en zou een afgeleide waarde kunnen gaan afwijken van zijn bron.
 - **Filters staan in de URL**, zodat de terugknop klopt en een gefilterde lijst
   te delen is.
 
-## Wat er nog niet is
+## Wat er wel en niet nagelopen is
 
-Milestone 1 tot en met 8 dekken kiezen, boodschappen doen, toevoegen vanaf je
+Alle negen milestones staan er: kiezen, boodschappen doen, toevoegen vanaf je
 telefoon, het beheren van de bibliotheek, de voorraadkast, het koken zelf, het
-plannen en terugkijken, de supermarkt met de kosten, en de voedingswaarde. Wat
-rest is milestone 9: importeren vanaf een receptensite en een foto omzetten met
-een taalmodel. Dat is het enige deel dat het "geen backend"-uitgangspunt raakt,
-en het komt daarom als twee optionele modules die verborgen blijven zolang je ze
-niet instelt. Het datamodel is met de latere milestones in het
-achterhoofd ontworpen (stapverwijzingen per ingrediënt voor de kookmodus,
-timerduur per stap, seizoen, allergenen als gesloten lijst), zodat er onderweg
-niets omgegooid hoeft te worden.
+plannen en terugkijken, de supermarkt met de kosten, de voedingswaarde en het
+importeren van buitenaf.
+
+Eén ding is eerlijk te melden: de aanroep naar het taalmodel in
+`src/data/import/askModel.ts` is nooit met een echte sleutel gedraaid — die is
+er hier niet, en het is niet aan mij om er een te kopen. Het omzetten van wat
+het model teruggeeft naar een recept is wél getest, met vastgelegde antwoorden
+in `photo.test.ts`, en de foutafhandeling (401, 429, leeg antwoord, geen JSON)
+zit erin. De eerste keer dat je die knop gebruikt ben je dus de eerste die het
+hele pad loopt. De URL-import is wel end-to-end nagelopen, met de echte
+proxycode uit `proxy/shared.js` en een neppe receptensite ernaast.

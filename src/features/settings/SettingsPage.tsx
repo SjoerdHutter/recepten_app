@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { REPO, repoSlug } from '../../config';
 import { kvDump, kvRestore } from '../../data/db/idb';
 import { useData } from '../../state/data';
-import { useSettings, type Theme } from '../../state/settings';
+import { AI_MODELS, useSettings, type Theme } from '../../state/settings';
 import { Icon } from '../../ui/Icon';
 import { Button, Card, Chip, Stepper } from '../../ui/controls';
 
@@ -32,10 +32,20 @@ export const SettingsPage = () => {
     clearToken,
     setTheme,
     setDefaultServings,
+    importProxy,
+    aiKey,
+    aiModel,
+    canImportUrl,
+    canImportPhoto,
+    setImportProxy,
+    setAiKey,
+    setAiModel,
   } = useSettings();
   const { dataset, lastSyncedAt, syncing, syncError, online, pendingDrafts, refresh } = useData();
 
   const [invoer, setInvoer] = useState('');
+  const [proxyInvoer, setProxyInvoer] = useState(importProxy);
+  const [sleutelInvoer, setSleutelInvoer] = useState('');
   const [melding, setMelding] = useState<string | null>(null);
   const bestandKiezer = useRef<HTMLInputElement>(null);
 
@@ -86,7 +96,7 @@ export const SettingsPage = () => {
           </div>
           <p className="mt-1.5 text-sm text-ink-2">
             {canWrite
-              ? 'Je token heeft schrijfrechten. Vanaf milestone 2 kun je hiermee recepten toevoegen en aanpassen.'
+              ? 'Je token heeft schrijfrechten. Je kunt recepten toevoegen, aanpassen en verwijderen vanuit de app zelf.'
               : 'Zonder token kun je alles lezen, zoeken en boodschappenlijsten maken. Recepten toevoegen gaat dan via GitHub zelf.'}
           </p>
         </Card>
@@ -154,6 +164,133 @@ export const SettingsPage = () => {
             api.github.com. Op een gedeeld of onbeheerd toestel kun je het beter niet bewaren. In de
             README staat waarom dat voor persoonlijk gebruik acceptabel is.
           </p>
+        </Card>
+      </Sectie>
+
+      <Sectie title="Importeren">
+        <Card className="flex flex-col gap-4 px-4 py-3">
+          <p className="text-sm text-ink-2">
+            Twee losse hulpjes voor het toevoegen van een recept. Ze zijn allebei optioneel: laat je
+            ze leeg, dan verbergt de app ze en werkt de rest gewoon.
+          </p>
+
+          <div className="flex flex-col gap-2">
+            <label className="flex flex-col gap-1.5">
+              <span className="text-sm font-semibold">Proxy voor het importeren van een URL</span>
+              <input
+                value={proxyInvoer}
+                onChange={(event) => setProxyInvoer(event.target.value)}
+                type="url"
+                inputMode="url"
+                autoCapitalize="off"
+                autoCorrect="off"
+                spellCheck={false}
+                placeholder="https://recepten-proxy.jouw-account.workers.dev"
+                className="h-12 rounded-xl border border-line bg-surface px-3 font-mono text-sm"
+              />
+            </label>
+            <div className="flex gap-2">
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  setImportProxy(proxyInvoer);
+                  setMelding(proxyInvoer.trim() ? 'Proxy opgeslagen.' : 'Proxy gewist.');
+                }}
+              >
+                Opslaan
+              </Button>
+              {canImportUrl ? (
+                <span className="flex items-center gap-1.5 text-sm text-ok">
+                  <Icon name="vink" className="h-4 w-4" />
+                  Ingesteld
+                </span>
+              ) : null}
+            </div>
+            <p className="text-xs text-ink-3">
+              Een browser mag een receptensite niet rechtstreeks ophalen vanaf een ander adres, dus
+              hier is een klein tussenstukje voor nodig. In{' '}
+              <a
+                href={`https://github.com/${repoSlug}/blob/main/proxy/README.md`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-accent"
+              >
+                proxy/README.md
+              </a>{' '}
+              staat hoe je hem in een paar minuten gratis neerzet bij Cloudflare of Netlify.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-2 border-t border-line pt-4">
+            <label className="flex flex-col gap-1.5">
+              <span className="text-sm font-semibold">API-sleutel voor foto naar recept</span>
+              <input
+                value={sleutelInvoer}
+                onChange={(event) => setSleutelInvoer(event.target.value)}
+                type="password"
+                autoCapitalize="off"
+                autoCorrect="off"
+                spellCheck={false}
+                placeholder={aiKey ? '••••••••••••' : 'sk-ant-…'}
+                className="h-12 rounded-xl border border-line bg-surface px-3 font-mono text-sm"
+              />
+            </label>
+            <div className="flex flex-wrap gap-2">
+              {AI_MODELS.map((model) => (
+                <Chip
+                  key={model.id}
+                  active={aiModel === model.id}
+                  onClick={() => setAiModel(model.id)}
+                >
+                  {model.label}
+                </Chip>
+              ))}
+            </div>
+            <div className="flex gap-2">
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  setAiKey(sleutelInvoer);
+                  setSleutelInvoer('');
+                  setMelding(sleutelInvoer.trim() ? 'Sleutel opgeslagen.' : 'Sleutel gewist.');
+                }}
+              >
+                Opslaan
+              </Button>
+              {canImportPhoto ? (
+                <Button
+                  variant="ghost"
+                  onClick={() => {
+                    setAiKey('');
+                    setSleutelInvoer('');
+                    setMelding('Sleutel gewist.');
+                  }}
+                >
+                  Wissen
+                </Button>
+              ) : null}
+              {canImportPhoto ? (
+                <span className="flex items-center gap-1.5 text-sm text-ok">
+                  <Icon name="vink" className="h-4 w-4" />
+                  Ingesteld
+                </span>
+              ) : null}
+            </div>
+            <p className="text-xs text-ink-3">
+              Maak een sleutel aan op{' '}
+              <a
+                href="https://console.anthropic.com/settings/keys"
+                target="_blank"
+                rel="noreferrer"
+                className="text-accent"
+              >
+                console.anthropic.com
+              </a>
+              . Eén pagina omzetten kost bij het goedkope model ongeveer een halve cent. De sleutel
+              staat net als het GitHub-token in localStorage, gaat uitsluitend naar
+              api.anthropic.com en komt niet mee in een back-up.
+            </p>
+          </div>
         </Card>
       </Sectie>
 
