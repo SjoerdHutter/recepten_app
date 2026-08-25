@@ -496,6 +496,48 @@ Van de trefwoorden die een site meelevert blijft alleen over wat de app al als
 tag kent. "easy weeknight dinner" en "30 minute meals" horen niet als filter in
 een persoonlijk kookboek.
 
+## De app moet zichzelf bijwerken
+
+`vite-plugin-pwa` injecteert met de standaardinstelling een regeltje dat de
+service worker registreert en verder niets:
+
+```js
+navigator.serviceWorker.register('/recepten_app/sw.js', { scope: '/recepten_app/' });
+```
+
+Dat is te weinig, en het ging ook echt mis. `skipWaiting` en `clientsClaim`
+staan aan, dus een nieuwe worker neemt het over — maar de pagina die op dat
+moment draait houdt de JavaScript vast die hij al had ingeladen. Er wordt nooit
+opnieuw gekeken of er iets nieuws is, en er wordt nooit herladen. Een
+geïnstalleerde app die je niet helemaal afsluit blijft zo op oude code hangen.
+
+Dat is hier geen schoonheidsfoutje. De schema's zijn tussen milestone 1 en 9
+flink gegroeid, en oude code die nieuwe databestanden krijgt voorgeschoteld
+keurt ze af op velden die hij nog niet kent. In de praktijk zag dat er zo uit:
+27 van de 33 recepten verdwenen uit het overzicht, met meldingen als
+`ingredients.8.scales: Invalid input` — wat leest alsof de gegevens stuk zijn,
+terwijl er niets mis mee was.
+
+`src/pwa.ts` doet daarom drie dingen die dat regeltje niet deed:
+
+- **Herladen bij een wisseling van worker.** Eén keer, met een vlag ertegen om
+  een lus te voorkomen.
+- **Blijven kijken.** Eens per uur, en bij het terugkomen in de app — dat is
+  precies het moment waarop je hem weer gaat gebruiken.
+- **Een knop om het af te dwingen**, met het versienummer ernaast, bij
+  Instellingen ▸ Over deze app.
+
+Die eerste stap heeft een addertje dat me bij het testen betrapte. De vlag "was
+er al een worker aan het roer" mag niet één keer bij het laden gezet worden: bij
+het allereerste bezoek is er nog geen controller, dus die vlag zou voorgoed op
+"nee" blijven staan en dan werkt de app zichzelf in die sessie nooit meer bij.
+Hij beweegt daarom mee: de eerste wisseling is de installatie zelf en telt niet,
+elke volgende wel.
+
+Bij veel afgekeurde bestanden tegelijk zegt het instellingenscherm er nu bij dat
+dit bijna altijd een verouderde app is en geen kapotte data. Een melding die de
+verkeerde kant op wijst kost meer tijd dan geen melding.
+
 ## Afgeleide waarden staan niet in de bestanden
 
 Totale tijd, kosten per portie en voedingswaarde worden berekend uit wat er wél

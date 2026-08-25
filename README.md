@@ -419,6 +419,24 @@ nooit in een URL of een logregel, en gaat niet mee in een back-upbestand. Op een
 gedeeld toestel zou ik hem er niet in zetten. Vertrouw je het niet meer, dan
 trek je hem in op console.anthropic.com; dat werkt onmiddellijk.
 
+## Als er recepten ontbreken
+
+Zie je in het overzicht minder recepten dan er in [`data/recipes/`](data/recipes/)
+staan, met een gele balk erboven ("… bestanden kon ik niet lezen"), dan is de
+kans groot dat je app achterloopt en niet dat je gegevens stuk zijn. Oude code
+kent de velden nog niet die er later bij zijn gekomen en keurt zulke bestanden
+af.
+
+Ga naar **Instellingen ▸ Over deze app** en druk op **Controleren op een nieuwe
+versie**. Staat er iets nieuws klaar, dan herlaadt de app zichzelf en zijn ze
+terug. Normaal gebeurt dat vanzelf zodra je de app opent, maar deze knop dwingt
+het af.
+
+Helpt dat niet, dan herlaad je hard: op de desktop met **Ctrl+Shift+R**, op een
+telefoon door de geïnstalleerde app te sluiten en opnieuw te openen. Blijft het
+staan, dan is er echt iets mis met een bestand en zeggen de meldingen bij
+**Instellingen ▸ Gegevens** welk veld het is.
+
 ## Verder lezen
 
 [`ARCHITECTURE.md`](ARCHITECTURE.md) legt uit waarom de app zo in elkaar zit:

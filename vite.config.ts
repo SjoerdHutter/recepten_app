@@ -8,8 +8,21 @@ import { VitePWA } from 'vite-plugin-pwa';
 // moeten met dat pad worden opgevraagd. Lokaal draaien werkt met hetzelfde pad.
 const BASE = '/recepten_app/';
 
+/**
+ * Welke build dit is. In CI zet GitHub Actions de commit-sha in de omgeving;
+ * lokaal staat er "lokaal". Dit staat in de instellingen zodat je bij een
+ * vreemde melding meteen kunt zien of je wel op de laatste versie zit — precies
+ * de vraag die anders een uur uitzoekwerk kost.
+ */
+const VERSIE = (process.env.GITHUB_SHA ?? 'lokaal').slice(0, 7);
+const GEBOUWD_OP = new Date().toISOString();
+
 export default defineConfig({
   base: BASE,
+  define: {
+    __APP_VERSIE__: JSON.stringify(VERSIE),
+    __APP_GEBOUWD_OP__: JSON.stringify(GEBOUWD_OP),
+  },
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
@@ -18,6 +31,10 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
+      // De app registreert de worker zelf, in src/pwa.ts. Het regeltje dat deze
+      // plugin anders injecteert registreert alleen en herlaadt nooit, waardoor
+      // een geïnstalleerde app op oude code blijft hangen.
+      injectRegister: null,
       includeAssets: ['favicon.svg', 'icons/apple-touch-icon.png'],
       manifest: {
         name: 'Recepten',
