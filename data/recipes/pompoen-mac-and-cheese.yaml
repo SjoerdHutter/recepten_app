@@ -1,44 +1,44 @@
 id: pompoen-mac-and-cheese
 title: Pompoen mac and cheese
-description: Pompoen maakt de kaassaus romig en oranje. Uit de oven met een korstje van panko.
+description: Pompoen, ui en knoflook samen geroosterd en gemixt tot een romige saus, zonder roux. Met parmezaan en rucola erover.
 times:
   prep: 15
   active: 15
-  passive: 25
+  passive: 20
 methods: [oven, koken]
-difficulty: gemiddeld
-pans: 2
+difficulty: makkelijk
+pans: 3
 servings: 4
 ingredients:
-  - { amount: 600, unit: g, ingredientId: pompoen, note: flespompoen }
+  - { amount: 600, unit: g, ingredientId: pompoen, note: "flespompoen, geschild en in stukken" }
+  - { amount: 1, unit: stuks, ingredientId: ui, note: "gele of witte, gesnipperd" }
+  - { amount: 4, unit: teentje, ingredientId: knoflook }
+  - { amount: 2, unit: el, ingredientId: olijfolie }
+  - { amount: 2, unit: takje, ingredientId: rozemarijn, note: of tijm, scales: taste }
   - { amount: 400, unit: g, ingredientId: pasta, note: macaroni }
-  - { amount: 300, unit: ml, ingredientId: melk, note: of plantaardige melk }
-  - { amount: 30, unit: g, ingredientId: bloem }
-  - { amount: 30, unit: g, ingredientId: boter, note: of olijfolie }
-  - { amount: 150, unit: g, ingredientId: kaas, note: "belegen of vegan, geraspt" }
+  - { amount: 300, unit: ml, ingredientId: melk, note: "vol, of sojamelk" }
   - { amount: 3, unit: el, ingredientId: voedingsgist, scales: taste }
   - { amount: 1, unit: tl, ingredientId: mosterd, scales: taste }
-  - { amount: 0.25, unit: tl, ingredientId: nootmuskaat, scales: taste }
-  - { amount: 40, unit: g, ingredientId: panko }
-  - { amount: 5, unit: blad, ingredientId: salie, note: vers, scales: taste }
-  - { amount: 2, unit: el, ingredientId: olijfolie, note: voor de topping }
+  - { amount: 1, unit: snufje, ingredientId: nootmuskaat, scales: taste }
+  - { amount: 40, unit: g, ingredientId: parmezaanse-kaas, note: "geraspt, om op te dienen" }
+  - { amount: 60, unit: g, ingredientId: rucola, note: om op te dienen }
   - { ingredientId: zout, scales: taste }
   - { ingredientId: peper, scales: taste }
 steps:
-  - text: Verwarm de oven voor op 200 graden. Snijd de pompoen in blokjes, meng met een eetlepel olijfolie en rooster 25 minuten tot ze zacht zijn.
-    timer: 1500
+  - text: Verwarm de oven voor op 200 graden. Schep de pompoen, de gesnipperde ui en de teentjes knoflook op een bakplaat om met de olijfolie, zout en peper. Leg de takjes rozemarijn ertussen.
     ovenTemp: 200
-  - text: Kook de macaroni 2 minuten korter dan de verpakking aangeeft en giet af.
-    timer: 120
-  - text: Maak een roux van de boter en de bloem, voeg de melk beetje bij beetje toe en roer tot een gladde saus.
-  - text: Pureer de geroosterde pompoen met de saus. Roer de kaas, de voedingsgist, mosterd, nootmuskaat, zout en peper erdoor.
-  - text: Meng de saus met de macaroni en schep in een ovenschaal.
-  - text: Meng panko met olijfolie en de fijngesneden salie, strooi over de schotel en bak 15 minuten tot de bovenkant goudbruin is.
-    timer: 900
+  - text: Rooster 20 minuten, tot de ui en de knoflook bruin zijn en de pompoen zacht is.
+    timer: 1200
+    ovenTemp: 200
+  - text: Kook ondertussen de pasta beetgaar volgens de verpakking. Schep een mok pastawater opzij voordat je afgiet.
+  - text: Haal de rozemarijn van de bakplaat en doe de pompoen, ui en knoflook in de keukenmachine. Voeg de voedingsgist, de mosterd, de nootmuskaat, zout en peper toe.
+  - text: Mix met de melk tot een gladde, romige saus. Proef, en kijk of er nog zout, peper of voedingsgist bij moet.
+  - text: Roer de saus door de pasta en doe er pastawater bij tot hij bindt en om de pasta blijft hangen.
+  - text: Dien op met de geraspte parmezaan en een handvol rucola erover.
 tags: [pasta, westers, vegetarisch, gezond]
 season: [1, 2, 9, 10, 11, 12]
 allergens: [gluten, melk, mosterd]
 source: { type: text, text: Eigen recept }
-notes: "Voor een veganistische versie: plantaardige melk, olijfolie in plaats van boter, vegan kaas en extra voedingsgist. Met plantaardige zuivel is dit gerecht veganistisch."
+notes: Veganistisch met sojamelk en zonder parmezaan; doe er dan een extra eetlepel voedingsgist bij. Hoe meer pastawater, hoe soepeler de saus om de macaroni gaat zitten.
 createdAt: 2026-08-24T16:00:00Z
-updatedAt: 2026-08-24T16:00:00Z
+updatedAt: 2026-11-15T00:00:00Z
